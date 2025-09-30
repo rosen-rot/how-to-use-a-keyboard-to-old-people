@@ -288,7 +288,7 @@ h3 {
 
 /* ===== ESTILOS PARA LECCIÓN 1 ===== */
 .lesson-section {
-    padding: 40px 50px;
+    padding: 40px 20px;
     max-width: 1000px;
     margin: 0 auto;
 }
@@ -504,7 +504,7 @@ h3 {
 
 /* Inputs de ejercicio */
 .exercise-input {
-    width: 100%;
+    width: auto;
     max-width: 400px;
     padding: 12px 15px;
     font-size: 1.1rem;
@@ -715,4 +715,64 @@ h3 {
     .secondary {
         font-size: 0.5rem;
     }
+}
+
+/* ===== ESTILOS PARA LECCIÓN 2 ===== */
+
+/* Contenedor de números */
+.numbers-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.number-key {
+    width: 50px;
+    height: 50px;
+    background: #ed8936;
+    color: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.number-key.found {
+    background: #48bb78;
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(72, 187, 120, 0.4);
+}
+
+/* Teclas resaltadas para números */
+.key.highlight-number {
+    background: #ed8936 !important;
+    box-shadow: 0 0 15px rgba(237, 137, 54, 0.6);
+}
+
+.key.highlight-number-found {
+    background: #48bb78 !important;
+    box-shadow: 0 0 20px rgba(72, 187, 120, 0.6);
+}
+
+/* Inputs numéricos específicos */
+.exercise-input[type="text"] {
+    text-align: center;
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+}
+
+/* Validación visual para números */
+.exercise-input:valid {
+    border-color: #48bb78;
+    background-color: #f0fff4;
+}
+
+.exercise-input:invalid:not(:placeholder-shown) {
+    border-color: #e53e3e;
+    background-color: #fed7d7;
 }
