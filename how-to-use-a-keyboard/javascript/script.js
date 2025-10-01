@@ -1,32 +1,33 @@
 // script.js - VERSIÓN CORREGIDA CON SEPARACIÓN DE LECCIONES
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     console.log('🔧 Iniciando sistema de navegación...');
 
     // Variables globales para las lecciones
     let currentLessonManager = null;
     let lesson1Manager = null;
     let lesson2Manager = null;
+    let lesson3Manager = null;
 
     // Función para cambiar de página
     function goToPage(pageId) {
         console.log('Navegando a:', pageId);
-        
+
         // Limpiar manejador actual
         if (currentLessonManager && currentLessonManager.cleanup) {
             currentLessonManager.cleanup();
         }
         currentLessonManager = null;
-        
+
         // Ocultar todas las páginas
         const allPages = document.querySelectorAll('.page-container');
         allPages.forEach(page => page.classList.add('hidden'));
-        
+
         // Mostrar página destino
         const targetPage = document.getElementById(pageId);
         if (targetPage) {
             targetPage.classList.remove('hidden');
             window.scrollTo(0, 0);
-            
+
             // Inicializar lección específica
             if (pageId === 'lesson-1') {
                 if (!lesson1Manager) {
@@ -40,14 +41,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 currentLessonManager = lesson2Manager;
                 currentLessonManager.activate();
+            } else if (pageId === 'lesson-3') {
+                if (!lesson3Manager) {
+                    lesson3Manager = new Lesson3Manager();
+                }
+                currentLessonManager = lesson3Manager;
+                currentLessonManager.activate();
             }
         }
     }
 
     // Asignar eventos usando event delegation
-    document.addEventListener('click', function(event) {
+    document.addEventListener('click', function (event) {
         const target = event.target;
-        
+
         if (target.id === 'start-btn') {
             goToPage('lesson-1');
         }
@@ -105,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function() {
             this.completedExercises = new Set();
             this.keys = new Map();
             this.isActive = false;
-            
+
             this.init();
         }
 
@@ -115,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
             this.setupNameExercise();
             this.setupLastnameExercise();
             this.highlightVowels();
-            
+
             console.log('Lección 1 inicializada correctamente');
         }
 
@@ -164,17 +171,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
         handleKeyPress(event) {
             if (!this.isActive) return;
-            
+
             const code = event.code;
             const key = event.key.toUpperCase();
             const isKeyDown = event.type === 'keydown';
-            
+
             // Resaltar tecla en el teclado virtual
             const keyElement = this.keys.get(code);
             if (keyElement) {
                 if (isKeyDown) {
                     keyElement.classList.add('active');
-                    
+
                     // Verificar si es una vocal
                     if (this.vowels.includes(key)) {
                         this.foundVowels.add(key);
@@ -185,7 +192,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     keyElement.classList.remove('active');
                 }
             }
-            
+
             if (isKeyDown) {
                 console.log(`Lección 1 - Tecla: ${key} (Código: ${code})`);
             }
@@ -198,9 +205,9 @@ document.addEventListener('DOMContentLoaded', function() {
         setupNameExercise() {
             const nameInput = document.getElementById('name-input');
             const nameFeedback = document.getElementById('name-feedback');
-            
+
             if (!nameInput) return;
-            
+
             nameInput.addEventListener('input', (e) => {
                 const value = e.target.value.trim();
                 if (value.length > 0) {
@@ -209,7 +216,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     nameFeedback.className = 'exercise-feedback success';
                 }
             });
-            
+
             nameInput.addEventListener('focus', () => {
                 nameFeedback.textContent = '¡Perfecto! Ahora escribe tu nombre usando el teclado ¡Tú puedes!';
                 nameFeedback.className = 'exercise-feedback info';
@@ -225,9 +232,9 @@ document.addEventListener('DOMContentLoaded', function() {
         setupLastnameExercise() {
             const lastnameInput = document.getElementById('lastname-input');
             const lastnameFeedback = document.getElementById('lastname-feedback');
-            
+
             if (!lastnameInput) return;
-            
+
             lastnameInput.addEventListener('input', (e) => {
                 const value = e.target.value.trim();
                 if (value.length > 0) {
@@ -236,7 +243,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     lastnameFeedback.className = 'exercise-feedback success';
                 }
             });
-            
+
             lastnameInput.addEventListener('focus', () => {
                 lastnameFeedback.textContent = 'Ahora escribe tu apellido. ¡Tú puedes!';
                 lastnameFeedback.className = 'exercise-feedback info';
@@ -253,7 +260,7 @@ document.addEventListener('DOMContentLoaded', function() {
             this.vowels.forEach(vowel => {
                 const vowelElement = document.querySelector(`.vowel-key[data-vowel="${vowel}"]`);
                 const keyboardKey = this.keys.get(`Key${vowel}`);
-                
+
                 if (this.foundVowels.has(vowel) && vowelElement) {
                     vowelElement.classList.add('found');
                 }
@@ -310,7 +317,7 @@ document.addEventListener('DOMContentLoaded', function() {
             allKeys.forEach(key => {
                 key.classList.remove('highlight-lesson', 'highlight-vowel');
             });
-            
+
             if (this.foundVowels.size < this.vowels.length) {
                 this.highlightVowels();
             }
@@ -327,14 +334,14 @@ document.addEventListener('DOMContentLoaded', function() {
         updateProgress() {
             const progressFill = document.getElementById('lesson-progress');
             const progressText = document.getElementById('progress-text');
-            
+
             if (progressFill && progressText) {
                 const totalExercises = 3;
                 const progress = (this.completedExercises.size / totalExercises) * 100;
-                
+
                 progressFill.style.width = `${progress}%`;
                 progressText.textContent = `${Math.round(progress)}% completado`;
-                
+
                 if (progress === 100) {
                     progressText.innerHTML = '🎉 ¡Lección completada! Puedes continuar a la siguiente lección.';
                     this.showCompletionEffect();
@@ -343,7 +350,15 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         showCompletionEffect() {
-            const progressSection = document.querySelector('.progress-section');
+            // Busca la sección de progreso solo dentro de la lección activa
+            let progressSection = null;
+            if (document.getElementById('lesson-1') && !document.getElementById('lesson-1').classList.contains('hidden')) {
+                progressSection = document.querySelector('#lesson-1 .progress-section');
+            } else if (document.getElementById('lesson-2') && !document.getElementById('lesson-2').classList.contains('hidden')) {
+                progressSection = document.querySelector('#lesson-2 .progress-section');
+            } else if (document.getElementById('lesson-3') && !document.getElementById('lesson-3').classList.contains('hidden')) {
+                progressSection = document.querySelector('#lesson-3 .progress-section');
+            }
             if (progressSection) {
                 progressSection.style.animation = 'celebrate 1s ease-in-out';
                 setTimeout(() => {
@@ -361,7 +376,7 @@ document.addEventListener('DOMContentLoaded', function() {
             this.completedExercises = new Set();
             this.keys = new Map();
             this.isActive = false;
-            
+
             this.init();
         }
 
@@ -372,7 +387,7 @@ document.addEventListener('DOMContentLoaded', function() {
             this.setupAgeExercise();
             this.setupCurrentYearExercise();
             this.highlightNumbers();
-            
+
             console.log('✅ Lección 2 inicializada correctamente');
         }
 
@@ -421,16 +436,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
         handleKeyPress(event) {
             if (!this.isActive) return;
-            
+
             const code = event.code;
             const key = event.key;
             const isKeyDown = event.type === 'keydown';
-            
+
             const keyElement = this.keys.get(code);
             if (keyElement) {
                 if (isKeyDown) {
                     keyElement.classList.add('active');
-                    
+
                     if (this.numbers.includes(key)) {
                         this.foundNumbers.add(key);
                         this.updateNumbersDisplay();
@@ -440,7 +455,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     keyElement.classList.remove('active');
                 }
             }
-            
+
             if (isKeyDown) {
                 console.log(`Lección 2 - Tecla: ${key} (Código: ${code})`);
             }
@@ -453,9 +468,9 @@ document.addEventListener('DOMContentLoaded', function() {
         setupBirthyearExercise() {
             const birthyearInput = document.getElementById('birthyear-input');
             const birthyearFeedback = document.getElementById('birthyear-feedback');
-            
+
             if (!birthyearInput) return;
-            
+
             birthyearInput.addEventListener('input', (e) => {
                 const value = e.target.value.trim();
                 if (this.isValidYear(value)) {
@@ -467,7 +482,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     birthyearFeedback.className = 'exercise-feedback info';
                 }
             });
-            
+
             birthyearInput.addEventListener('focus', () => {
                 birthyearFeedback.textContent = 'Escribe tu año de nacimiento usando los números de arriba.';
                 birthyearFeedback.className = 'exercise-feedback info';
@@ -483,9 +498,9 @@ document.addEventListener('DOMContentLoaded', function() {
         setupAgeExercise() {
             const ageInput = document.getElementById('age-input');
             const ageFeedback = document.getElementById('age-feedback');
-            
+
             if (!ageInput) return;
-            
+
             ageInput.addEventListener('input', (e) => {
                 const value = e.target.value.trim();
                 if (this.isValidAge(value)) {
@@ -497,7 +512,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     ageFeedback.className = 'exercise-feedback info';
                 }
             });
-            
+
             ageInput.addEventListener('focus', () => {
                 ageFeedback.textContent = 'Ahora escribe tu edad actual. Usa los números del teclado.';
                 ageFeedback.className = 'exercise-feedback info';
@@ -513,9 +528,9 @@ document.addEventListener('DOMContentLoaded', function() {
         setupCurrentYearExercise() {
             const currentyearInput = document.getElementById('currentyear-input');
             const currentyearFeedback = document.getElementById('currentyear-feedback');
-            
+
             if (!currentyearInput) return;
-            
+
             currentyearInput.addEventListener('input', (e) => {
                 const value = e.target.value.trim();
                 if (this.isValidYear(value)) {
@@ -527,7 +542,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     currentyearFeedback.className = 'exercise-feedback info';
                 }
             });
-            
+
             currentyearInput.addEventListener('focus', () => {
                 currentyearFeedback.textContent = 'Finalmente, escribe el año actual. ¡Ya casi terminas!';
                 currentyearFeedback.className = 'exercise-feedback info';
@@ -544,7 +559,7 @@ document.addEventListener('DOMContentLoaded', function() {
             this.numbers.forEach(number => {
                 const numberElement = document.querySelector(`.number-key[data-number="${number}"]`);
                 const keyboardKey = this.keys.get(`Digit${number}`);
-                
+
                 if (this.foundNumbers.has(number) && numberElement) {
                     numberElement.classList.add('found');
                 }
@@ -598,7 +613,7 @@ document.addEventListener('DOMContentLoaded', function() {
             allKeys.forEach(key => {
                 key.classList.remove('highlight-number', 'highlight-number-found');
             });
-            
+
             if (this.foundNumbers.size < this.numbers.length) {
                 this.highlightNumbers();
             }
@@ -623,14 +638,14 @@ document.addEventListener('DOMContentLoaded', function() {
         updateProgress() {
             const progressFill = document.getElementById('lesson-progress-2');
             const progressText = document.getElementById('progress-text-2');
-            
+
             if (progressFill && progressText) {
                 const totalExercises = 4;
                 const progress = (this.completedExercises.size / totalExercises) * 100;
-                
+
                 progressFill.style.width = `${progress}%`;
                 progressText.textContent = `${Math.round(progress)}% completado`;
-                
+
                 if (progress === 100) {
                     progressText.innerHTML = '🎉 ¡Lección 2 completada! Puedes continuar a la siguiente lección.';
                     this.showCompletionEffect();
@@ -649,5 +664,262 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    (function ensureVowelFoundStyle() {
+        if (!document.getElementById('vowel-found-style')) {
+            const style = document.createElement('style');
+            style.id = 'vowel-found-style';
+            style.textContent = `
+                .highlight-vowel-found {
+                    background-color: #4caf50 !important;
+                    color: #fff !important;
+                    border-color: #388e3c !important;
+                }
+            `;
+            document.head.appendChild(style);
+        }
+    })();
+
+    // Parchea Lesson1Manager para aplicar el color verde a las teclas de vocales encontradas
+    const origUpdateVowelDisplay = Lesson1Manager.prototype.updateVowelDisplay;
+    Lesson1Manager.prototype.updateVowelDisplay = function () {
+        this.vowels.forEach(vowel => {
+            const vowelElement = document.querySelector(`.vowel-key[data-vowel="${vowel}"]`);
+            const keyboardKey = this.keys.get(`Key${vowel}`);
+            if (this.foundVowels.has(vowel)) {
+                if (vowelElement) vowelElement.classList.add('found');
+                if (keyboardKey) {
+                    keyboardKey.classList.add('highlight-vowel-found');
+                    keyboardKey.classList.remove('highlight-lesson');
+                }
+            } else {
+                if (keyboardKey) {
+                    keyboardKey.classList.remove('highlight-vowel-found');
+                }
+            }
+        });
+    };
+
+    // Asegura que al quitar los highlights también se quite el color verde de las vocales
+    const origRemoveAllHighlights = Lesson1Manager.prototype.removeAllHighlights;
+    Lesson1Manager.prototype.removeAllHighlights = function () {
+        const allKeys = document.querySelectorAll('.key');
+        allKeys.forEach(key => {
+            key.classList.remove('highlight-lesson', 'highlight-vowel', 'highlight-vowel-found');
+        });
+        if (this.foundVowels.size < this.vowels.length) {
+            this.highlightVowels();
+        }
+    };
+
+    // ===== LECCIÓN 3: TECLAS DE FUNCIÓN Y ESPECIALES =====
+    class Lesson3Manager {
+        constructor() {
+            this.completedExercises = new Set();
+            this.keys = new Map();
+            this.isActive = false;
+            this.init();
+        }
+
+        init() {
+            this.registerKeyboardKeys();
+            this.setupSpaceExercises();
+            this.highlightSpace();
+            console.log('✅ Lección 3 inicializada correctamente');
+        }
+
+        activate() {
+            this.isActive = true;
+            console.log('Lección 3 activada');
+            this.setupKeyboardListeners();
+        }
+
+        deactivate() {
+            this.isActive = false;
+            console.log('Lección 3 desactivada');
+            this.removeKeyboardListeners();
+            this.removeAllHighlights();
+        }
+
+        cleanup() {
+            this.deactivate();
+        }
+
+        registerKeyboardKeys() {
+            const keyElements = document.querySelectorAll('#main-keyboard-3-space .key');
+            keyElements.forEach(keyElement => {
+                const code = keyElement.dataset.code;
+                if (code) {
+                    this.keys.set(code, keyElement);
+                }
+            });
+            console.log(`Lección 3: Registradas ${this.keys.size} teclas`);
+        }
+
+        setupKeyboardListeners() {
+            this.boundKeyHandler = this.handleKeyPress.bind(this);
+            document.addEventListener('keydown', this.boundKeyHandler);
+            document.addEventListener('keyup', this.boundKeyHandler);
+            console.log('Lección 3: Listeners de teclado activados');
+        }
+
+        removeKeyboardListeners() {
+            if (this.boundKeyHandler) {
+                document.removeEventListener('keydown', this.boundKeyHandler);
+                document.removeEventListener('keyup', this.boundKeyHandler);
+                console.log('Lección 3: Listeners de teclado removidos');
+            }
+        }
+
+        andleKeyPress(event) {
+            if (!this.isActive) return;
+            const code = event.code;
+            const isKeyDown = event.type === 'keydown';
+            const keyElement = this.keys.get(code);
+
+            if (keyElement) {
+                if (isKeyDown) {
+                    keyElement.classList.add('active');
+                } else {
+                    keyElement.classList.remove('active');
+                }
+            }
+        }
+        
+        setupSpaceExercises() {
+            // Ejercicio 1: Separar palabras
+            const ex1Input = document.getElementById('space-ex1-input');
+            const ex1Feedback = document.getElementById('space-ex1-feedback');
+            if (ex1Input) {
+                ex1Input.addEventListener('input', (e) => {
+                    const value = e.target.value.trim();
+                    if (value.toLowerCase() === 'la manzana es dulce') {
+                        this.markExerciseComplete('space-ex1');
+                        ex1Feedback.textContent = '¡Correcto! Has separado bien las palabras.';
+                        ex1Feedback.className = 'exercise-feedback success';
+                    } else if (value.length > 0) {
+                        ex1Feedback.textContent = 'Intenta separar las palabras correctamente.';
+                        ex1Feedback.className = 'exercise-feedback info';
+                    } else {
+                        ex1Feedback.textContent = '';
+                        ex1Feedback.className = 'exercise-feedback';
+                    }
+                });
+                ex1Input.addEventListener('focus', () => {
+                    ex1Feedback.textContent = 'Agrega espacios donde corresponda.';
+                    ex1Feedback.className = 'exercise-feedback info';
+                    this.highlightSpace();
+                });
+                ex1Input.addEventListener('blur', () => {
+                    this.removeAllHighlights();
+                    this.highlightSpace();
+                });
+            }
+
+            // Ejercicio 2: Nombre y apellido
+            const ex2Input = document.getElementById('space-ex2-input');
+            const ex2Feedback = document.getElementById('space-ex2-feedback');
+            if (ex2Input) {
+                ex2Input.addEventListener('input', (e) => {
+                    const value = e.target.value.trim();
+                    if (value.split(' ').length >= 2 && value.indexOf(' ') > 0) {
+                        this.markExerciseComplete('space-ex2');
+                        ex2Feedback.textContent = '¡Muy bien! Has usado el espacio correctamente.';
+                        ex2Feedback.className = 'exercise-feedback success';
+                    } else if (value.length > 0) {
+                        ex2Feedback.textContent = 'Recuerda separar tu nombre y apellido con un espacio.';
+                        ex2Feedback.className = 'exercise-feedback info';
+                    } else {
+                        ex2Feedback.textContent = '';
+                        ex2Feedback.className = 'exercise-feedback';
+                    }
+                });
+                ex2Input.addEventListener('focus', () => {
+                    ex2Feedback.textContent = 'Escribe tu nombre y apellido separados por un espacio.';
+                    ex2Feedback.className = 'exercise-feedback info';
+                    this.highlightSpace();
+                });
+                ex2Input.addEventListener('blur', () => {
+                    this.removeAllHighlights();
+                    this.highlightSpace();
+                });
+            }
+
+            // Ejercicio 3: Fecha de nacimiento con espacios
+            const ex3Input = document.getElementById('space-ex3-input');
+            const ex3Feedback = document.getElementById('space-ex3-feedback');
+            if (ex3Input) {
+                ex3Input.addEventListener('input', (e) => {
+                    const value = e.target.value.trim();
+                    // Debe tener al menos 2 espacios (día, mes, año)
+                    if ((value.match(/ /g) || []).length >= 2 && value.length > 7) {
+                        this.markExerciseComplete('space-ex3');
+                        ex3Feedback.textContent = '¡Perfecto! Has separado correctamente la fecha.';
+                        ex3Feedback.className = 'exercise-feedback success';
+                    } else if (value.length > 0) {
+                        ex3Feedback.textContent = 'Recuerda dejar un espacio entre día, mes y año.';
+                        ex3Feedback.className = 'exercise-feedback info';
+                    } else {
+                        ex3Feedback.textContent = '';
+                        ex3Feedback.className = 'exercise-feedback';
+                    }
+                });
+                ex3Input.addEventListener('focus', () => {
+                    ex3Feedback.textContent = 'Deja un espacio entre cada parte de la fecha.';
+                    ex3Feedback.className = 'exercise-feedback info';
+                    this.highlightSpace();
+                });
+                ex3Input.addEventListener('blur', () => {
+                    this.removeAllHighlights();
+                    this.highlightSpace();
+                });
+            }
+        }
+
+        highlightSpace() {
+            const keyboardKey = this.keys.get('Space');
+            if (keyboardKey) {
+                keyboardKey.classList.add('highlight-lesson');
+            }
+        }
+
+        removeAllHighlights() {
+            const allKeys = document.querySelectorAll('#main-keyboard-3-space .key');
+            allKeys.forEach(key => {
+                key.classList.remove('highlight-lesson');
+            });
+        }
+
+        markExerciseComplete(exerciseName) {
+            if (!this.completedExercises.has(exerciseName)) {
+                this.completedExercises.add(exerciseName);
+                this.updateProgress();
+            }
+        }
+
+        updateProgress() {
+            const progressFill = document.getElementById('lesson-progress-3');
+            const progressText = document.getElementById('progress-text-3');
+            if (progressFill && progressText) {
+                const totalExercises = 3;
+                const progress = (this.completedExercises.size / totalExercises) * 100;
+                progressFill.style.width = `${progress}%`;
+                progressText.textContent = `${Math.round(progress)}% completado`;
+                if (progress === 100) {
+                    progressText.innerHTML = '🎉 ¡Lección 3 completada! Puedes continuar a la siguiente lección.';
+                    this.showCompletionEffect();
+                }
+            }
+        }
+
+        showCompletionEffect() {
+            const progressSection = document.querySelector('.progress-section');
+            if (progressSection) {
+                progressSection.style.animation = 'celebrate 1s ease-in-out';
+                setTimeout(() => {
+                    progressSection.style.animation = '';
+                }, 1000);
+            }
+        }
+    }
     console.log('Sistema de navegación listo');
 });

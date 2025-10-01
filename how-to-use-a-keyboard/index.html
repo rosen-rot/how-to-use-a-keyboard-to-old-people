@@ -202,8 +202,7 @@
                     <div class="keyboard-row">
                         <div class="key key-shift left-shift" data-code="ShiftLeft">Shift</div>
                         <div class="key key-symbol" data-code="symbol less-than greater-than">
-                            <span class="primary"><</span>
-                            <span class="secondary">></span>
+                            <span class="primary">&lt;</span><span class="secondary">&gt;</span>
                         </div>
                         <div class="key key-letter" data-code="KeyZ">Z</div>
                         <div class="key key-letter" data-code="KeyX">X</div>
@@ -262,10 +261,10 @@
                 <!-- Ejercicio 2: Escribe tu nombre -->
                 <div class="exercise-card" id="exercise-name">
                     <h3>Ejercicio 2: Escribe tu Nombre</h3>
-                    <p>Haz clic en el cuadro de abajo y escribe tu nombre usando el teclado:</p>
-                    <input type="text" class="exercise-input" id="name-input"
-                        placeholder="Haz clic aquí y escribe tu nombre..." maxlength="20">
-                    <div class="input-hint">💡 Recuerda: Para escribir, primero haz clic en el cuadro blanco</div>
+                    <p>Escribe tu nombre usando el teclado:</p>
+                    <div class="input-hint">💡 Ejemplo: Teresa</div>
+                    <input type="text" class="exercise-input" id="name-input" placeholder="Haz click y escribe..."
+                        maxlength="20">
                     <div class="exercise-feedback" id="name-feedback"></div>
                 </div>
 
@@ -273,8 +272,9 @@
                 <div class="exercise-card" id="exercise-lastname">
                     <h3>Ejercicio 3: Escribe tu Apellido</h3>
                     <p>Ahora escribe tu apellido en el siguiente cuadro:</p>
-                    <input type="text" class="exercise-input" id="lastname-input"
-                        placeholder="Haz clic aquí y escribe tu apellido..." maxlength="20">
+                    <div class="input-hint">💡 Ejemplo: Suarez</div>
+                    <input type="text" class="exercise-input" id="lastname-input" placeholder="Haz click y escribe..."
+                        maxlength="20">
                     <div class="exercise-feedback" id="lastname-feedback"></div>
                 </div>
 
@@ -330,6 +330,286 @@
                     <h3>Teclado Principal - Fila Numérica</h3>
                     <div id="main-keyboard-2" class="keyboard">
                         <!-- Fila numérica -->
+                        <div class="keyboard-row">
+                            <div class="key key-symbol" data-code="Backquote">
+                                <span class="primary">°| ¬</span>
+                            </div>
+                            <div class="key key-number" data-code="Digit1">
+                                <span class="primary">1</span>
+                                <span class="secondary">!</span>
+                            </div>
+                            <div class="key key-number" data-code="Digit2">
+                                <span class="primary">2</span>
+                                <span class="secondary">"</span>
+                            </div>
+                            <div class="key key-number" data-code="Digit3">
+                                <span class="primary">3</span>
+                                <span class="secondary">#</span>
+                            </div>
+                            <div class="key key-number" data-code="Digit4">
+                                <span class="primary">4</span>
+                                <span class="secondary">$</span>
+                            </div>
+                            <div class="key key-number" data-code="Digit5">
+                                <span class="primary">5</span>
+                                <span class="secondary">%</span>
+                            </div>
+                            <div class="key key-number" data-code="Digit6">
+                                <span class="primary">6</span>
+                                <span class="secondary">&amp;</span>
+                            </div>
+                            <div class="key key-number" data-code="Digit7">
+                                <span class="primary">7</span>
+                                <span class="secondary">/</span>
+                            </div>
+                            <div class="key key-number" data-code="Digit8">
+                                <span class="primary">8</span>
+                                <span class="secondary">(</span>
+                            </div>
+                            <div class="key key-number" data-code="Digit9">
+                                <span class="primary">9</span>
+                                <span class="secondary">)</span>
+                            </div>
+                            <div class="key key-number" data-code="Digit0">
+                                <span class="primary">0</span>
+                                <span class="secondary">=</span>
+                            </div>
+                            <div class="key key-symbol" data-code="apostrophe">
+                                <span class="primary">'</span>
+                                <span class="secondary">? \</span>
+                            </div>
+                            <div class="key key-symbol" data-code="Question-Mark">
+                                <span class="primary">¿</span>
+                                <span class="secondary">¡</span>
+                            </div>
+                            <div class="key key-delete" data-code="Backspace">←</div>
+                        </div>
+
+                        <!-- Fila QWERTY -->
+                        <div class="keyboard-row">
+                            <div class="key key-tab" data-code="Tab">Tab</div>
+                            <div class="key key-letter" data-code="KeyQ">
+                                <span class="primary">Q</span>
+                                <span class="secondary">@</span>
+                            </div>
+                            <div class="key key-letter" data-code="KeyW">W</div>
+                            <div class="key key-letter" data-code="KeyE">E</div>
+                            <div class="key key-letter" data-code="KeyR">R</div>
+                            <div class="key key-letter" data-code="KeyT">T</div>
+                            <div class="key key-letter" data-code="KeyY">Y</div>
+                            <div class="key key-letter" data-code="KeyU">U</div>
+                            <div class="key key-letter" data-code="KeyI">I</div>
+                            <div class="key key-letter" data-code="KeyO">O</div>
+                            <div class="key key-letter" data-code="KeyP">P</div>
+                            <div class="key key-symbol" data-code="BracketLeft">
+                                <span class="primary">´´</span>
+                                <span class="secondary">¨</span>
+                            </div>
+                            <div class="key key-symbol" data-code="BracketRight">
+                                <span class="primary">+</span>
+                                <span class="secondary">*~</span>
+                            </div>
+                        </div>
+
+                        <!-- Fila ASDF -->
+                        <div class="keyboard-row">
+                            <div class="key key-capslock" data-code="CapsLock">Bloq Máyus</div>
+                            <div class="key key-letter" data-code="KeyA">A</div>
+                            <div class="key key-letter" data-code="KeyS">S</div>
+                            <div class="key key-letter" data-code="KeyD">D</div>
+                            <div class="key key-letter" data-code="KeyF">F</div>
+                            <div class="key key-letter" data-code="KeyG">G</div>
+                            <div class="key key-letter" data-code="KeyH">H</div>
+                            <div class="key key-letter" data-code="KeyJ">J</div>
+                            <div class="key key-letter" data-code="KeyK">K</div>
+                            <div class="key key-letter" data-code="KeyL">L</div>
+                            <div class="key key-letter" data-code="KeyL">Ñ</div>
+                            <div class="key key-symbol" data-code="Semicolon">
+                                <span class="primary">{</span>
+                                <span class="secondary">[^</span>
+                            </div>
+                            <div class="key key-symbol" data-code="Quote">
+                                <span class="primary">}</span>
+                                <span class="secondary">]`</span>
+                            </div>
+                            <div class="key key-enter" data-code="Enter">Enter</div>
+                        </div>
+
+                        <!-- Fila ZXCV -->
+                        <div class="keyboard-row">
+                            <div class="key key-shift left-shift" data-code="ShiftLeft">Shift</div>
+                            <div class="key key-symbol" data-code="symbol less-than greater-than">
+                                <span class="primary">&lt;</span><span class="secondary">&gt;</span>
+                            </div>
+                            <div class="key key-letter" data-code="KeyZ">Z</div>
+                            <div class="key key-letter" data-code="KeyX">X</div>
+                            <div class="key key-letter" data-code="KeyC">C</div>
+                            <div class="key key-letter" data-code="KeyV">V</div>
+                            <div class="key key-letter" data-code="KeyB">B</div>
+                            <div class="key key-letter" data-code="KeyN">N</div>
+                            <div class="key key-letter" data-code="KeyM">M</div>
+                            <div class="key key-symbol" data-code="Comma">
+                                <span class="primary">,</span>
+                                <span class="secondary">;</span>
+                            </div>
+                            <div class="key key-symbol" data-code="Period">
+                                <span class="primary">.</span>
+                                <span class="secondary">:</span>
+                            </div>
+                            <div class="key key-symbol" data-code="guion hyphen underscore">
+                                <span class="primary">-</span>
+                                <span class="secondary">_</span>
+                            </div>
+                            <div class="key key-shift right-shift" data-code="ShiftRight">Shift</div>
+                        </div>
+
+                        <!-- Fila de espacio -->
+                        <div class="keyboard-row">
+                            <div class="key key-control left-ctrl" data-code="ControlLeft">Ctrl</div>
+                            <div class="key key-windows left-win" data-code="MetaLeft">Win</div>
+                            <div class="key key-alt left-alt" data-code="AltLeft">Alt</div>
+                            <div class="key key-spacebar" data-code="Space">Espacio</div>
+                            <div class="key key-alt right-alt" data-code="AltRight">Alt Gr</div>
+                            <div class="key key-windows right-win" data-code="MetaRight">Win</div>
+                            <div class="key key-control right-ctrl" data-code="ControlRight">Ctrl</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejercicios -->
+                <div class="exercises-section">
+                    <h2>Ejercicios Prácticos</h2>
+
+                    <!-- Ejercicio 1: Números del 1-9 -->
+                    <div class="exercise-card" id="exercise-numbers">
+                        <h3>Ejercicio 1: Encuentra los Números</h3>
+                        <p>Presiona los números del 1 al 0 en tu teclado físico y obsérvalos brillar en el teclado de
+                            arriba.</p>
+                        <div class="numbers-container">
+                            <div class="number-key" data-number="1">1</div>
+                            <div class="number-key" data-number="2">2</div>
+                            <div class="number-key" data-number="3">3</div>
+                            <div class="number-key" data-number="4">4</div>
+                            <div class="number-key" data-number="5">5</div>
+                            <div class="number-key" data-number="6">6</div>
+                            <div class="number-key" data-number="7">7</div>
+                            <div class="number-key" data-number="8">8</div>
+                            <div class="number-key" data-number="9">9</div>
+                            <div class="number-key" data-number="0">0</div>
+                        </div>
+                        <div class="exercise-feedback" id="numbers-feedback"></div>
+                    </div>
+
+                    <!-- Ejercicio 2: Año de nacimiento -->
+                    <div class="exercise-card" id="exercise-birthyear">
+                        <h3>Ejercicio 2: Escribe tu Año de Nacimiento</h3>
+                        <p>Escribe el año en que naciste (4 números):</p>
+                        <div class="input-hint">💡 Ejemplo: 1962</div>
+                        <input type="text" class="exercise-input" id="birthyear-input" placeholder="Haz clic aquí y escribe..."
+                            maxlength="4" pattern="[0-9]{4}">
+                        <div class="exercise-feedback" id="birthyear-feedback"></div>
+                    </div>
+
+                    <!-- Ejercicio 3: Edad -->
+                    <div class="exercise-card" id="exercise-age">
+                        <h3>Ejercicio 3: Escribe tu Edad</h3>
+                        <p>Ahora escribe tu edad actual en números:</p>
+                        <div class="input-hint">💡 Ejemplo: 80</div>
+                        <input type="text" class="exercise-input" id="age-input" placeholder="Haz clic aquí y escribe..." maxlength="3"
+                            pattern="[0-9]{1,3}">
+                        <div class="exercise-feedback" id="age-feedback"></div>
+                    </div>
+
+                    <!-- Ejercicio 4: Año actual -->
+                    <div class="exercise-card" id="exercise-currentyear">
+                        <h3>Ejercicio 4: Escribe el Año Actual</h3>
+                        <p>Finalmente, escribe el año actual:</p>
+                        <div class="input-hint">💡 Ejemplo: 2025</div>
+                        <input type="text" class="exercise-input" id="currentyear-input" placeholder="Haz clic aquí y escribe..."
+                            maxlength="4" pattern="[0-9]{4}">
+                        <div class="exercise-feedback" id="currentyear-feedback"></div>
+                    </div>
+
+                    <!-- Progreso -->
+                    <div class="progress-section">
+                        <h4>Tu Progreso:</h4>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="lesson-progress-2"></div>
+                        </div>
+                        <div class="progress-text" id="progress-text-2">0% completado</div>
+                    </div>
+                </div>
+
+                <div class="navigation">
+                    <button class="btn btn-secondary" id="back-to-1">← Lección Anterior</button>
+                    <button class="btn" id="next-to-3">Siguiente Lección →</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LECCIÓN 3: Teclas especiales -->
+    <div id="lesson-3" class="page-container hidden">
+        <div class="lesson-section">
+            <h1>Lección 3: Teclas Especiales</h1>
+
+            <div class="explanation-box">
+                <h2>¿Qué son las Teclas Especiales?</h2>
+                <p>Estas teclas no escriben letras ni números, pero son muy importantes para usar el teclado
+                    correctamente.</p>
+                    <div class="special-keys-cards">
+                        <div class="special-key-card">Espacio</div>
+                        <div class="special-key-card">Enter</div>
+                        <div class="special-key-card">Tab</div>
+                        <div class="special-key-card">Shift</div>
+                        <div class="special-key-card">Ctrl</div>
+                        <div class="special-key-card">Alt</div>
+                        <div class="special-key-card">Supr</div>
+                        <div class="special-key-card">Esc</div>
+                    </div>
+            </div>
+            <div class="explanation-box">
+                <div class="features-grid">
+                    <!-- Espacio -->
+                    <div class="key-info-simple" data-key="Space">
+                        <div class="key-header">
+                            <div class="key-icon-simple">␣</div>
+                            <h3>Tecla Espacio</h3>
+                        </div>
+
+                        <!-- Cards pequeñas -->
+                        <div class="key-details">
+                            <div class="detail-card">
+                                <h4>Función</h4>
+                                <p>Crea espacios entre palabras.</p>
+                            </div>
+                            <div class="detail-card">
+                                <h4>¿Cómo usarla?</h4>
+                                <p>Presiona una vez para dejar un espacio.</p>
+                            </div>
+                            <div class="detail-card">
+                                <h4>Tip</h4>
+                                <p>Cada pulsación inserta un espacio; mantenerla pulsada crea varios espacios.</p>
+                            </div>
+                        </div>
+
+                        <!-- Ejemplo práctico -->
+                        <div class="example-card">
+                            <h4>Ejemplo</h4>
+                            <p>
+                                <code>Holaamigo</code> → <strong>Hola amigo</strong><br>
+                                La tecla espacio nos permite separar "Hola" de "amigo".
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div class="lesson-content">
+            <!-- Teclado Principal -->
+            <div class="keyboard-section">
+                <h3>Teclado Principal - Tecla Espacio</h3>
+                <div id="main-keyboard-3-space" class="keyboard">
+                    <!-- Fila numérica -->
                     <div class="keyboard-row">
                         <div class="key key-symbol" data-code="Backquote">
                             <span class="primary">°| ¬</span>
@@ -439,8 +719,7 @@
                     <div class="keyboard-row">
                         <div class="key key-shift left-shift" data-code="ShiftLeft">Shift</div>
                         <div class="key key-symbol" data-code="symbol less-than greater-than">
-                            <span class="primary"><</span>
-                            <span class="secondary">></span>
+                            <span class="primary">&lt;</span><span class="secondary">&gt;</span>
                         </div>
                         <div class="key key-letter" data-code="KeyZ">Z</div>
                         <div class="key key-letter" data-code="KeyX">X</div>
@@ -475,88 +754,63 @@
                         <div class="key key-control right-ctrl" data-code="ControlRight">Ctrl</div>
                     </div>
                 </div>
-            </div>
 
-                <!-- Ejercicios -->
-                <div class="exercises-section">
-                    <h2>Ejercicios Prácticos</h2>
+                <h2>Ejercicios Prácticos</h2>
+                <div class="exercise-card" id="exercise-space-1">
+                    <h3>Ejercicio 1: Agrega espacios entre las palabras</h3>
+                    <p>
+                        A continuación verás una frase sin espacios. Tu tarea es reescribirla correctamente
+                        agregando espacios donde corresponda.<br><br>
 
-                    <!-- Ejercicio 1: Números del 1-9 -->
-                    <div class="exercise-card" id="exercise-numbers">
-                        <h3>Ejercicio 1: Encuentra los Números</h3>
-                        <p>Presiona los números del 1 al 0 en tu teclado físico y obsérvalos brillar en el teclado de
-                            arriba.</p>
-                        <div class="numbers-container">
-                            <div class="number-key" data-number="1">1</div>
-                            <div class="number-key" data-number="2">2</div>
-                            <div class="number-key" data-number="3">3</div>
-                            <div class="number-key" data-number="4">4</div>
-                            <div class="number-key" data-number="5">5</div>
-                            <div class="number-key" data-number="6">6</div>
-                            <div class="number-key" data-number="7">7</div>
-                            <div class="number-key" data-number="8">8</div>
-                            <div class="number-key" data-number="9">9</div>
-                            <div class="number-key" data-number="0">0</div>
-                        </div>
-                        <div class="exercise-feedback" id="numbers-feedback"></div>
+                    </p>
+                    <div class="input-hint">💡 <Strong>Ejemplo: </Strong><br>
+                        Texto original: elcieloeslindo<br>
+                        Respuesta correcta: el cielo es lindo
+                    </div>
+                    <div class="original-text">
+                        <p><strong>Texto a separar:</strong> lamanzanaesdulce</p>
                     </div>
 
-                    <!-- Ejercicio 2: Año de nacimiento -->
-                    <div class="exercise-card" id="exercise-birthyear">
-                        <h3>Ejercicio 2: Escribe tu Año de Nacimiento</h3>
-                        <p>Haz clic en el cuadro y escribe el año en que naciste (4 números):</p>
-                        <input type="text" class="exercise-input" id="birthyear-input" placeholder="Ejemplo: 1960"
-                            maxlength="4" pattern="[0-9]{4}">
-                        <div class="input-hint">💡 Escribe solo números del 0 al 9</div>
-                        <div class="exercise-feedback" id="birthyear-feedback"></div>
-                    </div>
-
-                    <!-- Ejercicio 3: Edad -->
-                    <div class="exercise-card" id="exercise-age">
-                        <h3>Ejercicio 3: Escribe tu Edad</h3>
-                        <p>Ahora escribe tu edad actual en números:</p>
-                        <input type="text" class="exercise-input" id="age-input" placeholder="Ejemplo: 65" maxlength="3"
-                            pattern="[0-9]{1,3}">
-                        <div class="exercise-feedback" id="age-feedback"></div>
-                    </div>
-
-                    <!-- Ejercicio 4: Año actual -->
-                    <div class="exercise-card" id="exercise-currentyear">
-                        <h3>Ejercicio 4: Escribe el Año Actual</h3>
-                        <p>Finalmente, escribe el año actual:</p>
-                        <input type="text" class="exercise-input" id="currentyear-input" placeholder="Ejemplo: 2024"
-                            maxlength="4" pattern="[0-9]{4}">
-                        <div class="exercise-feedback" id="currentyear-feedback"></div>
-                    </div>
-
-                    <!-- Progreso -->
-                    <div class="progress-section">
-                        <h4>Tu Progreso:</h4>
-                        <div class="progress-bar">
-                            <div class="progress-fill" id="lesson-progress-2"></div>
-                        </div>
-                        <div class="progress-text" id="progress-text-2">0% completado</div>
-                    </div>
+                    <input type="text" class="exercise-input" id="space-ex1-input"
+                        placeholder="Haz clic aquí y escribe...">
+                    <div class="exercise-feedback" id="space-ex1-feedback"></div>
                 </div>
 
-                <div class="navigation">
-                    <button class="btn btn-secondary" id="back-to-1">← Lección Anterior</button>
-                    <button class="btn" id="next-to-3">Siguiente Lección →</button>
+                <!-- Ejercicio 2: Nombre y apellido separados -->
+                <div class="exercise-card" id="exercise-space-2">
+                    <h3>Ejercicio 2: Escribe tu nombre y apellido</h3>
+                    <p>
+                        Escribe tu nombre y apellido separados por un espacio. Recuerda: presiona la tecla
+                        <strong>ESPACIO</strong> una vez entre ambos.
+                    </p>
+
+                    <div class="input-hint">💡 Ejemplo: Juan Pérez</div>
+
+                    <input type="text" class="exercise-input" id="space-ex2-input" placeholder="Haz clic aquí y escribe...">
+                    <div class="exercise-feedback" id="space-ex2-feedback"></div>
+                </div>
+                <!-- Ejercicio 3: Fecha de nacimiento-->
+                <div class="exercise-card" id="exercise-space-3">
+                    <h3>Ejercicio 3: Escribe tu fecha de nacimiento</h3>
+                    <p>
+                        Escribe tu fecha de nacimiento en el formato <b> día mes año</b> usando espacios para separar
+                        día, mes y año.
+                    </p>
+
+                    <div class="input-hint">💡 Ejemplo: 3 julio 1972</div>
+
+                    <input type="text" class="exercise-input" id="space-ex3-input"
+                        placeholder="Haz clic aquí y escribe...">
+                    <div class="exercise-feedback" id="space-ex3-feedback"></div>
+                <!-- Progreso -->
+                <div class="progress-section">
+                    <h4>Tu Progreso:</h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="lesson-progress-3"></div>
+                    </div>
+                    <div class="progress-text" id="progress-text-3">0% completado</div>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <!-- LECCIÓN 3: Teclado Numérico Lateral -->
-    <div id="lesson-3" class="page-container hidden">
-        <div class="lesson-section">
-            <h1>Lección 3: Teclado Numérico Lateral</h1>
-
-            <div class="lesson-content">
-                <p>Domina el uso del bloque numérico y la tecla Num Lock.</p>
-                <!-- Contenido de la lección 3 -->
-            </div>
-
             <div class="navigation">
                 <button class="btn btn-secondary" id="back-to-2">← Lección Anterior</button>
                 <button class="btn" id="next-to-4">Siguiente Lección →</button>
