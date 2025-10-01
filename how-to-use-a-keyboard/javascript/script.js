@@ -559,7 +559,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 this.markExerciseComplete('numbers');
                 const feedback = document.getElementById('numbers-feedback');
                 if (feedback) {
-                    feedback.textContent = '¡Felicidades! Has encontrado todos los números del 1 al 9';
+                    feedback.textContent = '¡Felicidades! Has encontrado todos los números';
                     feedback.className = 'exercise-feedback success';
                     this.celebrateNumbers();
                 }
