@@ -712,18 +712,21 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     // ===== LECCIÓN 3: TECLAS DE FUNCIÓN Y ESPECIALES =====
+    // ===== LECCIÓN 3: TECLAS ESPECIALES =====
     class Lesson3Manager {
         constructor() {
             this.completedExercises = new Set();
             this.keys = new Map();
             this.isActive = false;
+            this.currentGroup = 'writing';
+
             this.init();
         }
 
         init() {
+            this.setupNavigation();
             this.registerKeyboardKeys();
-            this.setupSpaceExercises();
-            this.highlightSpace();
+            this.setupAllExercises();
             console.log('✅ Lección 3 inicializada correctamente');
         }
 
@@ -731,6 +734,7 @@ document.addEventListener('DOMContentLoaded', function () {
             this.isActive = true;
             console.log('Lección 3 activada');
             this.setupKeyboardListeners();
+            this.highlightCurrentGroupKeys();
         }
 
         deactivate() {
@@ -744,17 +748,83 @@ document.addEventListener('DOMContentLoaded', function () {
             this.deactivate();
         }
 
-        registerKeyboardKeys() {
-            const keyElements = document.querySelectorAll('#main-keyboard-3-space .key');
-            keyElements.forEach(keyElement => {
-                const code = keyElement.dataset.code;
-                if (code) {
-                    this.keys.set(code, keyElement);
-                }
+        // ===== SISTEMA DE NAVEGACIÓN =====
+        setupNavigation() {
+            const navButtons = document.querySelectorAll('.key-nav-btn');
+
+            navButtons.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const targetGroup = e.target.closest('.key-nav-btn').dataset.target;
+                    this.switchGroup(targetGroup);
+                });
             });
+
+            this.switchGroup('writing');
+        }
+
+        switchGroup(targetGroup) {
+            console.log(`Cambiando al grupo: ${targetGroup}`);
+
+            this.removeAllActiveStates();
+            this.activateGroup(targetGroup);
+            this.currentGroup = targetGroup;
+            this.highlightCurrentGroupKeys();
+            this.updateGroupTitle(targetGroup);
+        }
+
+        removeAllActiveStates() {
+            document.querySelectorAll('.key-nav-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.key-cards-group').forEach(group => group.classList.remove('active'));
+            document.querySelectorAll('.keyboard-variant').forEach(keyboard => keyboard.classList.remove('active'));
+        }
+
+        activateGroup(targetGroup) {
+            const navBtn = document.querySelector(`[data-target="${targetGroup}"]`);
+            const cardsGroup = document.getElementById(`cards-${targetGroup}`);
+            const keyboard = document.getElementById(`keyboard-lesson-3-${targetGroup}`);
+
+            if (navBtn) navBtn.classList.add('active');
+            if (cardsGroup) cardsGroup.classList.add('active');
+            if (keyboard) keyboard.classList.add('active');
+        }
+
+        updateGroupTitle(targetGroup) {
+            const titleMap = {
+                'writing': 'Escritura y Formato ✏️',
+                'modification': 'Modificación 🔑',
+                'editing': 'Edición ✂️',
+                'system': 'Sistema 🪟'
+            };
+
+            const titleElement = document.getElementById('current-group-title');
+            if (titleElement && titleMap[targetGroup]) {
+                titleElement.textContent = titleMap[targetGroup];
+            }
+        }
+
+        // ===== REGISTRO DE TECLAS =====
+        registerKeyboardKeys() {
+            const keyboardVariants = [
+                'keyboard-lesson-3-writing',
+                'keyboard-lesson-3-modification',
+                'keyboard-lesson-3-editing',
+                'keyboard-lesson-3-system'
+            ];
+
+            keyboardVariants.forEach(keyboardId => {
+                const keyElements = document.querySelectorAll(`#${keyboardId} .key`);
+                keyElements.forEach(keyElement => {
+                    const code = keyElement.dataset.code;
+                    if (code) {
+                        this.keys.set(code, keyElement);
+                    }
+                });
+            });
+
             console.log(`Lección 3: Registradas ${this.keys.size} teclas`);
         }
 
+        // ===== MANEJO DE TECLADO =====
         setupKeyboardListeners() {
             this.boundKeyHandler = this.handleKeyPress.bind(this);
             document.addEventListener('keydown', this.boundKeyHandler);
@@ -766,132 +836,378 @@ document.addEventListener('DOMContentLoaded', function () {
             if (this.boundKeyHandler) {
                 document.removeEventListener('keydown', this.boundKeyHandler);
                 document.removeEventListener('keyup', this.boundKeyHandler);
-                console.log('Lección 3: Listeners de teclado removidos');
+                this.boundKeyHandler = null;
             }
         }
 
-        andleKeyPress(event) {
+        handleKeyPress(event) {
             if (!this.isActive) return;
+
             const code = event.code;
             const isKeyDown = event.type === 'keydown';
-            const keyElement = this.keys.get(code);
 
+            const keyElement = this.keys.get(code);
             if (keyElement) {
                 if (isKeyDown) {
                     keyElement.classList.add('active');
+                    this.handleSpecificKeyPress(event);
                 } else {
                     keyElement.classList.remove('active');
                 }
             }
-        }
-        
-        setupSpaceExercises() {
-            // Ejercicio 1: Separar palabras
-            const ex1Input = document.getElementById('space-ex1-input');
-            const ex1Feedback = document.getElementById('space-ex1-feedback');
-            if (ex1Input) {
-                ex1Input.addEventListener('input', (e) => {
-                    const value = e.target.value.trim();
-                    if (value.toLowerCase() === 'la manzana es dulce') {
-                        this.markExerciseComplete('space-ex1');
-                        ex1Feedback.textContent = '¡Correcto! Has separado bien las palabras.';
-                        ex1Feedback.className = 'exercise-feedback success';
-                    } else if (value.length > 0) {
-                        ex1Feedback.textContent = 'Intenta separar las palabras correctamente.';
-                        ex1Feedback.className = 'exercise-feedback info';
-                    } else {
-                        ex1Feedback.textContent = '';
-                        ex1Feedback.className = 'exercise-feedback';
-                    }
-                });
-                ex1Input.addEventListener('focus', () => {
-                    ex1Feedback.textContent = 'Agrega espacios donde corresponda.';
-                    ex1Feedback.className = 'exercise-feedback info';
-                    this.highlightSpace();
-                });
-                ex1Input.addEventListener('blur', () => {
-                    this.removeAllHighlights();
-                    this.highlightSpace();
-                });
-            }
 
-            // Ejercicio 2: Nombre y apellido
-            const ex2Input = document.getElementById('space-ex2-input');
-            const ex2Feedback = document.getElementById('space-ex2-feedback');
-            if (ex2Input) {
-                ex2Input.addEventListener('input', (e) => {
-                    const value = e.target.value.trim();
-                    if (value.split(' ').length >= 2 && value.indexOf(' ') > 0) {
-                        this.markExerciseComplete('space-ex2');
-                        ex2Feedback.textContent = '¡Muy bien! Has usado el espacio correctamente.';
-                        ex2Feedback.className = 'exercise-feedback success';
-                    } else if (value.length > 0) {
-                        ex2Feedback.textContent = 'Recuerda separar tu nombre y apellido con un espacio.';
-                        ex2Feedback.className = 'exercise-feedback info';
-                    } else {
-                        ex2Feedback.textContent = '';
-                        ex2Feedback.className = 'exercise-feedback';
-                    }
-                });
-                ex2Input.addEventListener('focus', () => {
-                    ex2Feedback.textContent = 'Escribe tu nombre y apellido separados por un espacio.';
-                    ex2Feedback.className = 'exercise-feedback info';
-                    this.highlightSpace();
-                });
-                ex2Input.addEventListener('blur', () => {
-                    this.removeAllHighlights();
-                    this.highlightSpace();
-                });
-            }
-
-            // Ejercicio 3: Fecha de nacimiento con espacios
-            const ex3Input = document.getElementById('space-ex3-input');
-            const ex3Feedback = document.getElementById('space-ex3-feedback');
-            if (ex3Input) {
-                ex3Input.addEventListener('input', (e) => {
-                    const value = e.target.value.trim();
-                    // Debe tener al menos 2 espacios (día, mes, año)
-                    if ((value.match(/ /g) || []).length >= 2 && value.length > 7) {
-                        this.markExerciseComplete('space-ex3');
-                        ex3Feedback.textContent = '¡Perfecto! Has separado correctamente la fecha.';
-                        ex3Feedback.className = 'exercise-feedback success';
-                    } else if (value.length > 0) {
-                        ex3Feedback.textContent = 'Recuerda dejar un espacio entre día, mes y año.';
-                        ex3Feedback.className = 'exercise-feedback info';
-                    } else {
-                        ex3Feedback.textContent = '';
-                        ex3Feedback.className = 'exercise-feedback';
-                    }
-                });
-                ex3Input.addEventListener('focus', () => {
-                    ex3Feedback.textContent = 'Deja un espacio entre cada parte de la fecha.';
-                    ex3Feedback.className = 'exercise-feedback info';
-                    this.highlightSpace();
-                });
-                ex3Input.addEventListener('blur', () => {
-                    this.removeAllHighlights();
-                    this.highlightSpace();
-                });
+            if (isKeyDown) {
+                console.log(`Lección 3 - Tecla: ${event.key} (Código: ${code})`);
             }
         }
 
-        highlightSpace() {
-            const keyboardKey = this.keys.get('Space');
-            if (keyboardKey) {
-                keyboardKey.classList.add('highlight-lesson');
+        handleSpecificKeyPress(event) {
+            const code = event.code;
+
+            switch (this.currentGroup) {
+                case 'writing':
+                    if (code === 'Space' || code === 'Enter' || code === 'Tab' || code === 'CapsLock') {
+                        this.showKeyPressFeedback(code);
+                    }
+                    break;
+
+                case 'modification':
+                    if (code.includes('Shift') || code.includes('Control') || code.includes('Alt')) {
+                        this.showKeyPressFeedback(code);
+                    }
+                    break;
+
+                case 'editing':
+                    if (code === 'Backspace') {
+                        this.showKeyPressFeedback(code);
+                    }
+                    break;
+
+                case 'system':
+                    if (code.includes('Meta')) {
+                        this.showKeyPressFeedback(code);
+                    }
+                    break;
             }
         }
 
-        removeAllHighlights() {
-            const allKeys = document.querySelectorAll('#main-keyboard-3-space .key');
-            allKeys.forEach(key => {
-                key.classList.remove('highlight-lesson');
+        showKeyPressFeedback(keyCode) {
+            const feedbackMessages = {
+                'Space': '¡Perfecto! Has usado la tecla Espacio para separar palabras.',
+                'Enter': '¡Excelente! Has usado Enter para crear nueva línea.',
+                'Tab': '¡Muy bien! Has usado Tab para navegar entre campos.',
+                'CapsLock': '¡Caps Lock activado/desactivado! Ahora puedes escribir en mayúsculas.',
+                'ShiftLeft': '¡Bien! Mantienes Shift para mayúsculas o símbolos.',
+                'ShiftRight': '¡Bien! Mantienes Shift para mayúsculas o símbolos.',
+                'ControlLeft': '¡Bien! Mantienes Control para atajos de teclado.',
+                'ControlRight': '¡Bien! Mantienes Control para atajos de teclado.',
+                'AltLeft': '¡Bien! Mantienes Alt para funciones alternativas.',
+                'AltRight': '¡Bien! Mantienes Alt Gr para caracteres especiales.',
+                'Backspace': '¡Correcto! Has usado Backspace para corregir.',
+                'MetaLeft': '¡Menú Windows abierto! Accede a funciones del sistema.',
+                'MetaRight': '¡Menú Windows abierto! Accede a funciones del sistema.'
+            };
+
+            const message = feedbackMessages[keyCode];
+            if (message) {
+                this.showTemporaryFeedback(message, 'info');
+            }
+        }
+
+        showTemporaryFeedback(message, type = 'info') {
+            const tempFeedback = document.createElement('div');
+            tempFeedback.className = `exercise-feedback ${type}`;
+            tempFeedback.textContent = message;
+            tempFeedback.style.position = 'fixed';
+            tempFeedback.style.top = '20px';
+            tempFeedback.style.right = '20px';
+            tempFeedback.style.zIndex = '1000';
+            tempFeedback.style.maxWidth = '300px';
+            tempFeedback.style.padding = '15px';
+            tempFeedback.style.borderRadius = '8px';
+            tempFeedback.style.boxShadow = '0 4px 12px rgba(0,0,0,0.3)';
+
+            document.body.appendChild(tempFeedback);
+
+            setTimeout(() => {
+                if (tempFeedback.parentNode) {
+                    tempFeedback.parentNode.removeChild(tempFeedback);
+                }
+            }, 3000);
+        }
+
+        // ===== HIGHLIGHTS DE TECLAS =====
+        highlightCurrentGroupKeys() {
+            this.removeAllHighlights();
+
+            switch (this.currentGroup) {
+                case 'writing':
+                    this.highlightWritingKeys();
+                    break;
+                case 'modification':
+                    this.highlightModificationKeys();
+                    break;
+                case 'editing':
+                    this.highlightEditingKeys();
+                    break;
+                case 'system':
+                    this.highlightSystemKeys();
+                    break;
+            }
+        }
+
+        highlightWritingKeys() {
+            const writingKeys = [
+                this.keys.get('Space'),
+                this.keys.get('Enter'),
+                this.keys.get('Tab'),
+                this.keys.get('CapsLock')
+            ];
+
+            writingKeys.forEach(key => {
+                if (key) key.classList.add('highlight-writing');
             });
         }
 
+        highlightModificationKeys() {
+            const modificationKeys = [
+                this.keys.get('ShiftLeft'), this.keys.get('ShiftRight'),
+                this.keys.get('ControlLeft'), this.keys.get('ControlRight'),
+                this.keys.get('AltLeft'), this.keys.get('AltRight')
+            ];
+
+            modificationKeys.forEach(key => {
+                if (key) key.classList.add('highlight-modification');
+            });
+        }
+
+        highlightEditingKeys() {
+            const editingKey = this.keys.get('Backspace');
+            if (editingKey) editingKey.classList.add('highlight-editing');
+        }
+
+        highlightSystemKeys() {
+            const systemKeys = [
+                this.keys.get('MetaLeft'),
+                this.keys.get('MetaRight')
+            ];
+
+            systemKeys.forEach(key => {
+                if (key) key.classList.add('highlight-system');
+            });
+        }
+
+        removeAllHighlights() {
+            this.keys.forEach(key => {
+                key.classList.remove(
+                    'highlight-writing',
+                    'highlight-modification',
+                    'highlight-editing',
+                    'highlight-system'
+                );
+            });
+        }
+
+        // ===== EJERCICIOS =====
+        setupAllExercises() {
+            this.setupSpaceExercise();
+            this.setupEnterExercise();
+            this.setupBackspaceExercise();
+            this.setupUppercaseExercise();
+            this.setupSymbolsExercise();
+            this.setupEmailExercise();
+            this.setupTabExercise();
+        }
+
+        // ===== Ejercicio 1: Separar palabras con Espacio =====
+        setupSpaceExercise() {
+            const spaceInput = document.getElementById('space-ex1-input');
+            const spaceFeedback = document.getElementById('space-ex1-feedback');
+
+            if (spaceInput && spaceFeedback) {
+                spaceInput.addEventListener('input', (e) => {
+                    const value = e.target.value.trim();
+                    if (this.isValidSpaceExercise(value)) {
+                        this.markExerciseComplete('space1');
+                        spaceFeedback.textContent = '¡Perfecto! Has separado correctamente las palabras.';
+                        spaceFeedback.className = 'exercise-feedback success';
+                    } else if (value.length > 0) {
+                        spaceFeedback.textContent = 'Recuerda separar las palabras correctamente: "la manzana es dulce"';
+                        spaceFeedback.className = 'exercise-feedback info';
+                    } else {
+                        spaceFeedback.textContent = '';
+                        spaceFeedback.className = 'exercise-feedback';
+                    }
+                });
+            }
+        }
+
+        // ===== Ejercicio 2: Lista de compras (Enter) =====
+        setupEnterExercise() {
+            const enterInput = document.getElementById('enter-ex1-input');
+            const enterFeedback = document.getElementById('enter-ex1-feedback');
+
+            if (enterInput && enterFeedback) {
+                enterInput.addEventListener('input', (e) => {
+                    const value = e.target.value.trim();
+                    const lines = value.split('\n').filter(line => line.trim() !== '');
+                    if (lines.length >= 3) {
+                        this.markExerciseComplete('enter1');
+                        enterFeedback.textContent = '¡Muy bien! Has creado tu lista usando Enter.';
+                        enterFeedback.className = 'exercise-feedback success';
+                    } else if (value.length > 0) {
+                        enterFeedback.textContent = 'Recuerda presionar Enter después de cada elemento (deben ser al menos 3).';
+                        enterFeedback.className = 'exercise-feedback info';
+                    } else {
+                        enterFeedback.textContent = '';
+                        enterFeedback.className = 'exercise-feedback';
+                    }
+                });
+            }
+        }
+
+        // ===== Ejercicio 3: Corrige errores con Backspace =====
+        setupBackspaceExercise() {
+            const backspaceInput = document.getElementById('backspace-ex1-input');
+            const backspaceFeedback = document.getElementById('backspace-ex1-feedback');
+
+            if (backspaceInput && backspaceFeedback) {
+                let backspaceUsed = false;
+                const correctedText = "El computador es una herramienta genial";
+
+                backspaceInput.addEventListener('keydown', (e) => {
+                    if (e.key === 'Backspace') {
+                        backspaceUsed = true;
+                    }
+                });
+
+                backspaceInput.addEventListener('input', (e) => {
+                    const value = e.target.value.trim();
+
+                    if (backspaceUsed && value === correctedText) {
+                        this.markExerciseComplete('backspace1');
+                        backspaceFeedback.textContent = '¡Muy bien! Has corregido todos los errores usando Borrar.';
+                        backspaceFeedback.className = 'exercise-feedback success';
+                    } else if (backspaceUsed && value !== correctedText) {
+                        backspaceFeedback.textContent = '¡Vas bien! Asegúrate de corregir todas las letras incorrectas.';
+                        backspaceFeedback.className = 'exercise-feedback info';
+                    } else {
+                        backspaceFeedback.textContent = 'Haz clic al lado derecho de la letra incorrecta y presiona Borrar.';
+                        backspaceFeedback.className = 'exercise-feedback info';
+                    }
+                });
+            }
+        }
+
+        // ===== Ejercicio 4: Escribir en mayúsculas =====
+        setupUppercaseExercise() {
+            const uppercaseInput = document.getElementById('uppercase-ex1-input');
+            const uppercaseFeedback = document.getElementById('uppercase-ex1-feedback');
+
+            if (uppercaseInput && uppercaseFeedback) {
+                uppercaseInput.addEventListener('input', (e) => {
+                    const value = e.target.value.trim();
+                    if (value === value.toUpperCase() && value === "EL TECLADO TIENE MUCHAS TECLAS") {
+                        this.markExerciseComplete('uppercase1');
+                        uppercaseFeedback.textContent = '¡Perfecto! Has escrito la frase completamente en mayúsculas.';
+                        uppercaseFeedback.className = 'exercise-feedback success';
+                    } else if (value.length > 0) {
+                        uppercaseFeedback.textContent = 'Recuerda escribir toda la frase en mayúsculas: "EL TECLADO ES ÚTIL"';
+                        uppercaseFeedback.className = 'exercise-feedback info';
+                    } else {
+                        uppercaseFeedback.textContent = '';
+                        uppercaseFeedback.className = 'exercise-feedback';
+                    }
+                });
+            }
+        }
+
+        // ===== Ejercicio 5: Escribir símbolos con Shift =====
+        setupSymbolsExercise() {
+            const symbolsInput = document.getElementById('symbols-ex1-input');
+            const symbolsFeedback = document.getElementById('symbols-ex1-feedback');
+
+            if (symbolsInput && symbolsFeedback) {
+                symbolsInput.addEventListener('input', (e) => {
+                    const value = e.target.value.trim();
+                    if (value === "#$%") {
+                        this.markExerciseComplete('symbols1');
+                        symbolsFeedback.textContent = '¡Excelente! Has escrito correctamente todos los símbolos.';
+                        symbolsFeedback.className = 'exercise-feedback success';
+                    } else if (value.length > 0) {
+                        symbolsFeedback.textContent = 'Asegúrate de escribir los símbolos en el orden correcto: # $ %';
+                        symbolsFeedback.className = 'exercise-feedback info';
+                    } else {
+                        symbolsFeedback.textContent = '';
+                        symbolsFeedback.className = 'exercise-feedback';
+                    }
+                });
+            }
+        }
+
+        // ===== Ejercicio 6: Escribir correo con @ =====
+        setupEmailExercise() {
+            const emailInput = document.getElementById('email-ex1-input');
+            const emailFeedback = document.getElementById('email-ex1-feedback');
+
+            if (emailInput && emailFeedback) {
+                emailInput.addEventListener('input', (e) => {
+                    const value = e.target.value.trim();
+                    if (value.includes('@') && value.includes('.')) {
+                        this.markExerciseComplete('email1');
+                        emailFeedback.textContent = '¡Muy bien! Has escrito un correo correctamente.';
+                        emailFeedback.className = 'exercise-feedback success';
+                    } else if (value.length > 0) {
+                        emailFeedback.textContent = 'Recuerda incluir el símbolo @ y el dominio. Ej: ejemplo@gmail.com';
+                        emailFeedback.className = 'exercise-feedback info';
+                    } else {
+                        emailFeedback.textContent = '';
+                        emailFeedback.className = 'exercise-feedback';
+                    }
+                });
+            }
+        }
+
+        // ===== Ejercicio 7: Navegar con Tab =====
+        setupTabExercise() {
+            const tabFields = document.querySelectorAll('.tab-field');
+            const tabFeedback = document.getElementById('tab-ex1-feedback');
+
+            if (tabFields.length > 0 && tabFeedback) {
+                tabFields.forEach(field => {
+                    field.addEventListener('input', () => {
+                        this.checkTabExerciseCompletion(tabFields, tabFeedback);
+                    });
+                });
+
+                this.checkTabExerciseCompletion(tabFields, tabFeedback);
+            }
+        }
+
+        checkTabExerciseCompletion(fields, feedback) {
+            const allFilled = Array.from(fields).every(field => field.value.trim().length > 0);
+
+            if (allFilled) {
+                this.markExerciseComplete('tab1');
+                feedback.textContent = '¡Excelente! Has completado todos los campos usando Tab.';
+                feedback.className = 'exercise-feedback success';
+            } else {
+                const filledCount = Array.from(fields).filter(field => field.value.trim().length > 0).length;
+                feedback.textContent = `Has completado ${filledCount} de ${fields.length} campos. Usa Tab para navegar.`;
+                feedback.className = 'exercise-feedback info';
+            }
+        }
+
+        // ===== VALIDACIONES =====
+        isValidSpaceExercise(value) {
+            return value.toLowerCase() === 'la manzana es dulce';
+        }
+
+        // ===== SISTEMA DE PROGRESO =====
         markExerciseComplete(exerciseName) {
             if (!this.completedExercises.has(exerciseName)) {
                 this.completedExercises.add(exerciseName);
+                console.log(`Lección 3 - Ejercicio completado: ${exerciseName}`);
                 this.updateProgress();
             }
         }
@@ -899,11 +1215,14 @@ document.addEventListener('DOMContentLoaded', function () {
         updateProgress() {
             const progressFill = document.getElementById('lesson-progress-3');
             const progressText = document.getElementById('progress-text-3');
+
             if (progressFill && progressText) {
-                const totalExercises = 3;
+                const totalExercises = 7;
                 const progress = (this.completedExercises.size / totalExercises) * 100;
+
                 progressFill.style.width = `${progress}%`;
                 progressText.textContent = `${Math.round(progress)}% completado`;
+
                 if (progress === 100) {
                     progressText.innerHTML = '🎉 ¡Lección 3 completada! Puedes continuar a la siguiente lección.';
                     this.showCompletionEffect();
@@ -912,7 +1231,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         showCompletionEffect() {
-            const progressSection = document.querySelector('.progress-section');
+            const progressSection = document.querySelector('#lesson-3 .progress-section');
             if (progressSection) {
                 progressSection.style.animation = 'celebrate 1s ease-in-out';
                 setTimeout(() => {
@@ -921,5 +1240,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     }
+
     console.log('Sistema de navegación listo');
 });

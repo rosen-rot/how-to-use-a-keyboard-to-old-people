@@ -766,10 +766,11 @@ h3 {
 }
 
 /* Inputs numéricos específicos */
-.exercise-input[type="text"] {
+.exercise-input[type="text"], .exercise-input[type="email"], .exercise-input[type="tel"] {
     text-align: center;
     font-size: 1.3rem;
     letter-spacing: 2px;
+    width: 700px;
 }
 .exercise-input:invalid:not(:placeholder-shown) {
     border-color: #e53e3e;
@@ -777,347 +778,422 @@ h3 {
 }
 
 /* ===== LECCIÓN 3: TECLAS ESENCIALES ===== */
-/* Contenedor principal */
+
+/* Navegación entre grupos de teclas */
+.keyboard-navigation {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin: 30px 0;
+}
+
+@media (min-width: 768px) {
+    .keyboard-navigation {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.key-nav-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 15px 10px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    min-height: 70px;
+}
+
+.key-nav-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+.key-nav-btn.active {
+    background: rgba(67, 97, 238, 0.8);
+    border-color: rgba(67, 97, 238, 0.9);
+    box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+}
+
+/* Iconos en navegación */
+.nav-icon {
+    font-size: 1.5em;
+}
+
+/* Contenedor de grupos de cards */
+.key-cards-container {
+    position: relative;
+    min-height: 400px;
+}
+
+.key-cards-group {
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.key-cards-group.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Descripción de grupos */
+.group-description {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    border-left: 4px solid #4299e1;
+}
+
+.group-description h3 {
+    color: white;
+    font-size: 1.3rem;
+    margin: 0 0 10px 0;
+    font-weight: 600;
+}
+
+.group-description p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Ajustes para el grid de features en lección 3 */
+#lesson-3 .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+/* Estilos para las cards de teclas */
 .key-info-simple {
-    background: var(--white);
-    border-radius: 20px;
-    padding: 35px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    text-align: center;
-    transition: var(--transition);
+    background: rgba(255, 255, 255, 0.05);
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
 }
 
 .key-info-simple:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(67, 97, 238, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-/* Encabezado */
 .key-header {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    margin-bottom: 30px;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.key-icon-simple {
-    font-size: 3rem;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    color: white;
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
+.key-icon-simple  {
+    font-size: 2.5rem;
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 15px;
-    box-shadow: 0 5px 15px rgba(67, 97, 238, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .key-header h3 {
-    font-size: 2rem;
-    color: var(--text);
-    font-weight: 700;
+    color: white;
+    font-size: 1.4rem;
+    margin: 0;
+    font-weight: 600;
 }
 
-/* Cards pequeñas */
 .key-details {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 20px;
-    margin-bottom: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
 }
 
 .detail-card {
-    background: #f8f9fa;
-    border: 1px solid #e2e8f0;
-    border-radius: 15px;
-    padding: 20px;
-    text-align: center;
-    transition: var(--transition);
-}
-
-.detail-card:hover {
-    background: #edf2ff;
-    border-color: var(--primary);
+    background: rgba(255, 255, 255, 0.08);
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #4299e1;
 }
 
 .detail-card h4 {
-    font-size: 1.2rem;
-    color: var(--primary);
-    margin-bottom: 10px;
+    color: #bee3f8;
+    font-size: 0.9rem;
+    margin: 0 0 8px 0;
+    font-weight: 600;
 }
 
 .detail-card p {
-    font-size: 1rem;
-    color: var(--text-light);
-    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.85rem;
+    margin: 0;
+    line-height: 1.4;
 }
 
-/* Card del ejemplo */
 .example-card {
-    background: linear-gradient(135deg, #e0e7ff 0%, #f0f4ff 100%);
-    border: 1px solid #c3dafe;
-    border-radius: 15px;
-    padding: 25px;
-    text-align: left;
-    font-size: 1.1rem;
-    color: #1a202c;
-    box-shadow: 0 5px 15px rgba(99, 102, 241, 0.15);
+    background: rgba(255, 255, 255, 0.08);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px dashed rgba(255, 255, 255, 0.2);
 }
 
 .example-card h4 {
-    color: var(--primary-dark);
-    margin-bottom: 10px;
+    color: #fed7d7;
+    font-size: 1rem;
+    margin: 0 0 12px 0;
+    font-weight: 600;
+}
+
+.example-card p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+    margin: 0;
+    line-height: 1.5;
 }
 
 .example-card code {
-    background: #edf2f7;
-    padding: 3px 8px;
-    border-radius: 6px;
-    font-family: monospace;
-    font-size: 1rem;
-    color: #2b2d42;
+    font-family: 'Courier New', monospace;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: #fed7d7;
+    font-weight: bold;
 }
 
 .example-card strong {
-    color: #2b2d42;
-    font-weight: 700;
+    color: #c6f6d5;
 }
 
-#lesson-3 .exercise-card p {
-    font-size: 1.05rem;
-    margin-bottom: 12px;
-    color: #4a5568;
-}
-
-#exercise-space-1{
-    margin-top: 20px;
-}
-
-.input-hint {
-    background: rgba(67, 97, 238, 0.06);
-    padding: 10px 15px;
-    border-left: 4px solid var(--primary);
-    border-radius: 8px;
-    font-size: 0.95rem;
-    color: #4a5568;
-    font-style: italic;
-    margin-bottom: 15px;
-}
-
-#lesson-3 .original-text {
-    font-size: 1.1rem;
-    background: #edf2f7;
-    padding: 12px 15px;
-    border-radius: 8px;
-    border: 1px solid #000000;
-    margin-bottom: 15px;
-}
-
-#lesson-3 .exercise-input {
-    width: 100%;
-    max-width: 500px;
-    padding: 14px 16px;
-    font-size: 1.1rem;
-    border: 2px solid #cbd5e0;
-    border-radius: 10px;
-    margin-bottom: 10px;
-    transition: all 0.3s ease;
-}
-
-#lesson-3 .exercise-input:focus {
-    outline: none;
-    border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
-}
-
-#lesson-3 .exercise-feedback {
-    margin-top: 10px;
-    padding: 12px;
-    border-radius: 8px;
+/* Contenedor de teclados variantes */
+.keyboard-variant {
     display: none;
-    font-size: 1rem;
+    animation: slideIn 0.4s ease-out;
 }
 
-#lesson-3 .exercise-feedback.success {
+.keyboard-variant.active {
     display: block;
-    background: #c6f6d5;
-    color: #22543d;
-    border: 1px solid #9ae6b4;
 }
 
-#lesson-3 .exercise-feedback.info {
-    display: block;
-    background: #bee3f8;
-    color: #1a365d;
-    border: 1px solid #90cdf4;
-}
-
-/* === BARRA DE PROGRESO LECCIÓN 3 === */
-#lesson-3 .progress-section {
-    background: var(--white);
-    padding: 20px;
-    border-radius: 10px;
-    border: 2px solid #e2e8f0;
-    margin-top: 40px;
-    text-align: center;
-}
-
-#lesson-3 .progress-section h4 {
-    font-size: 1.3rem;
-    margin-bottom: 15px;
-    color: #2d3748;
-}
-
-#lesson-3 .progress-bar {
-    width: 100%;
-    height: 20px;
-    background: #e2e8f0;
-    border-radius: 10px;
-    overflow: hidden;
-    margin-bottom: 12px;
-}
-
-#lesson-3 .progress-fill {
-    height: 100%;
-    width: 0%;
-    background: linear-gradient(90deg, #48bb78, #38a169);
-    border-radius: 10px;
-    transition: width 0.5s ease;
-}
-
-#lesson-3 .progress-text {
-    font-weight: 600;
-    color: #2d3748;
-    font-size: 1rem;
-}
-
-/* Celebración al completar */
-@keyframes celebrate {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
-}
-
-/* === RESPONSIVE LECCIÓN 3 === */
-@media (max-width: 768px) {
-    #lesson-3 {
-        padding: 25px 15px;
-    }
-
-    #lesson-3 h1 {
-        font-size: 2rem;
-    }
-
-    #main-keyboard-3-space .key {
-        min-width: 40px;
-        height: 40px;
-        font-size: 0.75rem;
-    }
-
-    #main-keyboard-3-space .key-spacebar {
-        min-width: 150px;
-    }
-
-    #lesson-3 .exercise-input {
-        font-size: 1rem;
-        padding: 12px;
-    }
-}
-
-@media (max-width: 480px) {
-    #lesson-3 h1 {
-        font-size: 1.8rem;
-    }
-
-    #main-keyboard-3-space .key {
-        min-width: 30px;
-        height: 35px;
-        font-size: 0.7rem;
-    }
-
-    #lesson-3 .exercise-input {
-        font-size: 0.95rem;
-    }
-}
-/* Tecla espacio destacada en lección 3 */
-#main-keyboard-3-space .key-spacebar.highlight-lesson {
-    background: #4299e1 !important;
-    box-shadow: 0 0 20px rgba(66, 153, 225, 0.5);
-    color: #fff;
-}
-
-/* Contenedor de las mini cards */
-.special-keys-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 15px;
-    margin: 30px 0 40px;
-    padding: 10px;
-    justify-content: center; /* 💡 Centra los elementos en la última fila */
-}
-
-/* Estilo de cada card */
-.special-key-card {
-    background: linear-gradient(135deg, #edf2ff 0%, #e0e7ff 100%);
-    border: 2px solid #c3dafe;
-    border-radius: 15px;
-    padding: 18px 10px;
-    text-align: center;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #2b2d42;
-    box-shadow: 0 5px 15px rgba(99, 102, 241, 0.15);
-    cursor: default;
-    transition: all 0.3s ease;
-    user-select: none;
-    min-width: 120px;
-}
-
-/* Hover con movimiento y color */
-.special-key-card:hover {
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    color: white;
-    border-color: transparent;
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 10px 25px rgba(67, 97, 238, 0.3);
-}
-
-/* Animación suave al aparecer */
-.special-key-card {
-    opacity: 0;
-    animation: fadeInCard 0.6s ease forwards;
-}
-
-.special-key-card:nth-child(1) { animation-delay: 0.1s; }
-.special-key-card:nth-child(2) { animation-delay: 0.2s; }
-.special-key-card:nth-child(3) { animation-delay: 0.3s; }
-.special-key-card:nth-child(4) { animation-delay: 0.4s; }
-.special-key-card:nth-child(5) { animation-delay: 0.5s; }
-.special-key-card:nth-child(6) { animation-delay: 0.6s; }
-.special-key-card:nth-child(7) { animation-delay: 0.7s; }
-.special-key-card:nth-child(8) { animation-delay: 0.8s; }
-
-@keyframes fadeInCard {
-    from {
+@keyframes slideIn {
+    from { 
         opacity: 0;
         transform: translateY(20px);
     }
-    to {
+    to { 
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-/* Responsivo */
-@media (max-width: 600px) {
-    .special-keys-cards {
-        grid-template-columns: repeat(2, 1fr);
-    }
+/* Highlights específicos para cada grupo de teclas */
 
-    .special-key-card {
-        font-size: 1rem;
+/* Grupo 1: Escritura y Formato - AZUL */
+#keyboard-lesson-3-writing .key-spacebar,
+#keyboard-lesson-3-writing .key-enter,
+#keyboard-lesson-3-writing .key-tab,
+#keyboard-lesson-3-writing .key-capslock {
+    background: #4299e1 !important;
+    box-shadow: 0 0 20px rgba(66, 153, 225, 0.7);
+    animation: pulse-blue 2s infinite;
+}
+
+@keyframes pulse-blue {
+    0%, 100% { 
+        box-shadow: 0 0 15px rgba(66, 153, 225, 0.6);
+    }
+    50% { 
+        box-shadow: 0 0 25px rgba(66, 153, 225, 0.9);
+    }
+}
+
+/* Grupo 2: Modificación - VERDE */
+#keyboard-lesson-3-modification .key-shift,
+#keyboard-lesson-3-modification .key-control,
+#keyboard-lesson-3-modification .key-alt {
+    background: #48bb78 !important;
+    box-shadow: 0 0 20px rgba(72, 187, 120, 0.7);
+    animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+    0%, 100% { 
+        box-shadow: 0 0 15px rgba(72, 187, 120, 0.6);
+    }
+    50% { 
+        box-shadow: 0 0 25px rgba(72, 187, 120, 0.9);
+    }
+}
+
+/* Grupo 3: Edición - NARANJA */
+#keyboard-lesson-3-editing .key-delete {
+    background: #ed8936 !important;
+    box-shadow: 0 0 20px rgba(237, 137, 54, 0.7);
+    animation: pulse-orange 2s infinite;
+}
+
+@keyframes pulse-orange {
+    0%, 100% { 
+        box-shadow: 0 0 15px rgba(237, 137, 54, 0.6);
+    }
+    50% { 
+        box-shadow: 0 0 25px rgba(237, 137, 54, 0.9);
+    }
+}
+
+/* Grupo 4: Sistema - PÚRPURA */
+#keyboard-lesson-3-system .key-windows {
+    background: #9f7aea !important;
+    box-shadow: 0 0 20px rgba(159, 122, 234, 0.7);
+    animation: pulse-purple 2s infinite;
+}
+
+@keyframes pulse-purple {
+    0%, 100% { 
+        box-shadow: 0 0 15px rgba(159, 122, 234, 0.6);
+    }
+    50% { 
+        box-shadow: 0 0 25px rgba(159, 122, 234, 0.9);
+    }
+}
+
+/* Efecto para teclas activas en lección 3 */
+#lesson-3 .key.active {
+    background: #e53e3e !important;
+    transform: scale(1.08);
+    box-shadow: 0 0 20px rgba(229, 62, 62, 0.8);
+    z-index: 10;
+}
+
+/* Título del grupo actual */
+#current-group-title {
+    color: #4299e1;
+    font-weight: 700;
+}
+
+/* Ajustes para campos de formulario en ejercicios */
+.form-fields {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.tab-field {
+    transition: all 0.3s ease;
+}
+
+.tab-field:focus {
+    border-color: #ed8936 !important;
+    box-shadow: 0 0 0 3px rgba(237, 137, 54, 0.1) !important;
+}
+
+/* Texto original para ejercicios */
+.original-text {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 8px;
+    margin: 15px 0;
+    border-left: 4px solid #4299e1;
+}
+
+.original-text p {
+    margin: 0;
+}
+
+.original-text strong {
+    color: #4299e1;
+}
+
+.original-text code {
+    font-family: 'Courier New', monospace;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 4px 8px;
+    border-radius: 4px;
+    color: #fed7d7;
+    font-weight: bold;
+}
+
+/* Responsive para Lección 3 */
+@media (max-width: 768px) {
+    .keyboard-navigation {
+        grid-template-columns: 1fr;
+    }
+    
+    .key-nav-btn {
+        padding: 12px 10px;
+        font-size: 0.85rem;
+        min-height: 60px;
+    }
+    
+    #lesson-3 .features-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .key-details {
+        grid-template-columns: 1fr;
+    }
+    
+    .key-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    
+    .key-icon-simple {
+        width: 50px;
+        height: 50px;
+        font-size: 2rem;
+    }
+    
+    .form-fields {
+        grid-template-columns: 1fr;
+    }
+    
+    .nav-icon {
+        font-size: 1.3em;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .key-info-simple {
+        padding: 20px 15px;
+    }
+    
+    .detail-card {
+        padding: 12px;
+    }
+    
+    .example-card {
         padding: 15px;
+    }
+    
+    .group-description {
+        padding: 15px;
+    }
+    
+    .group-description h3 {
+        font-size: 1.1rem;
     }
 }
