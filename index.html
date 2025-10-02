@@ -1,87 +1,1836 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online Keyboard</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css" />
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
 </head>
+
 <body>
-<div id="container">
-	<ul id="keyboard">
-		<li class="symbol"><span class="off">| ¬</span><span class="on">°</span></li>
-		<li class="symbol"><span class="off">1</span><span class="on">!</span></li>
-		<li class="symbol"><span class="off">2</span><span class="on">"</span></li>
-		<li class="symbol"><span class="off">3</span><span class="on">#</span></li>
-		<li class="symbol"><span class="off">4</span><span class="on">$</span></li>
-		<li class="symbol"><span class="off">5</span><span class="on">%</span></li>
-		<li class="symbol"><span class="off">6</span><span class="on">&amp;</span></li>
-		<li class="symbol"><span class="off">7</span><span class="on">/</span></li>
-		<li class="symbol"><span class="off">8</span><span class="on">(</span></li>
-		<li class="symbol"><span class="off">9</span><span class="on">)</span></li>
-		<li class="symbol"><span class="off">0</span><span class="on">=</span></li>
-		<li class="symbol"><span class="off">' \</span><span class="on">?</span></li>
-		<li class="symbol"><span class="off">¿</span><span class="on">¡</span></li>
-		<li class="delete lastitem">←</li>
-		<li class="tab">↹</li>
-		<li class="letter">q</li>
-		<li class="letter">w</li>
-		<li class="letter">e</li>
-		<li class="letter">r</li>
-		<li class="letter">t</li>
-		<li class="letter">y</li>
-		<li class="letter">u</li>
-		<li class="letter">i</li>
-		<li class="letter">o</li>
-		<li class="letter">p</li>
-		<li class="symbol"><span class="off">´</span><span class="on">¨</span></li>
-		<li class="symbol"><span class="off">+ ~</span><span class="on">*</span></li>
-		<li class="enter lastitem">↲</li>
-		<li class="capslock">Bloq Mayús</li>
-		<li class="letter">a</li>
-		<li class="letter">s</li>
-		<li class="letter">d</li>
-		<li class="letter">f</li>
-		<li class="letter">g</li>
-		<li class="letter">h</li>
-		<li class="letter">j</li>
-		<li class="letter">k</li>
-		<li class="letter">l</li>
-        <li class="letter">ñ</li>
-		<li class="symbol"><span class="off">{ ^</span><span class="on">[</span></li>
-		<li class="symbol"><span class="off">} `</span><span class="on">]</span></li>
-		<li class="left-shift">shift</li>
-        <li class="symbol"><span class="off">&lt;</span><span class="on">&gt;</span></li>
-		<li class="letter">z</li>
-		<li class="letter">x</li>
-		<li class="letter">c</li>
-		<li class="letter">v</li>
-		<li class="letter">b</li>
-		<li class="letter">n</li>
-		<li class="letter">m</li>
-		<li class="symbol"><span class="off">,</span><span class="on">;</span></li>
-		<li class="symbol"><span class="off">.</span><span class="on">:</span></li>
-		<li class="symbol"><span class="off">-</span><span class="on">_</span></li>
-		<li class="right-shift">shift</li>
-        <li class="arrow up lastitem">↑</li>
-        <li class="left-ctrl">Ctrl</li>
-        <li class="letf-win">Win</li>
-        <li class="left-alt">Alt</li>
-        <li class="spacebar"> </li>
-        <li class="right-alt">Alt Gr</li>
-        <li class="right-win">Win</li>
-        <li class="right-ctrl lastitem">Ctrl</li>
-        <li class="arrow left">←</li>
-        <li class="arrow down">↓</li>
-        <li class="arrow right">→</li>
-	</ul>
+    <div id="welcome-screen" class="page-container">
+        <div class="welcome-section">
+            <div class="welcome-icon">⌨️</div>
+            <h1>¡Bienvenido al Curso de Teclado!</h1>
 
-    <ul id="number-keyboard">
-        
-    </ul>
-</div>
+            <div class="instructions">
+                <p><strong>Hola ¡Me da mucho gusto que estés aquí!</strong></p>
+                <p>Este curso está diseñado especialmente para personas que están comenzando a usar la computadora.
+                    Aprenderás de manera fácil y divertida.</p>
+                <p id="scroll">¡Usa la rueda del ratón para moverte hacia abajo!</p>
+            </div>
 
-</div>
-<script type="text/javascript" src="js/keyboard.js"></script>
+            <h2>¿Qué vas a aprender?</h2>
+            <ul class="features-list">
+                <li>Conocer todas las partes del teclado</li>
+                <li>Encontrar las teclas importantes rápidamente</li>
+                <li>Usar teclas especiales como @, #, $</li>
+                <li>Aprender atajos útiles para hacer las cosas más rápido</li>
+                <li>Practicar con ejercicios entretenidos</li>
+            </ul>
+
+            <div class="instructions">
+                <h3>¿Cómo funciona el curso?</h3>
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div>Verás lecciones con explicaciones claras</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div>Practicarás con ejercicios interactivos</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div>Avanzarás a tu propio ritmo</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div>¡Te convertirás en un experto en teclado!</div>
+                </div>
+            </div>
+
+            <div class="navigation">
+                <p><strong>Para comenzar, haz clic en el botón "Comenzar":</strong></p>
+                <button class="btn btn-large" id="start-btn">
+                    🚀 Comenzar el Curso
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- LECCIÓN 1: Teclado Alfanumérico -->
+    <div id="lesson-1" class="page-container hidden">
+        <div class="lesson-section">
+            <h1>Lección 1: Teclado Alfanumérico</h1>
+
+            <!-- Explicación -->
+            <div class="explanation-box">
+                <h2>¿Qué es el Teclado Alfanumérico?</h2>
+                <p>El teclado alfanumérico es la parte principal del teclado que contiene las letras y números que
+                    usamos para escribir.</p>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <span class="feature-icon">🔤</span>
+                        <strong>Letras</strong>
+                        <p>A B C ... Z</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🔢</span>
+                        <strong>Números</strong>
+                        <p>1 2 3 ... 0</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">⚡</span>
+                        <strong>Teclas importantes</strong>
+                        <p>Espacio, Enter, Shift</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Teclado Principal -->
+            <div class="keyboard-section">
+                <h3>Teclado Principal</h3>
+                <div id="main-keyboard-1" class="keyboard">
+                    <!-- Fila numérica -->
+                    <div class="keyboard-row">
+                        <div class="key key-symbol" data-code="Backquote">
+                            <span class="primary">°| ¬</span>
+                        </div>
+                        <div class="key key-number" data-code="Digit1">
+                            <span class="primary">1</span>
+                            <span class="secondary">!</span>
+                        </div>
+                        <div class="key key-number" data-code="Digit2">
+                            <span class="primary">2</span>
+                            <span class="secondary">"</span>
+                        </div>
+                        <div class="key key-number" data-code="Digit3">
+                            <span class="primary">3</span>
+                            <span class="secondary">#</span>
+                        </div>
+                        <div class="key key-number" data-code="Digit4">
+                            <span class="primary">4</span>
+                            <span class="secondary">$</span>
+                        </div>
+                        <div class="key key-number" data-code="Digit5">
+                            <span class="primary">5</span>
+                            <span class="secondary">%</span>
+                        </div>
+                        <div class="key key-number" data-code="Digit6">
+                            <span class="primary">6</span>
+                            <span class="secondary">&amp;</span>
+                        </div>
+                        <div class="key key-number" data-code="Digit7">
+                            <span class="primary">7</span>
+                            <span class="secondary">/</span>
+                        </div>
+                        <div class="key key-number" data-code="Digit8">
+                            <span class="primary">8</span>
+                            <span class="secondary">(</span>
+                        </div>
+                        <div class="key key-number" data-code="Digit9">
+                            <span class="primary">9</span>
+                            <span class="secondary">)</span>
+                        </div>
+                        <div class="key key-number" data-code="Digit0">
+                            <span class="primary">0</span>
+                            <span class="secondary">=</span>
+                        </div>
+                        <div class="key key-symbol" data-code="apostrophe">
+                            <span class="primary">'</span>
+                            <span class="secondary">? \</span>
+                        </div>
+                        <div class="key key-symbol" data-code="Question-Mark">
+                            <span class="primary">¿</span>
+                            <span class="secondary">¡</span>
+                        </div>
+                        <div class="key key-delete" data-code="Backspace">←</div>
+                    </div>
+
+                    <!-- Fila QWERTY -->
+                    <div class="keyboard-row">
+                        <div class="key key-tab" data-code="Tab">Tab</div>
+                        <div class="key key-letter" data-code="KeyQ">
+                            <span class="primary">Q</span>
+                            <span class="secondary">@</span>
+                        </div>
+                        <div class="key key-letter" data-code="KeyW">W</div>
+                        <div class="key key-letter" data-code="KeyE">E</div>
+                        <div class="key key-letter" data-code="KeyR">R</div>
+                        <div class="key key-letter" data-code="KeyT">T</div>
+                        <div class="key key-letter" data-code="KeyY">Y</div>
+                        <div class="key key-letter" data-code="KeyU">U</div>
+                        <div class="key key-letter" data-code="KeyI">I</div>
+                        <div class="key key-letter" data-code="KeyO">O</div>
+                        <div class="key key-letter" data-code="KeyP">P</div>
+                        <div class="key key-symbol" data-code="BracketLeft">
+                            <span class="primary">´´</span>
+                            <span class="secondary">¨</span>
+                        </div>
+                        <div class="key key-symbol" data-code="BracketRight">
+                            <span class="primary">+</span>
+                            <span class="secondary">*~</span>
+                        </div>
+                    </div>
+
+                    <!-- Fila ASDF -->
+                    <div class="keyboard-row">
+                        <div class="key key-capslock" data-code="CapsLock">Bloq Máyus</div>
+                        <div class="key key-letter" data-code="KeyA">A</div>
+                        <div class="key key-letter" data-code="KeyS">S</div>
+                        <div class="key key-letter" data-code="KeyD">D</div>
+                        <div class="key key-letter" data-code="KeyF">F</div>
+                        <div class="key key-letter" data-code="KeyG">G</div>
+                        <div class="key key-letter" data-code="KeyH">H</div>
+                        <div class="key key-letter" data-code="KeyJ">J</div>
+                        <div class="key key-letter" data-code="KeyK">K</div>
+                        <div class="key key-letter" data-code="KeyL">L</div>
+                        <div class="key key-letter" data-code="KeyL">Ñ</div>
+                        <div class="key key-symbol" data-code="Semicolon">
+                            <span class="primary">{</span>
+                            <span class="secondary">[^</span>
+                        </div>
+                        <div class="key key-symbol" data-code="Quote">
+                            <span class="primary">}</span>
+                            <span class="secondary">]`</span>
+                        </div>
+                        <div class="key key-enter" data-code="Enter">Enter</div>
+                    </div>
+
+                    <!-- Fila ZXCV -->
+                    <div class="keyboard-row">
+                        <div class="key key-shift left-shift" data-code="ShiftLeft">Shift</div>
+                        <div class="key key-symbol" data-code="symbol less-than greater-than">
+                            <span class="primary">&lt;</span><span class="secondary">&gt;</span>
+                        </div>
+                        <div class="key key-letter" data-code="KeyZ">Z</div>
+                        <div class="key key-letter" data-code="KeyX">X</div>
+                        <div class="key key-letter" data-code="KeyC">C</div>
+                        <div class="key key-letter" data-code="KeyV">V</div>
+                        <div class="key key-letter" data-code="KeyB">B</div>
+                        <div class="key key-letter" data-code="KeyN">N</div>
+                        <div class="key key-letter" data-code="KeyM">M</div>
+                        <div class="key key-symbol" data-code="Comma">
+                            <span class="primary">,</span>
+                            <span class="secondary">;</span>
+                        </div>
+                        <div class="key key-symbol" data-code="Period">
+                            <span class="primary">.</span>
+                            <span class="secondary">:</span>
+                        </div>
+                        <div class="key key-symbol" data-code="guion hyphen underscore">
+                            <span class="primary">-</span>
+                            <span class="secondary">_</span>
+                        </div>
+                        <div class="key key-shift right-shift" data-code="ShiftRight">Shift</div>
+                    </div>
+
+                    <!-- Fila de espacio -->
+                    <div class="keyboard-row">
+                        <div class="key key-control left-ctrl" data-code="ControlLeft">Ctrl</div>
+                        <div class="key key-windows left-win" data-code="MetaLeft">Win</div>
+                        <div class="key key-alt left-alt" data-code="AltLeft">Alt</div>
+                        <div class="key key-spacebar" data-code="Space">Espacio</div>
+                        <div class="key key-alt right-alt" data-code="AltRight">Alt Gr</div>
+                        <div class="key key-windows right-win" data-code="MetaRight">Win</div>
+                        <div class="key key-control right-ctrl" data-code="ControlRight">Ctrl</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ejercicios -->
+            <div class="exercises-section">
+                <h2>Ejercicios Prácticos</h2>
+
+                <!-- Ejercicio 1: Vocales -->
+                <div class="exercise-card" id="exercise-vowels">
+                    <h3>Ejercicio 1: Encuentra las Vocales</h3>
+                    <p>Presiona las teclas de las vocales en tu teclado físico y obsérvalas brillar en el teclado de
+                        arriba.</p>
+                    <div class="vowels-container">
+                        <div class="vowel-key" data-vowel="A">A</div>
+                        <div class="vowel-key" data-vowel="E">E</div>
+                        <div class="vowel-key" data-vowel="I">I</div>
+                        <div class="vowel-key" data-vowel="O">O</div>
+                        <div class="vowel-key" data-vowel="U">U</div>
+                    </div>
+                    <div class="exercise-feedback" id="vowels-feedback"></div>
+                </div>
+
+                <!-- Ejercicio 2: Escribe tu nombre -->
+                <div class="exercise-card" id="exercise-name">
+                    <h3>Ejercicio 2: Escribe tu Nombre</h3>
+                    <p>Escribe tu nombre usando el teclado:</p>
+                    <div class="input-hint">💡 Ejemplo: Teresa</div>
+                    <input type="text" class="exercise-input" id="name-input" placeholder="Haz click y escribe..."
+                        maxlength="20">
+                    <div class="exercise-feedback" id="name-feedback"></div>
+                </div>
+
+                <!-- Ejercicio 3: Escribe tu apellido -->
+                <div class="exercise-card" id="exercise-lastname">
+                    <h3>Ejercicio 3: Escribe tu Apellido</h3>
+                    <p>Ahora escribe tu apellido en el siguiente cuadro:</p>
+                    <div class="input-hint">💡 Ejemplo: Suarez</div>
+                    <input type="text" class="exercise-input" id="lastname-input" placeholder="Haz click y escribe..."
+                        maxlength="20">
+                    <div class="exercise-feedback" id="lastname-feedback"></div>
+                </div>
+
+                <!-- Progreso -->
+                <div class="progress-section">
+                    <h4>Tu Progreso:</h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="lesson-progress"></div>
+                    </div>
+                    <div class="progress-text" id="progress-text">0% completado</div>
+                </div>
+            </div>
+
+
+            <div class="navigation">
+                <button class="btn btn-secondary" id="back-to-welcome-1">← Volver</button>
+                <button class="btn" id="next-to-2">Siguiente Lección →</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- LECCIÓN 2: Teclado Numérico Superior -->
+    <div id="lesson-2" class="page-container hidden">
+        <div class="lesson-section">
+            <h1>Lección 2: Teclado Numérico Superior</h1>
+
+            <!-- Explicación -->
+            <div class="explanation-box">
+                <h2>¿Qué es el Teclado Numérico Superior?</h2>
+                <p>Es la fila superior del teclado donde encuentras los números del 0 al 9 y símbolos especiales.</p>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <span class="feature-icon">🔢</span>
+                        <strong>Números</strong>
+                        <p>1 2 3 4 5 6 7 8 9 0</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">⚡</span>
+                        <strong>Símbolos</strong>
+                        <p>! @ # $ % ^ & * ( )</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">💡</span>
+                        <strong>Consejo</strong>
+                        <p>Usa Shift + número para los símbolos</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lesson-content">
+                <!-- Teclado Principal -->
+                <div class="keyboard-section">
+                    <h3>Teclado Principal - Fila Numérica</h3>
+                    <div id="main-keyboard-2" class="keyboard">
+                        <!-- Fila numérica -->
+                        <div class="keyboard-row">
+                            <div class="key key-symbol" data-code="Backquote">
+                                <span class="primary">°| ¬</span>
+                            </div>
+                            <div class="key key-number" data-code="Digit1">
+                                <span class="primary">1</span>
+                                <span class="secondary">!</span>
+                            </div>
+                            <div class="key key-number" data-code="Digit2">
+                                <span class="primary">2</span>
+                                <span class="secondary">"</span>
+                            </div>
+                            <div class="key key-number" data-code="Digit3">
+                                <span class="primary">3</span>
+                                <span class="secondary">#</span>
+                            </div>
+                            <div class="key key-number" data-code="Digit4">
+                                <span class="primary">4</span>
+                                <span class="secondary">$</span>
+                            </div>
+                            <div class="key key-number" data-code="Digit5">
+                                <span class="primary">5</span>
+                                <span class="secondary">%</span>
+                            </div>
+                            <div class="key key-number" data-code="Digit6">
+                                <span class="primary">6</span>
+                                <span class="secondary">&amp;</span>
+                            </div>
+                            <div class="key key-number" data-code="Digit7">
+                                <span class="primary">7</span>
+                                <span class="secondary">/</span>
+                            </div>
+                            <div class="key key-number" data-code="Digit8">
+                                <span class="primary">8</span>
+                                <span class="secondary">(</span>
+                            </div>
+                            <div class="key key-number" data-code="Digit9">
+                                <span class="primary">9</span>
+                                <span class="secondary">)</span>
+                            </div>
+                            <div class="key key-number" data-code="Digit0">
+                                <span class="primary">0</span>
+                                <span class="secondary">=</span>
+                            </div>
+                            <div class="key key-symbol" data-code="apostrophe">
+                                <span class="primary">'</span>
+                                <span class="secondary">? \</span>
+                            </div>
+                            <div class="key key-symbol" data-code="Question-Mark">
+                                <span class="primary">¿</span>
+                                <span class="secondary">¡</span>
+                            </div>
+                            <div class="key key-delete" data-code="Backspace">←</div>
+                        </div>
+
+                        <!-- Fila QWERTY -->
+                        <div class="keyboard-row">
+                            <div class="key key-tab" data-code="Tab">Tab</div>
+                            <div class="key key-letter" data-code="KeyQ">
+                                <span class="primary">Q</span>
+                                <span class="secondary">@</span>
+                            </div>
+                            <div class="key key-letter" data-code="KeyW">W</div>
+                            <div class="key key-letter" data-code="KeyE">E</div>
+                            <div class="key key-letter" data-code="KeyR">R</div>
+                            <div class="key key-letter" data-code="KeyT">T</div>
+                            <div class="key key-letter" data-code="KeyY">Y</div>
+                            <div class="key key-letter" data-code="KeyU">U</div>
+                            <div class="key key-letter" data-code="KeyI">I</div>
+                            <div class="key key-letter" data-code="KeyO">O</div>
+                            <div class="key key-letter" data-code="KeyP">P</div>
+                            <div class="key key-symbol" data-code="BracketLeft">
+                                <span class="primary">´´</span>
+                                <span class="secondary">¨</span>
+                            </div>
+                            <div class="key key-symbol" data-code="BracketRight">
+                                <span class="primary">+</span>
+                                <span class="secondary">*~</span>
+                            </div>
+                        </div>
+
+                        <!-- Fila ASDF -->
+                        <div class="keyboard-row">
+                            <div class="key key-capslock" data-code="CapsLock">Bloq Máyus</div>
+                            <div class="key key-letter" data-code="KeyA">A</div>
+                            <div class="key key-letter" data-code="KeyS">S</div>
+                            <div class="key key-letter" data-code="KeyD">D</div>
+                            <div class="key key-letter" data-code="KeyF">F</div>
+                            <div class="key key-letter" data-code="KeyG">G</div>
+                            <div class="key key-letter" data-code="KeyH">H</div>
+                            <div class="key key-letter" data-code="KeyJ">J</div>
+                            <div class="key key-letter" data-code="KeyK">K</div>
+                            <div class="key key-letter" data-code="KeyL">L</div>
+                            <div class="key key-letter" data-code="KeyL">Ñ</div>
+                            <div class="key key-symbol" data-code="Semicolon">
+                                <span class="primary">{</span>
+                                <span class="secondary">[^</span>
+                            </div>
+                            <div class="key key-symbol" data-code="Quote">
+                                <span class="primary">}</span>
+                                <span class="secondary">]`</span>
+                            </div>
+                            <div class="key key-enter" data-code="Enter">Enter</div>
+                        </div>
+
+                        <!-- Fila ZXCV -->
+                        <div class="keyboard-row">
+                            <div class="key key-shift left-shift" data-code="ShiftLeft">Shift</div>
+                            <div class="key key-symbol" data-code="symbol less-than greater-than">
+                                <span class="primary">&lt;</span><span class="secondary">&gt;</span>
+                            </div>
+                            <div class="key key-letter" data-code="KeyZ">Z</div>
+                            <div class="key key-letter" data-code="KeyX">X</div>
+                            <div class="key key-letter" data-code="KeyC">C</div>
+                            <div class="key key-letter" data-code="KeyV">V</div>
+                            <div class="key key-letter" data-code="KeyB">B</div>
+                            <div class="key key-letter" data-code="KeyN">N</div>
+                            <div class="key key-letter" data-code="KeyM">M</div>
+                            <div class="key key-symbol" data-code="Comma">
+                                <span class="primary">,</span>
+                                <span class="secondary">;</span>
+                            </div>
+                            <div class="key key-symbol" data-code="Period">
+                                <span class="primary">.</span>
+                                <span class="secondary">:</span>
+                            </div>
+                            <div class="key key-symbol" data-code="guion hyphen underscore">
+                                <span class="primary">-</span>
+                                <span class="secondary">_</span>
+                            </div>
+                            <div class="key key-shift right-shift" data-code="ShiftRight">Shift</div>
+                        </div>
+
+                        <!-- Fila de espacio -->
+                        <div class="keyboard-row">
+                            <div class="key key-control left-ctrl" data-code="ControlLeft">Ctrl</div>
+                            <div class="key key-windows left-win" data-code="MetaLeft">Win</div>
+                            <div class="key key-alt left-alt" data-code="AltLeft">Alt</div>
+                            <div class="key key-spacebar" data-code="Space">Espacio</div>
+                            <div class="key key-alt right-alt" data-code="AltRight">Alt Gr</div>
+                            <div class="key key-windows right-win" data-code="MetaRight">Win</div>
+                            <div class="key key-control right-ctrl" data-code="ControlRight">Ctrl</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejercicios -->
+                <div class="exercises-section">
+                    <h2>Ejercicios Prácticos</h2>
+
+                    <!-- Ejercicio 1: Números del 1-9 -->
+                    <div class="exercise-card" id="exercise-numbers">
+                        <h3>Ejercicio 1: Encuentra los Números</h3>
+                        <p>Presiona los números del 1 al 0 en tu teclado físico y obsérvalos brillar en el teclado de
+                            arriba.</p>
+                        <div class="numbers-container">
+                            <div class="number-key" data-number="1">1</div>
+                            <div class="number-key" data-number="2">2</div>
+                            <div class="number-key" data-number="3">3</div>
+                            <div class="number-key" data-number="4">4</div>
+                            <div class="number-key" data-number="5">5</div>
+                            <div class="number-key" data-number="6">6</div>
+                            <div class="number-key" data-number="7">7</div>
+                            <div class="number-key" data-number="8">8</div>
+                            <div class="number-key" data-number="9">9</div>
+                            <div class="number-key" data-number="0">0</div>
+                        </div>
+                        <div class="exercise-feedback" id="numbers-feedback"></div>
+                    </div>
+
+                    <!-- Ejercicio 2: Año de nacimiento -->
+                    <div class="exercise-card" id="exercise-birthyear">
+                        <h3>Ejercicio 2: Escribe tu Año de Nacimiento</h3>
+                        <p>Escribe el año en que naciste (4 números):</p>
+                        <div class="input-hint">💡 Ejemplo: 1962</div>
+                        <input type="text" class="exercise-input" id="birthyear-input"
+                            placeholder="Haz clic aquí y escribe..." maxlength="4" pattern="[0-9]{4}">
+                        <div class="exercise-feedback" id="birthyear-feedback"></div>
+                    </div>
+
+                    <!-- Ejercicio 3: Edad -->
+                    <div class="exercise-card" id="exercise-age">
+                        <h3>Ejercicio 3: Escribe tu Edad</h3>
+                        <p>Ahora escribe tu edad actual en números:</p>
+                        <div class="input-hint">💡 Ejemplo: 80</div>
+                        <input type="text" class="exercise-input" id="age-input"
+                            placeholder="Haz clic aquí y escribe..." maxlength="3" pattern="[0-9]{1,3}">
+                        <div class="exercise-feedback" id="age-feedback"></div>
+                    </div>
+
+                    <!-- Ejercicio 4: Año actual -->
+                    <div class="exercise-card" id="exercise-currentyear">
+                        <h3>Ejercicio 4: Escribe el Año Actual</h3>
+                        <p>Finalmente, escribe el año actual:</p>
+                        <div class="input-hint">💡 Ejemplo: 2025</div>
+                        <input type="text" class="exercise-input" id="currentyear-input"
+                            placeholder="Haz clic aquí y escribe..." maxlength="4" pattern="[0-9]{4}">
+                        <div class="exercise-feedback" id="currentyear-feedback"></div>
+                    </div>
+
+                    <!-- Progreso -->
+                    <div class="progress-section">
+                        <h4>Tu Progreso:</h4>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="lesson-progress-2"></div>
+                        </div>
+                        <div class="progress-text" id="progress-text-2">0% completado</div>
+                    </div>
+                </div>
+
+                <div class="navigation">
+                    <button class="btn btn-secondary" id="back-to-1">← Lección Anterior</button>
+                    <button class="btn" id="next-to-3">Siguiente Lección →</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LECCIÓN 3: Teclas especiales -->
+    <div id="lesson-3" class="page-container hidden">
+        <div class="lesson-section">
+            <h1>Lección 3: Teclas Especiales</h1>
+
+            <div class="explanation-box">
+                <h2>¿Qué son las Teclas Especiales?</h2>
+                <p>Estas teclas no escriben letras ni números, pero son muy importantes para usar el teclado
+                    correctamente.</p>
+
+                <!-- Navegación entre grupos -->
+                <div class="keyboard-navigation">
+                    <button class="key-nav-btn active" data-target="writing">
+                        <span class="nav-icon">✏️</span>
+                        Escritura y Formato
+                    </button>
+                    <button class="key-nav-btn" data-target="modification">
+                        <span class="nav-icon">🔑</span>
+                        Modificación
+                    </button>
+                    <button class="key-nav-btn" data-target="editing">
+                        <span class="nav-icon">✂️</span>
+                        Edición
+                    </button>
+                    <button class="key-nav-btn" data-target="system">
+                        <span class="nav-icon">🪟</span>
+                        Sistema
+                    </button>
+                </div>
+
+                <!-- Grupos de teclas -->
+                <div class="key-cards-container">
+
+                    <!-- Grupo 1: Escritura y Formato -->
+                    <div id="cards-writing" class="key-cards-group active">
+                        <div class="group-description">
+                            <h3>✏️ Teclas de escritura y formato</h3>
+                            <p>Estas teclas te ayudan a organizar lo que escribes, haciendo que el texto tenga forma y
+                                sentido.</p>
+                        </div>
+                        <div class="features-grid">
+                            <!-- Espacio -->
+                            <div class="key-info-simple" data-key="Space">
+                                <div class="key-header">
+                                    <div class="key-icon-simple">␣</div>
+                                    <h3>Tecla Espacio</h3>
+                                </div>
+                                <div class="key-details">
+                                    <div class="detail-card">
+                                        <h4>Función</h4>
+                                        <p>Separa palabras.</p>
+                                    </div>
+                                    <div class="detail-card">
+                                        <h4>¿Cómo usarla?</h4>
+                                        <p>Presiona una vez para dejar un espacio.</p>
+                                    </div>
+                                    <div class="detail-card">
+                                        <h4>Tip</h4>
+                                        <p>Cada pulsación inserta un espacio; mantenerla pulsada crea varios espacios.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="example-card">
+                                    <h4>Ejemplo</h4>
+                                    <p>
+                                        <code>Holaamigo</code> → <strong>Hola amigo</strong><br>
+                                        La tecla espacio nos permite separar "Hola" de "amigo".
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Enter -->
+                            <div class="key-info-simple" data-key="Enter">
+                                <div class="key-header">
+                                    <div class="key-icon-simple">↵</div>
+                                    <h3>Tecla Enter</h3>
+                                </div>
+                                <div class="key-details">
+                                    <div class="detail-card">
+                                        <h4>Función</h4>
+                                        <p>Salta de línea o confirma una acción.</p>
+                                    </div>
+                                    <div class="detail-card">
+                                        <h4>¿Cómo usarla?</h4>
+                                        <p>Presiona para crear nueva línea o enviar formularios.</p>
+                                    </div>
+                                    <div class="detail-card">
+                                        <h4>Tip</h4>
+                                        <p>En textos, crea un nuevo párrafo; en formularios, envía la información.</p>
+                                    </div>
+                                </div>
+                                <div class="example-card">
+                                    <h4>Ejemplo</h4>
+                                    <p>
+                                        Al terminar de escribir un párrafo, presiona Enter para comenzar uno nuevo.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Tab -->
+                            <div class="key-info-simple" data-key="Tab">
+                                <div class="key-header">
+                                    <div class="key-icon-simple">⇥</div>
+                                    <h3>Tecla Tabulador</h3>
+                                </div>
+                                <div class="key-details">
+                                    <div class="detail-card">
+                                        <h4>Función</h4>
+                                        <p>Mueve el cursor a la siguiente posición/tabulación.</p>
+                                    </div>
+                                    <div class="detail-card">
+                                        <h4>¿Cómo usarla?</h4>
+                                        <p>Presiona para mover el cursor al siguiente campo o crear sangría.</p>
+                                    </div>
+                                    <div class="detail-card">
+                                        <h4>Tip</h4>
+                                        <p>En formularios, salta entre campos; en textos, crea sangrías profesionales.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="example-card">
+                                    <h4>Ejemplo</h4>
+                                    <p>
+                                        En un formulario web, presiona Tab para pasar del campo "Nombre" al "Apellido".
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Caps Lock -->
+                            <div class="key-info-simple" data-key="CapsLock">
+                                <div class="key-header">
+                                    <div class="key-icon-simple">⇪</div>
+                                    <h3>Tecla Bloq Mayús</h3>
+                                </div>
+                                <div class="key-details">
+                                    <div class="detail-card">
+                                        <h4>Función</h4>
+                                        <p>Cambia a mayúsculas permanentes.</p>
+                                    </div>
+                                    <div class="detail-card">
+                                        <h4>¿Cómo usarla?</h4>
+                                        <p>Presiona una vez para activar, presiona nuevamente para desactivar.</p>
+                                    </div>
+                                    <div class="detail-card">
+                                        <h4>Tip</h4>
+                                        <p>Ideal para escribir muchas mayúsculas seguidas; una luz en el teclado indica
+                                            si está activo.</p>
+                                    </div>
+                                </div>
+                                <div class="example-card">
+                                    <h4>Ejemplo</h4>
+                                    <p>
+                                        Para escribir "CHILE" en mayúsculas: presiona Bloq Máyus, escribe CHILE,
+                                        presiona otra vez BBloq Máyus para desactivar.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Grupo 2: Modificación -->
+                    <div id="cards-modification" class="key-cards-group">
+                        <div class="group-description">
+                            <h3>🔑 Teclas de modificación</h3>
+                            <p>Estas teclas son como "ayudantes": trabajan en equipo con otras teclas para hacer cosas
+                                diferentes.</p>
+                        </div>
+                        <div class="features-grid">
+                            <!-- Ctrl -->
+                            <div class="key-info-simple" data-key="Control">
+                                <div class="key-header">
+                                    <div class="key-icon-simple">Ctrl</div>
+                                    <h3>Tecla Control</h3>
+                                </div>
+                                <div class="key-details">
+                                    <div class="detail-card">
+                                        <h4>Función</h4>
+                                        <p>Permite atajos (Ctrl + C para copiar, Ctrl + V para pegar, etc.).</p>
+                                    </div>
+                                    <div class="detail-card">
+                                        <h4>¿Cómo usarla?</h4>
+                                        <p>Mantén presionada mientras pulsas otra tecla.</p>
+                                    </div>
+                                    <div class="detail-card">
+                                        <h4>Tip</h4>
+                                        <p>Combinada con otras teclas realiza acciones rápidas.</p>
+                                    </div>
+                                </div>
+                                <div class="example-card">
+                                    <h4>Ejemplo</h4>
+                                    <p>
+                                        Para copiar texto: selecciona el texto y presiona Ctrl + C; para pegarlo: Ctrl +
+                                        V.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Shift -->
+                            <div class="key-info-simple" data-key="Shift">
+                                <div class="key-header">
+                                    <div class="key-icon-simple">⇧</div>
+                                    <h3>Tecla Shift</h3>
+                                </div>
+                                <div class="key-details">
+                                    <div class="detail-card">
+                                        <h4>Función</h4>
+                                        <p>Cambia el carácter (mayúsculas, símbolos).</p>
+                                    </div>
+                                    <div class="detail-card">
+                                        <h4>¿Cómo usarla?</h4>
+                                        <p>Mantén presionada mientras pulsas otra tecla.</p>
+                                    </div>
+                                    <div class="detail-card">
+                                        <h4>Tip</h4>
+                                        <p>Usa Shift + letra para mayúsculas; Shift + número para símbolos (!, @, #,
+                                            etc.).</p>
+                                    </div>
+                                </div>
+                                <div class="example-card">
+                                    <h4>Ejemplo</h4>
+                                    <p>
+                                        Para escribir "Hola" con H mayúscula: mantén Shift + presiona H, luego suelta y
+                                        escribe "ola".
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Alt Gr -->
+                            <div class="key-info-simple" data-key="AltGr">
+                                <div class="key-header">
+                                    <div class="key-icon-simple">Alt Gr</div>
+                                    <h3>Tecla Alternativa Gráfica</h3>
+                                </div>
+                                <div class="key-details">
+                                    <div class="detail-card">
+                                        <h4>Función</h4>
+                                        <p>Escribe caracteres especiales (como @ o #).</p>
+                                    </div>
+                                    <div class="detail-card">
+                                        <h4>¿Cómo usarla?</h4>
+                                        <p>Mantén presionada mientras pulsas teclas con terceros símbolos.</p>
+                                    </div>
+                                    <div class="detail-card">
+                                        <h4>Tip</h4>
+                                        <p>Esencial para escribir arroba (@), almohadilla (#), euro (€) y otros símbolos
+                                            especiales.</p>
+                                    </div>
+                                </div>
+                                <div class="example-card">
+                                    <h4>Ejemplo</h4>
+                                    <p>
+                                        Para escribir arroba (@) en muchos teclados: mantén Alt Gr + presiona la tecla Q
+                                        o 2.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Grupo 3: Edición -->
+                    <div id="cards-editing" class="key-cards-group">
+                        <div class="group-description">
+                            <h3>✂️ Teclas de edición</h3>
+                            <p>Estas teclas son las que usamos cuando queremos corregir o quitar algo.</p>
+                        </div>
+                        <div class="features-grid">
+                            <!-- Backspace -->
+                            <div class="key-info-simple" data-key="Backspace">
+                                <div class="key-header">
+                                    <div class="key-icon-simple">⌫</div>
+                                    <h3>Tecla Retroceso</h3>
+                                </div>
+                                <div class="key-details">
+                                    <div class="detail-card">
+                                        <h4>Función</h4>
+                                        <p>Elimina texto o elementos.</p>
+                                    </div>
+                                    <div class="detail-card">
+                                        <h4>¿Cómo usarla?</h4>
+                                        <p>Presiona para borrar caracteres antes del cursor.</p>
+                                    </div>
+                                    <div class="detail-card">
+                                        <h4>Tip</h4>
+                                        <p>Mantenerla pulsada borra texto rápidamente.</p>
+                                    </div>
+                                </div>
+                                <div class="example-card">
+                                    <h4>Ejemplo</h4>
+                                    <p>
+                                        Si escribes <code>Autoo</code> por error, usa Borrar para borrar la "o"
+                                        extra.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Grupo 4: Sistema -->
+                    <div id="cards-system" class="key-cards-group">
+                        <div class="group-description">
+                            <h3>🪟 Teclas del sistema o acceso rápido</h3>
+                            <p>Estas teclas no sirven para escribir, pero ayudan a moverte por el computador y acceder a
+                                funciones especiales.</p>
+                        </div>
+                        <div class="features-grid">
+                            <!-- Windows -->
+                            <div class="key-info-simple" data-key="Windows">
+                                <div class="key-header">
+                                    <div class="key-icon-simple">⊞</div>
+                                    <h3>Tecla Windows</h3>
+                                </div>
+                                <div class="key-details">
+                                    <div class="detail-card">
+                                        <h4>Función</h4>
+                                        <p>Abre el menú inicio y permite accesos rápidos.</p>
+                                    </div>
+                                    <div class="detail-card">
+                                        <h4>¿Cómo usarla?</h4>
+                                        <p>Presiona sola para abrir el menú Inicio; combínala con otras teclas.</p>
+                                    </div>
+                                    <div class="detail-card">
+                                        <h4>Tip</h4>
+                                        <p>Windows + E abre el Explorador; Windows + D muestra el escritorio.</p>
+                                    </div>
+                                </div>
+                                <div class="example-card">
+                                    <h4>Ejemplo</h4>
+                                    <p>
+                                        Para buscar un programa rápidamente: presiona Windows y escribe el nombre del
+                                        programa.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contenido de la lección con teclados por grupo -->
+            <div class="lesson-content">
+                <!-- Teclados por grupo -->
+                <div class="keyboard-section">
+                    <h3>Teclado Principal - <span id="current-group-title">Escritura y Formato ✏️</span></h3>
+
+                    <!-- Teclado para Escritura y Formato -->
+                    <div id="keyboard-lesson-3-writing" class="keyboard-variant active">
+                        <div class="keyboard">
+                            <!-- Fila numérica -->
+                            <div class="keyboard-row">
+                                <div class="key key-symbol" data-code="Backquote">
+                                    <span class="primary">°| ¬</span>
+                                </div>
+                                <div class="key key-number" data-code="Digit1">
+                                    <span class="primary">1</span>
+                                    <span class="secondary">!</span>
+                                </div>
+                                <div class="key key-number" data-code="Digit2">
+                                    <span class="primary">2</span>
+                                    <span class="secondary">"</span>
+                                </div>
+                                <div class="key key-number" data-code="Digit3">
+                                    <span class="primary">3</span>
+                                    <span class="secondary">#</span>
+                                </div>
+                                <div class="key key-number" data-code="Digit4">
+                                    <span class="primary">4</span>
+                                    <span class="secondary">$</span>
+                                </div>
+                                <div class="key key-number" data-code="Digit5">
+                                    <span class="primary">5</span>
+                                    <span class="secondary">%</span>
+                                </div>
+                                <div class="key key-number" data-code="Digit6">
+                                    <span class="primary">6</span>
+                                    <span class="secondary">&amp;</span>
+                                </div>
+                                <div class="key key-number" data-code="Digit7">
+                                    <span class="primary">7</span>
+                                    <span class="secondary">/</span>
+                                </div>
+                                <div class="key key-number" data-code="Digit8">
+                                    <span class="primary">8</span>
+                                    <span class="secondary">(</span>
+                                </div>
+                                <div class="key key-number" data-code="Digit9">
+                                    <span class="primary">9</span>
+                                    <span class="secondary">)</span>
+                                </div>
+                                <div class="key key-number" data-code="Digit0">
+                                    <span class="primary">0</span>
+                                    <span class="secondary">=</span>
+                                </div>
+                                <div class="key key-symbol" data-code="apostrophe">
+                                    <span class="primary">'</span>
+                                    <span class="secondary">? \</span>
+                                </div>
+                                <div class="key key-symbol" data-code="Question-Mark">
+                                    <span class="primary">¿</span>
+                                    <span class="secondary">¡</span>
+                                </div>
+                                <div class="key key-delete" data-code="Backspace">←</div>
+                            </div>
+
+                            <!-- Fila QWERTY -->
+                            <div class="keyboard-row">
+                                <div class="key key-tab" data-code="Tab">Tab</div>
+                                <div class="key key-letter" data-code="KeyQ">
+                                    <span class="primary">Q</span>
+                                    <span class="secondary">@</span>
+                                </div>
+                                <div class="key key-letter" data-code="KeyW">W</div>
+                                <div class="key key-letter" data-code="KeyE">E</div>
+                                <div class="key key-letter" data-code="KeyR">R</div>
+                                <div class="key key-letter" data-code="KeyT">T</div>
+                                <div class="key key-letter" data-code="KeyY">Y</div>
+                                <div class="key key-letter" data-code="KeyU">U</div>
+                                <div class="key key-letter" data-code="KeyI">I</div>
+                                <div class="key key-letter" data-code="KeyO">O</div>
+                                <div class="key key-letter" data-code="KeyP">P</div>
+                                <div class="key key-symbol" data-code="BracketLeft">
+                                    <span class="primary">´´</span>
+                                    <span class="secondary">¨</span>
+                                </div>
+                                <div class="key key-symbol" data-code="BracketRight">
+                                    <span class="primary">+</span>
+                                    <span class="secondary">*~</span>
+                                </div>
+                            </div>
+
+                            <!-- Fila ASDF -->
+                            <div class="keyboard-row">
+                                <div class="key key-capslock" data-code="CapsLock">Bloq Máyus</div>
+                                <div class="key key-letter" data-code="KeyA">A</div>
+                                <div class="key key-letter" data-code="KeyS">S</div>
+                                <div class="key key-letter" data-code="KeyD">D</div>
+                                <div class="key key-letter" data-code="KeyF">F</div>
+                                <div class="key key-letter" data-code="KeyG">G</div>
+                                <div class="key key-letter" data-code="KeyH">H</div>
+                                <div class="key key-letter" data-code="KeyJ">J</div>
+                                <div class="key key-letter" data-code="KeyK">K</div>
+                                <div class="key key-letter" data-code="KeyL">L</div>
+                                <div class="key key-letter" data-code="KeyL">Ñ</div>
+                                <div class="key key-symbol" data-code="Semicolon">
+                                    <span class="primary">{</span>
+                                    <span class="secondary">[^</span>
+                                </div>
+                                <div class="key key-symbol" data-code="Quote">
+                                    <span class="primary">}</span>
+                                    <span class="secondary">]`</span>
+                                </div>
+                                <div class="key key-enter" data-code="Enter">Enter</div>
+                            </div>
+
+                            <!-- Fila ZXCV -->
+                            <div class="keyboard-row">
+                                <div class="key key-shift left-shift" data-code="ShiftLeft">Shift</div>
+                                <div class="key key-symbol" data-code="symbol less-than greater-than">
+                                    <span class="primary">&lt;</span><span class="secondary">&gt;</span>
+                                </div>
+                                <div class="key key-letter" data-code="KeyZ">Z</div>
+                                <div class="key key-letter" data-code="KeyX">X</div>
+                                <div class="key key-letter" data-code="KeyC">C</div>
+                                <div class="key key-letter" data-code="KeyV">V</div>
+                                <div class="key key-letter" data-code="KeyB">B</div>
+                                <div class="key key-letter" data-code="KeyN">N</div>
+                                <div class="key key-letter" data-code="KeyM">M</div>
+                                <div class="key key-symbol" data-code="Comma">
+                                    <span class="primary">,</span>
+                                    <span class="secondary">;</span>
+                                </div>
+                                <div class="key key-symbol" data-code="Period">
+                                    <span class="primary">.</span>
+                                    <span class="secondary">:</span>
+                                </div>
+                                <div class="key key-symbol" data-code="guion hyphen underscore">
+                                    <span class="primary">-</span>
+                                    <span class="secondary">_</span>
+                                </div>
+                                <div class="key key-shift right-shift" data-code="ShiftRight">Shift</div>
+                            </div>
+
+                            <!-- Fila de espacio -->
+                            <div class="keyboard-row">
+                                <div class="key key-control left-ctrl" data-code="ControlLeft">Ctrl</div>
+                                <div class="key key-windows left-win" data-code="MetaLeft">Win</div>
+                                <div class="key key-alt left-alt" data-code="AltLeft">Alt</div>
+                                <div class="key key-spacebar" data-code="Space">Espacio</div>
+                                <div class="key key-alt right-alt" data-code="AltRight">Alt Gr</div>
+                                <div class="key key-windows right-win" data-code="MetaRight">Win</div>
+                                <div class="key key-control right-ctrl" data-code="ControlRight">Ctrl</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Teclado para Modificación -->
+                    <div id="keyboard-lesson-3-modification" class="keyboard-variant">
+                        <div class="keyboard">
+                            <!-- Fila numérica -->
+                            <div class="keyboard-row">
+                                <div class="key key-symbol" data-code="Backquote">
+                                    <span class="primary">°| ¬</span>
+                                </div>
+                                <div class="key key-number" data-code="Digit1">
+                                    <span class="primary">1</span>
+                                    <span class="secondary">!</span>
+                                </div>
+                                <div class="key key-number" data-code="Digit2">
+                                    <span class="primary">2</span>
+                                    <span class="secondary">"</span>
+                                </div>
+                                <div class="key key-number" data-code="Digit3">
+                                    <span class="primary">3</span>
+                                    <span class="secondary">#</span>
+                                </div>
+                                <div class="key key-number" data-code="Digit4">
+                                    <span class="primary">4</span>
+                                    <span class="secondary">$</span>
+                                </div>
+                                <div class="key key-number" data-code="Digit5">
+                                    <span class="primary">5</span>
+                                    <span class="secondary">%</span>
+                                </div>
+                                <div class="key key-number" data-code="Digit6">
+                                    <span class="primary">6</span>
+                                    <span class="secondary">&amp;</span>
+                                </div>
+                                <div class="key key-number" data-code="Digit7">
+                                    <span class="primary">7</span>
+                                    <span class="secondary">/</span>
+                                </div>
+                                <div class="key key-number" data-code="Digit8">
+                                    <span class="primary">8</span>
+                                    <span class="secondary">(</span>
+                                </div>
+                                <div class="key key-number" data-code="Digit9">
+                                    <span class="primary">9</span>
+                                    <span class="secondary">)</span>
+                                </div>
+                                <div class="key key-number" data-code="Digit0">
+                                    <span class="primary">0</span>
+                                    <span class="secondary">=</span>
+                                </div>
+                                <div class="key key-symbol" data-code="apostrophe">
+                                    <span class="primary">'</span>
+                                    <span class="secondary">? \</span>
+                                </div>
+                                <div class="key key-symbol" data-code="Question-Mark">
+                                    <span class="primary">¿</span>
+                                    <span class="secondary">¡</span>
+                                </div>
+                                <div class="key key-delete" data-code="Backspace">←</div>
+                            </div>
+
+                            <!-- Fila QWERTY -->
+                            <div class="keyboard-row">
+                                <div class="key key-tab" data-code="Tab">Tab</div>
+                                <div class="key key-letter" data-code="KeyQ">
+                                    <span class="primary">Q</span>
+                                    <span class="secondary">@</span>
+                                </div>
+                                <div class="key key-letter" data-code="KeyW">W</div>
+                                <div class="key key-letter" data-code="KeyE">E</div>
+                                <div class="key key-letter" data-code="KeyR">R</div>
+                                <div class="key key-letter" data-code="KeyT">T</div>
+                                <div class="key key-letter" data-code="KeyY">Y</div>
+                                <div class="key key-letter" data-code="KeyU">U</div>
+                                <div class="key key-letter" data-code="KeyI">I</div>
+                                <div class="key key-letter" data-code="KeyO">O</div>
+                                <div class="key key-letter" data-code="KeyP">P</div>
+                                <div class="key key-symbol" data-code="BracketLeft">
+                                    <span class="primary">´´</span>
+                                    <span class="secondary">¨</span>
+                                </div>
+                                <div class="key key-symbol" data-code="BracketRight">
+                                    <span class="primary">+</span>
+                                    <span class="secondary">*~</span>
+                                </div>
+                            </div>
+
+                            <!-- Fila ASDF -->
+                            <div class="keyboard-row">
+                                <div class="key key-capslock" data-code="CapsLock">Bloq Máyus</div>
+                                <div class="key key-letter" data-code="KeyA">A</div>
+                                <div class="key key-letter" data-code="KeyS">S</div>
+                                <div class="key key-letter" data-code="KeyD">D</div>
+                                <div class="key key-letter" data-code="KeyF">F</div>
+                                <div class="key key-letter" data-code="KeyG">G</div>
+                                <div class="key key-letter" data-code="KeyH">H</div>
+                                <div class="key key-letter" data-code="KeyJ">J</div>
+                                <div class="key key-letter" data-code="KeyK">K</div>
+                                <div class="key key-letter" data-code="KeyL">L</div>
+                                <div class="key key-letter" data-code="KeyL">Ñ</div>
+                                <div class="key key-symbol" data-code="Semicolon">
+                                    <span class="primary">{</span>
+                                    <span class="secondary">[^</span>
+                                </div>
+                                <div class="key key-symbol" data-code="Quote">
+                                    <span class="primary">}</span>
+                                    <span class="secondary">]`</span>
+                                </div>
+                                <div class="key key-enter" data-code="Enter">Enter</div>
+                            </div>
+
+                            <!-- Fila ZXCV -->
+                            <div class="keyboard-row">
+                                <div class="key key-shift left-shift" data-code="ShiftLeft">Shift</div>
+                                <div class="key key-symbol" data-code="symbol less-than greater-than">
+                                    <span class="primary">&lt;</span><span class="secondary">&gt;</span>
+                                </div>
+                                <div class="key key-letter" data-code="KeyZ">Z</div>
+                                <div class="key key-letter" data-code="KeyX">X</div>
+                                <div class="key key-letter" data-code="KeyC">C</div>
+                                <div class="key key-letter" data-code="KeyV">V</div>
+                                <div class="key key-letter" data-code="KeyB">B</div>
+                                <div class="key key-letter" data-code="KeyN">N</div>
+                                <div class="key key-letter" data-code="KeyM">M</div>
+                                <div class="key key-symbol" data-code="Comma">
+                                    <span class="primary">,</span>
+                                    <span class="secondary">;</span>
+                                </div>
+                                <div class="key key-symbol" data-code="Period">
+                                    <span class="primary">.</span>
+                                    <span class="secondary">:</span>
+                                </div>
+                                <div class="key key-symbol" data-code="guion hyphen underscore">
+                                    <span class="primary">-</span>
+                                    <span class="secondary">_</span>
+                                </div>
+                                <div class="key key-shift right-shift" data-code="ShiftRight">Shift</div>
+                            </div>
+
+                            <!-- Fila de espacio -->
+                            <div class="keyboard-row">
+                                <div class="key key-control left-ctrl" data-code="ControlLeft">Ctrl</div>
+                                <div class="key key-windows left-win" data-code="MetaLeft">Win</div>
+                                <div class="key key-alt left-alt" data-code="AltLeft">Alt</div>
+                                <div class="key key-spacebar" data-code="Space">Espacio</div>
+                                <div class="key key-alt right-alt" data-code="AltRight">Alt Gr</div>
+                                <div class="key key-windows right-win" data-code="MetaRight">Win</div>
+                                <div class="key key-control right-ctrl" data-code="ControlRight">Ctrl</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Teclado para Edición -->
+                    <div id="keyboard-lesson-3-editing" class="keyboard-variant">
+                        <div class="keyboard">
+                            <!-- Fila numérica -->
+                            <div class="keyboard-row">
+                                <div class="key key-symbol" data-code="Backquote">
+                                    <span class="primary">°| ¬</span>
+                                </div>
+                                <div class="key key-number" data-code="Digit1">
+                                    <span class="primary">1</span>
+                                    <span class="secondary">!</span>
+                                </div>
+                                <div class="key key-number" data-code="Digit2">
+                                    <span class="primary">2</span>
+                                    <span class="secondary">"</span>
+                                </div>
+                                <div class="key key-number" data-code="Digit3">
+                                    <span class="primary">3</span>
+                                    <span class="secondary">#</span>
+                                </div>
+                                <div class="key key-number" data-code="Digit4">
+                                    <span class="primary">4</span>
+                                    <span class="secondary">$</span>
+                                </div>
+                                <div class="key key-number" data-code="Digit5">
+                                    <span class="primary">5</span>
+                                    <span class="secondary">%</span>
+                                </div>
+                                <div class="key key-number" data-code="Digit6">
+                                    <span class="primary">6</span>
+                                    <span class="secondary">&amp;</span>
+                                </div>
+                                <div class="key key-number" data-code="Digit7">
+                                    <span class="primary">7</span>
+                                    <span class="secondary">/</span>
+                                </div>
+                                <div class="key key-number" data-code="Digit8">
+                                    <span class="primary">8</span>
+                                    <span class="secondary">(</span>
+                                </div>
+                                <div class="key key-number" data-code="Digit9">
+                                    <span class="primary">9</span>
+                                    <span class="secondary">)</span>
+                                </div>
+                                <div class="key key-number" data-code="Digit0">
+                                    <span class="primary">0</span>
+                                    <span class="secondary">=</span>
+                                </div>
+                                <div class="key key-symbol" data-code="apostrophe">
+                                    <span class="primary">'</span>
+                                    <span class="secondary">? \</span>
+                                </div>
+                                <div class="key key-symbol" data-code="Question-Mark">
+                                    <span class="primary">¿</span>
+                                    <span class="secondary">¡</span>
+                                </div>
+                                <div class="key key-delete" data-code="Backspace">←</div>
+                            </div>
+
+                            <!-- Fila QWERTY -->
+                            <div class="keyboard-row">
+                                <div class="key key-tab" data-code="Tab">Tab</div>
+                                <div class="key key-letter" data-code="KeyQ">
+                                    <span class="primary">Q</span>
+                                    <span class="secondary">@</span>
+                                </div>
+                                <div class="key key-letter" data-code="KeyW">W</div>
+                                <div class="key key-letter" data-code="KeyE">E</div>
+                                <div class="key key-letter" data-code="KeyR">R</div>
+                                <div class="key key-letter" data-code="KeyT">T</div>
+                                <div class="key key-letter" data-code="KeyY">Y</div>
+                                <div class="key key-letter" data-code="KeyU">U</div>
+                                <div class="key key-letter" data-code="KeyI">I</div>
+                                <div class="key key-letter" data-code="KeyO">O</div>
+                                <div class="key key-letter" data-code="KeyP">P</div>
+                                <div class="key key-symbol" data-code="BracketLeft">
+                                    <span class="primary">´´</span>
+                                    <span class="secondary">¨</span>
+                                </div>
+                                <div class="key key-symbol" data-code="BracketRight">
+                                    <span class="primary">+</span>
+                                    <span class="secondary">*~</span>
+                                </div>
+                            </div>
+
+                            <!-- Fila ASDF -->
+                            <div class="keyboard-row">
+                                <div class="key key-capslock" data-code="CapsLock">Bloq Máyus</div>
+                                <div class="key key-letter" data-code="KeyA">A</div>
+                                <div class="key key-letter" data-code="KeyS">S</div>
+                                <div class="key key-letter" data-code="KeyD">D</div>
+                                <div class="key key-letter" data-code="KeyF">F</div>
+                                <div class="key key-letter" data-code="KeyG">G</div>
+                                <div class="key key-letter" data-code="KeyH">H</div>
+                                <div class="key key-letter" data-code="KeyJ">J</div>
+                                <div class="key key-letter" data-code="KeyK">K</div>
+                                <div class="key key-letter" data-code="KeyL">L</div>
+                                <div class="key key-letter" data-code="KeyL">Ñ</div>
+                                <div class="key key-symbol" data-code="Semicolon">
+                                    <span class="primary">{</span>
+                                    <span class="secondary">[^</span>
+                                </div>
+                                <div class="key key-symbol" data-code="Quote">
+                                    <span class="primary">}</span>
+                                    <span class="secondary">]`</span>
+                                </div>
+                                <div class="key key-enter" data-code="Enter">Enter</div>
+                            </div>
+
+                            <!-- Fila ZXCV -->
+                            <div class="keyboard-row">
+                                <div class="key key-shift left-shift" data-code="ShiftLeft">Shift</div>
+                                <div class="key key-symbol" data-code="symbol less-than greater-than">
+                                    <span class="primary">&lt;</span><span class="secondary">&gt;</span>
+                                </div>
+                                <div class="key key-letter" data-code="KeyZ">Z</div>
+                                <div class="key key-letter" data-code="KeyX">X</div>
+                                <div class="key key-letter" data-code="KeyC">C</div>
+                                <div class="key key-letter" data-code="KeyV">V</div>
+                                <div class="key key-letter" data-code="KeyB">B</div>
+                                <div class="key key-letter" data-code="KeyN">N</div>
+                                <div class="key key-letter" data-code="KeyM">M</div>
+                                <div class="key key-symbol" data-code="Comma">
+                                    <span class="primary">,</span>
+                                    <span class="secondary">;</span>
+                                </div>
+                                <div class="key key-symbol" data-code="Period">
+                                    <span class="primary">.</span>
+                                    <span class="secondary">:</span>
+                                </div>
+                                <div class="key key-symbol" data-code="guion hyphen underscore">
+                                    <span class="primary">-</span>
+                                    <span class="secondary">_</span>
+                                </div>
+                                <div class="key key-shift right-shift" data-code="ShiftRight">Shift</div>
+                            </div>
+
+                            <!-- Fila de espacio -->
+                            <div class="keyboard-row">
+                                <div class="key key-control left-ctrl" data-code="ControlLeft">Ctrl</div>
+                                <div class="key key-windows left-win" data-code="MetaLeft">Win</div>
+                                <div class="key key-alt left-alt" data-code="AltLeft">Alt</div>
+                                <div class="key key-spacebar" data-code="Space">Espacio</div>
+                                <div class="key key-alt right-alt" data-code="AltRight">Alt Gr</div>
+                                <div class="key key-windows right-win" data-code="MetaRight">Win</div>
+                                <div class="key key-control right-ctrl" data-code="ControlRight">Ctrl</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Teclado para Sistema -->
+                    <div id="keyboard-lesson-3-system" class="keyboard-variant">
+                        <div class="keyboard">
+                            <!-- Fila numérica -->
+                            <div class="keyboard-row">
+                                <div class="key key-symbol" data-code="Backquote">
+                                    <span class="primary">°| ¬</span>
+                                </div>
+                                <div class="key key-number" data-code="Digit1">
+                                    <span class="primary">1</span>
+                                    <span class="secondary">!</span>
+                                </div>
+                                <div class="key key-number" data-code="Digit2">
+                                    <span class="primary">2</span>
+                                    <span class="secondary">"</span>
+                                </div>
+                                <div class="key key-number" data-code="Digit3">
+                                    <span class="primary">3</span>
+                                    <span class="secondary">#</span>
+                                </div>
+                                <div class="key key-number" data-code="Digit4">
+                                    <span class="primary">4</span>
+                                    <span class="secondary">$</span>
+                                </div>
+                                <div class="key key-number" data-code="Digit5">
+                                    <span class="primary">5</span>
+                                    <span class="secondary">%</span>
+                                </div>
+                                <div class="key key-number" data-code="Digit6">
+                                    <span class="primary">6</span>
+                                    <span class="secondary">&amp;</span>
+                                </div>
+                                <div class="key key-number" data-code="Digit7">
+                                    <span class="primary">7</span>
+                                    <span class="secondary">/</span>
+                                </div>
+                                <div class="key key-number" data-code="Digit8">
+                                    <span class="primary">8</span>
+                                    <span class="secondary">(</span>
+                                </div>
+                                <div class="key key-number" data-code="Digit9">
+                                    <span class="primary">9</span>
+                                    <span class="secondary">)</span>
+                                </div>
+                                <div class="key key-number" data-code="Digit0">
+                                    <span class="primary">0</span>
+                                    <span class="secondary">=</span>
+                                </div>
+                                <div class="key key-symbol" data-code="apostrophe">
+                                    <span class="primary">'</span>
+                                    <span class="secondary">? \</span>
+                                </div>
+                                <div class="key key-symbol" data-code="Question-Mark">
+                                    <span class="primary">¿</span>
+                                    <span class="secondary">¡</span>
+                                </div>
+                                <div class="key key-delete" data-code="Backspace">←</div>
+                            </div>
+
+                            <!-- Fila QWERTY -->
+                            <div class="keyboard-row">
+                                <div class="key key-tab" data-code="Tab">Tab</div>
+                                <div class="key key-letter" data-code="KeyQ">
+                                    <span class="primary">Q</span>
+                                    <span class="secondary">@</span>
+                                </div>
+                                <div class="key key-letter" data-code="KeyW">W</div>
+                                <div class="key key-letter" data-code="KeyE">E</div>
+                                <div class="key key-letter" data-code="KeyR">R</div>
+                                <div class="key key-letter" data-code="KeyT">T</div>
+                                <div class="key key-letter" data-code="KeyY">Y</div>
+                                <div class="key key-letter" data-code="KeyU">U</div>
+                                <div class="key key-letter" data-code="KeyI">I</div>
+                                <div class="key key-letter" data-code="KeyO">O</div>
+                                <div class="key key-letter" data-code="KeyP">P</div>
+                                <div class="key key-symbol" data-code="BracketLeft">
+                                    <span class="primary">´´</span>
+                                    <span class="secondary">¨</span>
+                                </div>
+                                <div class="key key-symbol" data-code="BracketRight">
+                                    <span class="primary">+</span>
+                                    <span class="secondary">*~</span>
+                                </div>
+                            </div>
+
+                            <!-- Fila ASDF -->
+                            <div class="keyboard-row">
+                                <div class="key key-capslock" data-code="CapsLock">Bloq Máyus</div>
+                                <div class="key key-letter" data-code="KeyA">A</div>
+                                <div class="key key-letter" data-code="KeyS">S</div>
+                                <div class="key key-letter" data-code="KeyD">D</div>
+                                <div class="key key-letter" data-code="KeyF">F</div>
+                                <div class="key key-letter" data-code="KeyG">G</div>
+                                <div class="key key-letter" data-code="KeyH">H</div>
+                                <div class="key key-letter" data-code="KeyJ">J</div>
+                                <div class="key key-letter" data-code="KeyK">K</div>
+                                <div class="key key-letter" data-code="KeyL">L</div>
+                                <div class="key key-letter" data-code="KeyL">Ñ</div>
+                                <div class="key key-symbol" data-code="Semicolon">
+                                    <span class="primary">{</span>
+                                    <span class="secondary">[^</span>
+                                </div>
+                                <div class="key key-symbol" data-code="Quote">
+                                    <span class="primary">}</span>
+                                    <span class="secondary">]`</span>
+                                </div>
+                                <div class="key key-enter" data-code="Enter">Enter</div>
+                            </div>
+
+                            <!-- Fila ZXCV -->
+                            <div class="keyboard-row">
+                                <div class="key key-shift left-shift" data-code="ShiftLeft">Shift</div>
+                                <div class="key key-symbol" data-code="symbol less-than greater-than">
+                                    <span class="primary">&lt;</span><span class="secondary">&gt;</span>
+                                </div>
+                                <div class="key key-letter" data-code="KeyZ">Z</div>
+                                <div class="key key-letter" data-code="KeyX">X</div>
+                                <div class="key key-letter" data-code="KeyC">C</div>
+                                <div class="key key-letter" data-code="KeyV">V</div>
+                                <div class="key key-letter" data-code="KeyB">B</div>
+                                <div class="key key-letter" data-code="KeyN">N</div>
+                                <div class="key key-letter" data-code="KeyM">M</div>
+                                <div class="key key-symbol" data-code="Comma">
+                                    <span class="primary">,</span>
+                                    <span class="secondary">;</span>
+                                </div>
+                                <div class="key key-symbol" data-code="Period">
+                                    <span class="primary">.</span>
+                                    <span class="secondary">:</span>
+                                </div>
+                                <div class="key key-symbol" data-code="guion hyphen underscore">
+                                    <span class="primary">-</span>
+                                    <span class="secondary">_</span>
+                                </div>
+                                <div class="key key-shift right-shift" data-code="ShiftRight">Shift</div>
+                            </div>
+
+                            <!-- Fila de espacio -->
+                            <div class="keyboard-row">
+                                <div class="key key-control left-ctrl" data-code="ControlLeft">Ctrl</div>
+                                <div class="key key-windows left-win" data-code="MetaLeft">Win</div>
+                                <div class="key key-alt left-alt" data-code="AltLeft">Alt</div>
+                                <div class="key key-spacebar" data-code="Space">Espacio</div>
+                                <div class="key key-alt right-alt" data-code="AltRight">Alt Gr</div>
+                                <div class="key key-windows right-win" data-code="MetaRight">Win</div>
+                                <div class="key key-control right-ctrl" data-code="ControlRight">Ctrl</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== EJERCICIOS ===== -->
+                <div class="exercises-section">
+                    <h2>Ejercicios Prácticos</h2>
+
+                    <!-- Ejercicio 1: Separar palabras con Espacio -->
+                    <div class="exercise-card" id="exercise-space-1">
+                        <h3>Ejercicio 1: Agrega espacios entre las palabras</h3>
+                        <p>
+                            A continuación verás una frase sin espacios. Tu tarea es reescribirla correctamente
+                            agregando espacios donde corresponda.<br><br>
+
+                            <strong>Ejemplo:</strong><br>
+                            Texto original: elcieloeslindo<br>
+                            Respuesta correcta: el cielo es lindo
+                        </p>
+                        <div class="input-hint">💡 Recuerda: Para escribir, primero haz clic en el cuadro blanco</div>
+
+                        <div class="original-text">
+                            <p><strong>Texto a separar:</strong> lamanzanaesdulce</p>
+                        </div>
+
+                        <input type="text" class="exercise-input" id="space-ex1-input"
+                            placeholder="Escribe la frase con espacios">
+                        <div class="exercise-feedback" id="space-ex1-feedback"></div>
+                    </div>
+
+                    <!-- Ejercicio 2: Lista de compras (Enter) -->
+                    <div class="exercise-card" id="exercise-enter-1">
+                        <h3>Ejercicio 2: Crea una lista de compras</h3>
+                        <p>
+                            Escribe una lista de <strong>3 elementos</strong>, presionando <strong>Enter</strong>
+                            después de cada uno para pasar a la siguiente línea.<br><br>
+                            <strong>Ejemplo:</strong><br>
+                            🛒 pan [ENTER]<br>
+                            🛒 leche [ENTER]<br>
+                            🛒 arroz
+                        </p>
+                        <div class="input-hint">💡 Usa Enter para escribir cada elemento en una nueva línea</div>
+
+                        <textarea class="exercise-input" id="enter-ex1-input"
+                            placeholder="Escribe aquí tu lista de compras..." rows="4"></textarea>
+                        <div class="exercise-feedback" id="enter-ex1-feedback"></div>
+                    </div>
+                    <!-- Ejercicio 3: Corrige errores con Borrar -->
+                    <div class="exercise-card" id="exercise-backspace-1">
+                        <h3>Ejercicio 3: Corrige errores con la tecla Borrar</h3>
+                        <p>
+                            El siguiente texto tiene algunos errores. Tu tarea es corregirlo usando la tecla
+                            <strong>Borrar</strong>
+                            (⌫).<br><br>
+                            <strong>Importante:</strong> Para borrar una letra debes <strong>hacer clic justo al lado
+                                derecho de la letra
+                                que quieras eliminar</strong>. Luego presiona la tecla <strong>Borrar</strong> para
+                            quitarla.<br><br>
+
+                            ✏️ <strong>Texto con errores:</strong><br>
+                            "El perroo es un animal domesttico muy fiel"<br><br>
+                            ✅ <strong>Texto corregido:</strong><br>
+                            "El perro es un animal domestico muy fiel"
+                        </p>
+
+                        <div class="input-hint">💡 Haz clic al final o al lado de la letra incorrecta antes de presionar
+                            Borrar</div>
+
+                        <input type="text" class="exercise-input" id="backspace-ex1-input"
+                            value="El commputadorrr es unaaa hherramienta genial"
+                            placeholder="Corrige los errores usando Borrar">
+
+                        <div class="exercise-feedback" id="backspace-ex1-feedback"></div>
+                    </div>
+
+
+                    <!-- Ejercicio 4: Escribir en mayúsculas con Bloq Mayús o Shift -->
+                    <div class="exercise-card" id="exercise-uppercase-1">
+                        <h3>Ejercicio 4: Escribe en mayúsculas</h3>
+                        <p>
+                            Escribe la siguiente frase usando <strong>solo mayúsculas</strong>. Puedes usar la tecla
+                            <strong>Bloq Mayús</strong> o mantener presionado <strong>Shift</strong> mientras
+                            escribes.<br><br>
+                            <strong>Frase:</strong> el teclado tiene muchas teclas
+                        </p>
+                        <div class="input-hint">💡 Consejo: Bloq Mayús deja todo en mayúsculas hasta que lo presiones
+                            otra vez</div>
+
+                        <input type="text" class="exercise-input" id="uppercase-ex1-input"
+                            placeholder="ESCRIBE AQUÍ LA FRASE EN MAYÚSCULAS">
+                        <div class="exercise-feedback" id="uppercase-ex1-feedback"></div>
+                    </div>
+
+                    <!-- Ejercicio 5: Escribir símbolos con Shift -->
+                    <div class="exercise-card" id="exercise-symbols-1">
+                        <h3>Ejercicio 5: Usa Shift para escribir símbolos</h3>
+                        <p>
+                            Escribe los siguientes símbolos usando <strong>Shift</strong> y la tecla de número
+                            correspondiente.<br><br>
+                            <strong>Símbolos a escribir:</strong> # $ %
+                        </p>
+                        <div class="input-hint">💡 Mantén presionado Shift y presiona el número que tiene el símbolo.
+                            Ej: Shift + 3 → #</div>
+
+                        <input type="text" class="exercise-input" id="symbols-ex1-input"
+                            placeholder="Escribe aquí los símbolos solicitados">
+                        <div class="exercise-feedback" id="symbols-ex1-feedback"></div>
+                    </div>
+
+                    <!-- Ejercicio 6: Escribir correo con @ -->
+                    <div class="exercise-card" id="exercise-email-1">
+                        <h3>Ejercicio 6: Escribe tu correo con @</h3>
+                        <p>
+                            Escribe tu correo electrónico. Recuerda que el símbolo <strong>@</strong> se escribe
+                            manteniendo presionado <strong>Alt Gr</strong> o <strong>Shift</strong> (dependiendo del
+                            teclado) y presionando la tecla correspondiente.<br><br>
+                            <strong>Ejemplo:</strong> juan@example.com
+                        </p>
+                        <div class="input-hint">💡 Usa Alt Gr + Q o Shift + 2 (según tu teclado) para escribir @</div>
+
+                        <input type="email" class="exercise-input" id="email-ex1-input"
+                            placeholder="Escribe aquí tu correo electrónico">
+                        <div class="exercise-feedback" id="email-ex1-feedback"></div>
+                    </div>
+
+                    <!-- Ejercicio 7: Navegar con Tab -->
+                    <div class="exercise-card" id="exercise-tab-1">
+                        <h3>Ejercicio 7: Navega entre campos con Tab</h3>
+                        <p>
+                            Completa el formulario usando la tecla <strong>Tab</strong> para pasar de un campo al
+                            siguiente.<br><br>
+                            <strong>Instrucciones:</strong><br>
+                            Escribe en el primer campo, presiona Tab para ir al segundo, y así sucesivamente.
+                        </p>
+                        <div class="input-hint">💡 Usa Tab para moverte entre campos sin usar el mouse</div>
+
+                        <div class="form-fields">
+                            <input type="text" id="first-name" name="first-name" class="exercise-input tab-field"
+                                placeholder="Nombre" data-field="1" autocomplete="given-name">
+                            <input type="text" id="last-name" name="last-name" class="exercise-input tab-field"
+                                placeholder="Apellido" data-field="2" autocomplete="family-name">
+                            <input type="email" id="email" name="email" class="exercise-input tab-field"
+                                placeholder="Email" data-field="3" autocomplete="email">
+                            <input type="tel" id="phone" name="phone" class="exercise-input tab-field"
+                                placeholder="Teléfono" data-field="4" autocomplete="tel">
+                        </div>
+
+                        <div class="exercise-feedback" id="tab-ex1-feedback"></div>
+                    </div>
+                </div>
+
+
+                <!-- Progreso -->
+                <div class="progress-section">
+                    <h4>Tu Progreso:</h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="lesson-progress-3"></div>
+                    </div>
+                    <div class="progress-text" id="progress-text-3">0% completado</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="navigation">
+            <button class="btn btn-secondary" id="back-to-2">← Lección Anterior</button>
+            <button class="btn" id="next-to-4">Siguiente Lección →</button>
+        </div>
+    </div>
+    </div>
+
+    <!-- LECCIÓN 4: Teclado Numérico Lateral -->
+    <div id="lesson-4" class="page-container hidden">
+        <div class="lesson-section">
+            <h1>Lección 4: Teclado Numérico Lateral</h1>
+
+            <div class="lesson-content">
+
+                <!-- Introducción -->
+                <div class="explanation-box">
+                    <h2>¿Qué es el teclado numérico?</h2>
+                    <p>
+                        El teclado numérico se encuentra al lado derecho de la mayoría de los teclados.
+                        Sirve para escribir números de forma más rápida y cómoda, como si fuera una calculadora.
+                    </p>
+                    <p><br>
+                        ✨ <strong>Importante:</strong> Para usarlo, debes asegurarte de que la tecla <strong>Num
+                            Lock</strong> esté activada.
+                        Cuando lo esté, se encenderá una pequeña luz en tu teclado.
+                    </p><br>
+                </div>
+
+                <!-- Visualización del teclado numérico -->
+                <div class="keyboard-section">
+                    <h3>Teclado Numérico Lateral</h3>
+                    <div id="numpad" class="keyboard numpad">
+                        <div class="keyboard-row">
+                            <div class="key key-numlock" data-code="NumLock">Num Lock</div>
+                            <div class="key key-symbol" data-code="NumpadDivide">/</div>
+                            <div class="key key-symbol" data-code="NumpadMultiply">*</div>
+                            <div class="key key-symbol" data-code="NumpadSubtract">-</div>
+                        </div>
+                        <div class="keyboard-row">
+                            <div class="key key-number" data-code="Numpad7">7</div>
+                            <div class="key key-number" data-code="Numpad8">8</div>
+                            <div class="key key-number" data-code="Numpad9">9</div>
+                            <div class="key key-symbol" data-code="NumpadAdd">+</div>
+                        </div>
+                        <div class="keyboard-row">
+                            <div class="key key-number" data-code="Numpad4">4</div>
+                            <div class="key key-number" data-code="Numpad5">5</div>
+                            <div class="key key-number" data-code="Numpad6">6</div>
+                        </div>
+                        <div class="keyboard-row">
+                            <div class="key key-number" data-code="Numpad1">1</div>
+                            <div class="key key-number" data-code="Numpad2">2</div>
+                            <div class="key key-number" data-code="Numpad3">3</div>
+                            <div class="key key-enter" data-code="NumpadEnter">Enter</div>
+                        </div>
+                        <div class="keyboard-row">
+                            <div class="key key-number wide" data-code="Numpad0">0</div>
+                            <div class="key key-symbol" data-code="NumpadDecimal">.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejercicios -->
+                <div class="exercises-section">
+                    <h2>Ejercicios Prácticos</h2>
+
+                    <!-- Ejercicio 1: Activar Num Lock -->
+                    <div class="exercise-card" id="exercise-numlock">
+                        <h3>Ejercicio 1: Activa el teclado numérico</h3>
+                        <p>
+                            Antes de escribir con el teclado numérico, debes asegurarte de que la tecla <strong>Num
+                                Lock</strong> esté activada.
+                            Si está encendida la luz del teclado, ¡ya puedes usarlo!
+                        </p>
+                        <div class="input-hint">💡 Presiona la tecla <strong>Num Lock</strong> para activarlo.</div>
+
+                        <div class="exercise-center">
+                            <button class="btn" id="check-numlock">Verificar estado</button>
+                        </div>
+
+                        <div class="exercise-feedback" id="numlock-feedback"></div>
+                    </div>
+
+                    <!-- Ejercicio 2: Escribir una secuencia numérica -->
+                    <div class="exercise-card" id="exercise-numpad-1">
+                        <h3>Ejercicio 2: Escribe una secuencia numérica</h3>
+                        <p>
+                            Ahora que el teclado numérico está activado, escribe la siguiente secuencia usando solo el
+                            teclado lateral:
+                        </p>
+                        <p><strong>Secuencia:</strong> 7531</p>
+                        <input type="text" class="exercise-input" id="numpad-sequence-input" maxlength="4"
+                            placeholder="Escribe aquí la secuencia">
+                        <div class="exercise-feedback" id="numpad-sequence-feedback"></div>
+                    </div>
+
+                    <!-- Ejercicio 3: Escribir una suma -->
+                    <div class="exercise-card" id="exercise-numpad-2">
+                        <h3>Ejercicio 3: Escribe una suma con el teclado numérico</h3>
+                        <p>
+                            Escribe la siguiente operación usando el teclado numérico lateral:
+                        </p>
+                        <p><strong>Operación:</strong> 45 + 27</p>
+                        <input type="text" class="exercise-input" id="numpad-operation-input" maxlength="7"
+                            placeholder="Escribe aquí la operación">
+                        <div class="exercise-feedback" id="numpad-operation-feedback"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Progreso -->
+            <div class="progress-section">
+                <h4>Tu Progreso:</h4>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="lesson-progress-4"></div>
+                </div>
+                <div class="progress-text" id="progress-text-4">0% completado</div>
+            </div>
+
+            <!-- Navegación -->
+            <div class="navigation">
+                <button class="btn btn-secondary" id="back-to-3">← Lección Anterior</button>
+                <button class="btn" id="next-to-5">Siguiente Lección →</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- LECCIÓN 5: Atajos Básicos -->
+    <div id="lesson-5" class="page-container hidden">
+        <div class="lesson-section">
+            <h1>Lección 5: Atajos Básicos</h1>
+
+            <div class="lesson-content">
+                <p>Aprende los atajos más útiles: Ctrl+C, Ctrl+V, Ctrl+Z, etc.</p>
+                <!-- Contenido de la lección 5 -->
+            </div>
+
+            <div class="navigation">
+                <button class="btn btn-secondary" id="back-to-4">← Lección Anterior</button>
+                <button class="btn" id="next-to-6">Siguiente Lección →</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- LECCIÓN 6: Atajos Avanzados -->
+    <div id="lesson-6" class="page-container hidden">
+        <div class="lesson-section">
+            <h1>Lección 6: Atajos Avanzados</h1>
+
+            <div class="lesson-content">
+                <p>Atajos para navegación y productividad: Ctrl+A, Ctrl+F, etc.</p>
+                <!-- Contenido de la lección 6 -->
+            </div>
+
+            <div class="navigation">
+                <button class="btn btn-secondary" id="back-to-5">← Lección Anterior</button>
+                <button class="btn" id="next-to-7">Siguiente Lección →</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- LECCIÓN 7: Práctica Integral -->
+    <div id="lesson-7" class="page-container hidden">
+        <div class="lesson-section">
+            <h1>Lección 7: Práctica Integral</h1>
+
+            <div class="lesson-content">
+                <p>¡Pon a prueba todo lo aprendido con ejercicios completos!</p>
+                <!-- Contenido de la lección 7 -->
+            </div>
+
+            <div class="navigation">
+                <button class="btn btn-secondary" id="back-to-6">← Lección Anterior</button>
+                <button class="btn btn-success" id="finish-course">🎉 Finalizar Curso</button>
+            </div>
+        </div>
+    </div>
+    <script src="javascript/script.js"></script>
 </body>
+
 </html>
