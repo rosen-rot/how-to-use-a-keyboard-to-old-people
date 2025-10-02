@@ -286,7 +286,7 @@ h3 {
     box-shadow: 0 8px 20px rgba(40, 167, 69, 0.3) !important;
 }
 
-/* ===== ESTILOS PARA LECCIÓN 1 ===== */
+/* ===== LECCIÓN 1: TECLADO ALFANUMÉRICO ===== */
 .lesson-section {
     padding: 40px 20px;
     max-width: 1000px;
@@ -604,125 +604,28 @@ h3 {
     box-shadow: 0 0 10px rgba(66, 153, 225, 0.5);
 }
 
-/* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
-    body {
-        padding: 15px;
-        align-items: flex-start;
+.key.highlight-vowel-found {
+    background: #48bb78 !important;
+    box-shadow: 0 0 20px rgba(72, 187, 120, 0.6);
+    animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+    0%, 100% { 
+        box-shadow: 0 0 15px rgba(72, 187, 120, 0.6);
     }
-    
-    .welcome-section, .lesson-section {
-        padding: 30px 25px;
-    }
-    
-    h1 {
-        font-size: 2.2rem;
-    }
-    
-    h2 {
-        font-size: 1.6rem;
-    }
-    
-    .instructions {
-        padding: 20px;
-    }
-    
-    .features-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .features-list li {
-        padding: 15px;
-        font-size: 1rem;
-    }
-    
-    .step {
-        padding: 20px 15px;
-    }
-    
-    .step-number {
-        width: 35px;
-        height: 35px;
-        margin-right: 15px;
-    }
-    
-    .btn {
-        padding: 16px 35px;
-        font-size: 1.1rem;
-        width: 100%;
-        max-width: 300px;
-    }
-    
-    .keyboard {
-        padding: 15px;
-    }
-    
-    .key {
-        min-width: 35px;
-        height: 40px;
-        padding: 8px 4px;
-        font-size: 0.7rem;
-        margin: 0 2px;
-    }
-    
-    .key-spacebar {
-        min-width: 150px;
-    }
-    
-    .key-tab, .key-capslock, .key-shift {
-        min-width: 50px;
-    }
-    
-    .vowels-container {
-        flex-wrap: wrap;
-    }
-    
-    .vowel-key {
-        width: 45px;
-        height: 45px;
-        font-size: 1.1rem;
-    }
-    
-    .navigation {
-        flex-direction: column;
-        gap: 15px;
+    50% { 
+        box-shadow: 0 0 25px rgba(72, 187, 120, 0.9);
     }
 }
 
-@media (max-width: 480px) {
-    .welcome-section, .lesson-section {
-        padding: 20px 15px;
-    }
-    
-    h1 {
-        font-size: 1.8rem;
-    }
-    
-    .welcome-icon {
-        font-size: 3.5rem;
-    }
-    
-    .instructions p {
-        font-size: 1rem;
-    }
-    
-    .key {
-        min-width: 25px;
-        height: 35px;
-        padding: 6px 2px;
-        font-size: 0.6rem;
-    }
-    
-    .primary {
-        font-size: 0.7rem;
-    }
-    
-    .secondary {
-        font-size: 0.5rem;
-    }
+/* Asegurar que las vocales se resalten correctamente */
+.key.highlight-vowel {
+    background: #4299e1 !important;
+    box-shadow: 0 0 10px rgba(66, 153, 225, 0.5);
 }
 
-/* ===== ESTILOS PARA LECCIÓN 2 ===== */
+/* ===== LECCIÓN 2: TECLADO NUMÉRICO SUPERIOR ===== */
 
 /* Contenedor de números */
 .numbers-container {
@@ -771,6 +674,7 @@ h3 {
     letter-spacing: 2px;
     width: 700px;
 }
+
 .exercise-input:invalid:not(:placeholder-shown) {
     border-color: #e53e3e;
     background-color: #fed7d7;
@@ -1132,8 +1036,854 @@ h3 {
     font-weight: bold;
 }
 
-/* Responsive para Lección 3 */
+/* ===== LECCIÓN 4: TECLADO NUMÉRICO LATERAL ===== */
+.keyboard-section {
+    text-align: center;
+    margin-bottom: 40px; 
+}
+
+.key.wide {
+    min-width: 110px; 
+}
+
+.exercise-center {
+    text-align: center;
+    margin-top: 20px; 
+}
+
+.key-numlock {
+    background: #4299e1 !important;
+    box-shadow: 0 0 10px rgba(66, 153, 225, 0.5);
+}
+
+/* ===== LECCIÓN 5: ATAJOS BÁSICOS ===== */
+
+/* Textos de práctica seleccionables */
+.texto-practica {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px dashed #dee2e6;
+    margin: 15px 0;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    user-select: text;
+    min-height: 80px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    line-height: 1.5;
+}
+
+.texto-practica:hover {
+    background: #e9ecef;
+    border-color: #4361ee;
+}
+
+.texto-practica.seleccionado {
+    background: #e7f3ff;
+    border-color: #4361ee;
+    box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.2);
+}
+
+/* Textos editables para cortar */
+.texto-practica.editable {
+    background: #ffffff;
+    border: 2px dashed #cbd5e0;
+    min-height: 60px;
+    padding: 15px;
+    cursor: text;
+    transition: all 0.3s ease;
+}
+
+.texto-practica.editable:focus {
+    outline: none;
+    background: #ffffff;
+    border-color: #cbd5e0;
+}
+
+.texto-practica.cortado {
+    background: #f8f9fa !important;
+    color: #6c757d !important;
+    border: 2px dashed #adb5bd !important;
+    text-decoration: none !important;
+    font-style: italic;
+}
+
+.texto-practica.cortado::before {
+    font-style: normal;
+}
+
+/* Instrucciones importantes */
+.instruccion-importante {
+    background: #e3f2fd;
+    border: 2px solid #2196f3;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 15px 0;
+    text-align: center;
+}
+
+.instruccion-importante p {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #1565c0;
+    font-weight: 500;
+}
+
+/* Áreas de entrada mejoradas */
+.exercise-input {
+    width: 100%;
+    max-width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    line-height: 1.6;
+    border: 2px solid #cbd5e0;
+    border-radius: 12px;
+    margin: 15px 0;
+    transition: all 0.3s ease;
+    display: block;
+    font-family: inherit;
+    background-color: #ffffff;
+    resize: vertical;
+    min-height: 120px;
+}
+
+.exercise-input:focus {
+    outline: none;
+    border-color: #4361ee;
+    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+    background-color: #f8f9fa;
+}
+
+.exercise-input::placeholder {
+    color: #a0aec0;
+    font-style: italic;
+}
+
+/* Feedback de ejercicios */
+.exercise-feedback {
+    margin-top: 15px;
+    padding: 12px 15px;
+    border-radius: 8px;
+    font-weight: 500;
+    display: none;
+}
+
+.exercise-feedback.success {
+    background: #e8f5e8;
+    color: #2e7d32;
+    border: 1px solid #4caf50;
+    display: block;
+}
+
+.exercise-feedback.error {
+    background: #ffebee;
+    color: #c62828;
+    border: 1px solid #f44336;
+    display: block;
+}
+
+/* Teclas especiales en texto */
+.tecla-especial {
+    background: #4a5568;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    margin: 0 2px;
+    display: inline-block;
+}
+
+/* Animaciones para feedback automático */
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRightReverse {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+/* Indicador visual de acción detectada */
+.accion-detectada {
+    animation: pulse-green 1s ease-in-out;
+}
+
+@keyframes pulse-green {
+    0% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(40, 167, 69, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0); }
+}
+
+/* ===== ESTRUCTURA MEJORADA MÓDULO 3 ===== */
+
+/* Demostración de teclado */
+.keyboard-demo {
+    text-align: center;
+    margin: 20px 0;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+.teclas-combinacion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.tecla {
+    background: #4a5568;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    font-size: 1.1rem;
+    min-width: 60px;
+    text-align: center;
+}
+
+.mas {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #4a5568;
+}
+
+/* Pasos simples mejorados */
+.pasos-simples {
+    margin: 20px 0;
+}
+
+.paso {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    padding: 15px;
+    background: white;
+    border-radius: 10px;
+    border-left: 4px solid #4361ee;
+}
+
+.numero-paso {
+    background: #4361ee;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.texto-paso {
+    flex: 1;
+}
+
+.texto-paso strong {
+    color: #2b2d42;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Ejemplos prácticos */
+.ejemplo-practico {
+    background: #e8f5e8;
+    border: 1px solid #c8e6c9;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.ejemplo-practico h4 {
+    color: #2e7d32;
+    margin-bottom: 10px;
+}
+
+/* Diferencias importantes */
+.diferencia-importante {
+    background: #fff3e0;
+    border: 1px solid #ffcc80;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.diferencia-importante h4 {
+    color: #ef6c00;
+    margin-bottom: 15px;
+}
+
+.diferencia-importante p {
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.diferencia-importante p:before {
+    content: "•";
+    color: #ef6c00;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* Exercise steps mejorados */
+.exercise-step {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #e9ecef;
+    margin: 20px 0;
+    transition: all 0.3s ease;
+}
+
+.exercise-step:hover {
+    border-color: #4361ee;
+    transform: translateY(-2px);
+}
+
+.exercise-step h4 {
+    color: #2b2d42;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.pista {
+    background: #e3f2fd;
+    color: #1565c0;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin: 10px 0;
+    font-style: italic;
+    border-left: 4px solid #2196f3;
+}
+
+/* ===== LECCIÓN 6: NAVEGACIÓN AVANZADA ===== */
+
+/* Textos pre-seleccionables */
+.texto-preseleccionado {
+    background-color: #f8f9fa !important;
+    border: 2px solid #e9ecef !important;
+    color: #495057;
+    min-height: 100px;
+    resize: vertical;
+    font-size: 18px;
+    line-height: 1.6;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+.texto-preseleccionado:focus {
+    background-color: #f8f9fa !important;
+    border-color: #e9ecef !important;
+    box-shadow: none;
+    outline: none;
+    border-color: #4361ee;
+    background-color: #ffffff;
+}
+
+/* Pasos combinados */
+.pasos-combinados {
+    margin: 15px 0;
+    padding-left: 20px;
+}
+
+.pasos-combinados li {
+    margin-bottom: 8px;
+    color: #495057;
+}
+
+/* Áreas de búsqueda */
+.texto-practica.busqueda {
+    background: #fff3cd;
+    border: 2px solid #ffd54f;
+    color: #856404;
+    font-size: 18px;
+    line-height: 1.6;
+    padding: 20px;
+    border-radius: 12px;
+    min-height: 120px;
+}
+
+/* Área combinada para el ejercicio de deshacer */
+#area-combinado-1 {
+    background-color: #ffffff;
+    border: 2px solid #cbd5e0;
+    font-size: 18px;
+    line-height: 1.6;
+    padding: 15px;
+    min-height: 120px;
+}
+
+#area-cortar-combinado-1 {
+    background-color: #ffffff;
+    border: 2px solid #cbd5e0;
+    font-size: 18px;
+    line-height: 1.6;
+    padding: 15px;
+    min-height: 120px;
+}
+
+#area-combinado-1:focus {
+    border-color: #4361ee;
+    background-color: #ffffff;
+}
+
+/* Indicador visual para texto borrado */
+.texto-borrado {
+    background-color: #ffebee !important;
+    border-color: #f44336 !important;
+    color: #c62828 !important;
+    font-style: italic;
+}
+
+/* Indicador visual para texto recuperado */
+.texto-recuperado {
+    background-color: #e8f5e8 !important;
+    border-color: #4caf50 !important;
+    color: #2e7d32 !important;
+    animation: pulseSuccess 1s ease-in-out;
+}
+
+@keyframes pulseSuccess {
+    0% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(76, 175, 80, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0); }
+}
+
+/* Pasos combinados mejorados */
+.pasos-combinados {
+    margin: 20px 0;
+    padding-left: 25px;
+}
+
+.pasos-combinados li {
+    margin-bottom: 12px;
+    color: #495057;
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+.pasos-combinados strong {
+    color: #4361ee;
+}
+
+/* Áreas de búsqueda mejoradas */
+.texto-practica.busqueda {
+    background: #fff3cd;
+    border: 2px solid #ffd54f;
+    color: #856404;
+    font-size: 18px;
+    line-height: 1.6;
+    padding: 20px;
+    border-radius: 12px;
+    min-height: 120px;
+}
+
+/* Feedback específico para Lección 6 */
+#feedback-combinado-1.info {
+    background: #e3f2fd;
+    color: #1565c0;
+    border: 2px solid #2196f3;
+    font-size: 18px;
+    padding: 15px;
+    margin-top: 15px;
+}
+
+#feedback-combinado-1.success {
+    background: #e8f5e8;
+    color: #2e7d32;
+    border: 2px solid #4caf50;
+    font-size: 18px;
+    padding: 15px;
+    margin-top: 15px;
+}
+
+/* Efecto visual para selección con Ctrl+A */
+.seleccion-completa {
+    background-color: #e3f2fd !important;
+    border-color: #2196f3 !important;
+    animation: pulseSelection 0.5s ease-in-out;
+}
+
+@keyframes pulseSelection {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+/* Mejoras de accesibilidad para adultos mayores */
+.lesson-section h4 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: #2b2d42;
+}
+
+.exercise-step p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.pista {
+    background: #e3f2fd;
+    color: #1565c0;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin: 12px 0;
+    font-style: italic;
+    border-left: 4px solid #2196f3;
+    font-size: 1.1rem;
+}
+
+/* ===== LECCIÓN 7: CONTROL DE VISUALIZACIÓN ===== */
+
+/* Controles de Zoom */
+.zoom-control {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    border: 2px solid #e9ecef;
+    margin: 15px 0;
+}
+
+.zoom-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.zoom-label {
+    font-weight: bold;
+    color: #495057;
+}
+
+.zoom-value {
+    background: #ffffff;
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 2px solid #007bff;
+    color: #007bff;
+    font-weight: bold;
+    min-width: 80px;
+    text-align: center;
+}
+
+.zoom-instructions {
+    text-align: center;
+    color: #6c757d;
+    font-style: italic;
+}
+
+/* Grid de Resumen */
+.resumen-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.resumen-item {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #007bff;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.resumen-comando {
+    background: #007bff;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    min-width: 80px;
+    text-align: center;
+}
+
+.resumen-descripcion {
+    color: #495057;
+    flex: 1;
+}
+
+/* Consejos finales */
+.consejos-finales {
+    background: #e7f3ff;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid #007bff;
+    margin: 20px 0;
+}
+
+.consejo {
+    margin: 10px 0;
+    padding: 8px 0;
+    border-bottom: 1px solid #b3d9ff;
+}
+
+.consejo:last-child {
+    border-bottom: none;
+}
+
+.consejo strong {
+    color: #0056b3;
+}
+
+/* Pasos de la tarea final */
+.pasos-tarea {
+    margin: 20px 0;
+}
+
+.paso-tarea {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin: 15px 0;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #28a745;
+}
+
+.numero-paso {
+    background: #28a745;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.texto-paso {
+    flex: 1;
+    color: #495057;
+}
+
+/* Áreas de trabajo final */
+.areas-trabajo-final {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.area-trabajo {
+    display: flex;
+    flex-direction: column;
+}
+
+.area-trabajo label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #495057;
+}
+
+.area-grande {
+    min-height: 150px;
+    resize: vertical;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Estados visuales mejorados */
+.estado-area {
+    margin-top: 8px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.estado-area.vacio {
+    background: #ffebee;
+    color: #c62828;
+    border: 1px solid #f44336;
+}
+
+.estado-area.lleno {
+    background: #e8f5e8;
+    color: #2e7d32;
+    border: 1px solid #4caf50;
+}
+
+.estado-area.espera {
+    background: #fff3e0;
+    color: #ef6c00;
+    border: 1px solid #ff9800;
+}
+
+.estado-texto {
+    margin-top: 8px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.estado-texto.vacio {
+    background: #ffebee;
+    color: #c62828;
+    border: 1px solid #f44336;
+}
+
+.estado-texto.lleno {
+    background: #e8f5e8;
+    color: #2e7d32;
+    border: 1px solid #4caf50;
+}
+
+.estado-texto.espera {
+    background: #fff3e0;
+    color: #ef6c00;
+    border: 1px solid #ff9800;
+}
+
+.area-trabajo {
+    position: relative;
+}
+
+.area-grande {
+    min-height: 120px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Estados de pasos completados */
+.paso-tarea.completado {
+    background: #e8f5e8 !important;
+    border-left-color: #4caf50 !important;
+}
+
+.paso-tarea.completado .numero-paso {
+    background: #4caf50 !important;
+}
+
+.paso-tarea.completado .texto-paso {
+    text-decoration: line-through;
+    color: #666;
+}
+
+/* ===== RESPONSIVE GENERAL ===== */
 @media (max-width: 768px) {
+    body {
+        padding: 15px;
+        align-items: flex-start;
+    }
+    
+    .welcome-section, .lesson-section {
+        padding: 30px 25px;
+    }
+    
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    h2 {
+        font-size: 1.6rem;
+    }
+    
+    .instructions {
+        padding: 20px;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .features-list li {
+        padding: 15px;
+        font-size: 1rem;
+    }
+    
+    .step {
+        padding: 20px 15px;
+    }
+    
+    .step-number {
+        width: 35px;
+        height: 35px;
+        margin-right: 15px;
+    }
+    
+    .btn {
+        padding: 16px 35px;
+        font-size: 1.1rem;
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .keyboard {
+        padding: 15px;
+    }
+    
+    .key {
+        min-width: 35px;
+        height: 40px;
+        padding: 8px 4px;
+        font-size: 0.7rem;
+        margin: 0 2px;
+    }
+    
+    .key-spacebar {
+        min-width: 150px;
+    }
+    
+    .key-tab, .key-capslock, .key-shift {
+        min-width: 50px;
+    }
+    
+    .vowels-container {
+        flex-wrap: wrap;
+    }
+    
+    .vowel-key {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+    }
+    
+    .navigation {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    /* Responsive para Lección 3 */
     .keyboard-navigation {
         grid-template-columns: 1fr;
     }
@@ -1172,10 +1922,108 @@ h3 {
     .nav-icon {
         font-size: 1.3em;
     }
+    
+    /* Responsive para textareas */
+    .exercise-input {
+        font-size: 16px;
+        padding: 12px;
+        min-height: 100px;
+    }
+    
+    /* Responsive para Lección 7 */
+    .areas-trabajo-final {
+        grid-template-columns: 1fr;
+    }
+    
+    .resumen-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .paso-tarea {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .zoom-display {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .texto-practica {
+        padding: 12px;
+        font-size: 1rem;
+    }
+    
+    .texto-practica.editable {
+        min-height: 50px;
+        padding: 12px;
+    }
+    
+    .instruccion-importante {
+        padding: 12px;
+    }
+    
+    .instruccion-importante p {
+        font-size: 1rem;
+    }
+    
+    .teclas-combinacion {
+        gap: 5px;
+    }
+    
+    .tecla {
+        padding: 8px 12px;
+        font-size: 1rem;
+        min-width: 50px;
+    }
+    
+    .paso {
+        padding: 12px;
+    }
+    
+    .numero-paso {
+        width: 25px;
+        height: 25px;
+        margin-right: 12px;
+    }
+    
+    .exercise-step {
+        padding: 15px;
+    }
 }
 
-
 @media (max-width: 480px) {
+    .welcome-section, .lesson-section {
+        padding: 20px 15px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    .welcome-icon {
+        font-size: 3.5rem;
+    }
+    
+    .instructions p {
+        font-size: 1rem;
+    }
+    
+    .key {
+        min-width: 25px;
+        height: 35px;
+        padding: 6px 2px;
+        font-size: 0.6rem;
+    }
+    
+    .primary {
+        font-size: 0.7rem;
+    }
+    
+    .secondary {
+        font-size: 0.5rem;
+    }
+    
     .key-info-simple {
         padding: 20px 15px;
     }
@@ -1195,24 +2043,4 @@ h3 {
     .group-description h3 {
         font-size: 1.1rem;
     }
-}
-
-/* ===== ESTILOS PARA LECCIÓN 4: TECLADO NUMÉRICO ===== */
-
-.keyboard-section {
-    text-align: center;
-    margin-bottom: 40px; 
-}
-
-.key.wide {
-    min-width: 110px; 
-}
-.exercise-center {
-    text-align: center;
-    margin-top: 20px; 
-}
-
-.key-numlock {
-    background: #4299e1 !important;
-    box-shadow: 0 0 10px rgba(66, 153, 225, 0.5);
 }
