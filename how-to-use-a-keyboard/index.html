@@ -1659,22 +1659,126 @@
     </div>
     </div>
 
-    <!-- LECCIÓN 4: Teclas Especiales -->
+    <!-- LECCIÓN 4: Teclado Numérico Lateral -->
     <div id="lesson-4" class="page-container hidden">
         <div class="lesson-section">
-            <h1>Lección 4: Teclas Especiales</h1>
+            <h1>Lección 4: Teclado Numérico Lateral</h1>
 
             <div class="lesson-content">
-                <p>Conoce las teclas importantes como Enter, Space, Tab, Shift, etc.</p>
-                <!-- Contenido de la lección 4 -->
+
+                <!-- Introducción -->
+                <div class="explanation-box">
+                    <h2>¿Qué es el teclado numérico?</h2>
+                    <p>
+                        El teclado numérico se encuentra al lado derecho de la mayoría de los teclados.
+                        Sirve para escribir números de forma más rápida y cómoda, como si fuera una calculadora.
+                    </p>
+                    <p><br>
+                        ✨ <strong>Importante:</strong> Para usarlo, debes asegurarte de que la tecla <strong>Num
+                            Lock</strong> esté activada.
+                        Cuando lo esté, se encenderá una pequeña luz en tu teclado.
+                    </p><br>
+                </div>
+
+                <!-- Visualización del teclado numérico -->
+                <div class="keyboard-section">
+                    <h3>Teclado Numérico Lateral</h3>
+                    <div id="numpad" class="keyboard numpad">
+                        <div class="keyboard-row">
+                            <div class="key key-numlock" data-code="NumLock">Num Lock</div>
+                            <div class="key key-symbol" data-code="NumpadDivide">/</div>
+                            <div class="key key-symbol" data-code="NumpadMultiply">*</div>
+                            <div class="key key-symbol" data-code="NumpadSubtract">-</div>
+                        </div>
+                        <div class="keyboard-row">
+                            <div class="key key-number" data-code="Numpad7">7</div>
+                            <div class="key key-number" data-code="Numpad8">8</div>
+                            <div class="key key-number" data-code="Numpad9">9</div>
+                            <div class="key key-symbol" data-code="NumpadAdd">+</div>
+                        </div>
+                        <div class="keyboard-row">
+                            <div class="key key-number" data-code="Numpad4">4</div>
+                            <div class="key key-number" data-code="Numpad5">5</div>
+                            <div class="key key-number" data-code="Numpad6">6</div>
+                        </div>
+                        <div class="keyboard-row">
+                            <div class="key key-number" data-code="Numpad1">1</div>
+                            <div class="key key-number" data-code="Numpad2">2</div>
+                            <div class="key key-number" data-code="Numpad3">3</div>
+                            <div class="key key-enter" data-code="NumpadEnter">Enter</div>
+                        </div>
+                        <div class="keyboard-row">
+                            <div class="key key-number wide" data-code="Numpad0">0</div>
+                            <div class="key key-symbol" data-code="NumpadDecimal">.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ejercicios -->
+                <div class="exercises-section">
+                    <h2>Ejercicios Prácticos</h2>
+
+                    <!-- Ejercicio 1: Activar Num Lock -->
+                    <div class="exercise-card" id="exercise-numlock">
+                        <h3>Ejercicio 1: Activa el teclado numérico</h3>
+                        <p>
+                            Antes de escribir con el teclado numérico, debes asegurarte de que la tecla <strong>Num
+                                Lock</strong> esté activada.
+                            Si está encendida la luz del teclado, ¡ya puedes usarlo!
+                        </p>
+                        <div class="input-hint">💡 Presiona la tecla <strong>Num Lock</strong> para activarlo.</div>
+
+                        <div class="exercise-center">
+                            <button class="btn" id="check-numlock">Verificar estado</button>
+                        </div>
+
+                        <div class="exercise-feedback" id="numlock-feedback"></div>
+                    </div>
+
+                    <!-- Ejercicio 2: Escribir una secuencia numérica -->
+                    <div class="exercise-card" id="exercise-numpad-1">
+                        <h3>Ejercicio 2: Escribe una secuencia numérica</h3>
+                        <p>
+                            Ahora que el teclado numérico está activado, escribe la siguiente secuencia usando solo el
+                            teclado lateral:
+                        </p>
+                        <p><strong>Secuencia:</strong> 7531</p>
+                        <input type="text" class="exercise-input" id="numpad-sequence-input" maxlength="4"
+                            placeholder="Escribe aquí la secuencia">
+                        <div class="exercise-feedback" id="numpad-sequence-feedback"></div>
+                    </div>
+
+                    <!-- Ejercicio 3: Escribir una suma -->
+                    <div class="exercise-card" id="exercise-numpad-2">
+                        <h3>Ejercicio 3: Escribe una suma con el teclado numérico</h3>
+                        <p>
+                            Escribe la siguiente operación usando el teclado numérico lateral:
+                        </p>
+                        <p><strong>Operación:</strong> 45 + 27</p>
+                        <input type="text" class="exercise-input" id="numpad-operation-input" maxlength="7"
+                            placeholder="Escribe aquí la operación">
+                        <div class="exercise-feedback" id="numpad-operation-feedback"></div>
+                    </div>
+                </div>
             </div>
 
+            <!-- Progreso -->
+            <div class="progress-section">
+                <h4>Tu Progreso:</h4>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="lesson-progress-4"></div>
+                </div>
+                <div class="progress-text" id="progress-text-4">0% completado</div>
+            </div>
+
+            <!-- Navegación -->
             <div class="navigation">
                 <button class="btn btn-secondary" id="back-to-3">← Lección Anterior</button>
                 <button class="btn" id="next-to-5">Siguiente Lección →</button>
             </div>
         </div>
     </div>
+
 
     <!-- LECCIÓN 5: Atajos Básicos -->
     <div id="lesson-5" class="page-container hidden">

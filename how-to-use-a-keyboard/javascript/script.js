@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let lesson1Manager = null;
     let lesson2Manager = null;
     let lesson3Manager = null;
+    let lesson4Manager = null;
 
     // Función para cambiar de página
     function goToPage(pageId) {
@@ -46,6 +47,12 @@ document.addEventListener('DOMContentLoaded', function () {
                     lesson3Manager = new Lesson3Manager();
                 }
                 currentLessonManager = lesson3Manager;
+                currentLessonManager.activate();
+            } else if (pageId === 'lesson-4') {
+                if (!lesson4Manager) {
+                    lesson4Manager = new Lesson4Manager();
+                }
+                currentLessonManager = lesson4Manager;
                 currentLessonManager.activate();
             }
         }
@@ -1241,5 +1248,212 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    // ===== LECCIÓN 4: TECLADO NUMÉRICO LATERAL =====
+    class Lesson4Manager {
+        constructor() {
+            this.completedExercises = new Set();
+            this.keys = new Map();
+            this.isActive = false;
+            this.numLockActive = false;
+
+            this.init();
+        }
+
+        init() {
+            this.registerNumpadKeys();
+            this.setupNumLockExercise();
+            this.setupSequenceExercise();
+            this.setupOperationExercise();
+
+            console.log('✅ Lección 4 inicializada correctamente');
+        }
+
+        activate() {
+            this.isActive = true;
+            console.log('Lección 4 activada');
+            this.setupKeyboardListeners();
+        }
+
+        deactivate() {
+            this.isActive = false;
+            console.log('Lección 4 desactivada');
+            this.removeKeyboardListeners();
+            this.removeAllHighlights();
+        }
+
+        cleanup() {
+            this.deactivate();
+        }
+
+        // ====== REGISTRO DE TECLAS ======
+        registerNumpadKeys() {
+            const keyElements = document.querySelectorAll('#numpad .key');
+            keyElements.forEach(keyElement => {
+                const code = keyElement.dataset.code;
+                if (code) {
+                    this.keys.set(code, keyElement);
+                }
+            });
+            console.log(`Lección 4: Registradas ${this.keys.size} teclas del teclado numérico`);
+        }
+
+        setupKeyboardListeners() {
+            this.boundKeyHandler = this.handleKeyPress.bind(this);
+            document.addEventListener('keydown', this.boundKeyHandler);
+            document.addEventListener('keyup', this.boundKeyHandler);
+        }
+
+        removeKeyboardListeners() {
+            if (this.boundKeyHandler) {
+                document.removeEventListener('keydown', this.boundKeyHandler);
+                document.removeEventListener('keyup', this.boundKeyHandler);
+                this.boundKeyHandler = null;
+            }
+        }
+
+        handleKeyPress(event) {
+            if (!this.isActive) return;
+
+            const code = event.code;
+            const keyElement = this.keys.get(code);
+            const isKeyDown = event.type === 'keydown';
+
+            // Resaltar tecla
+            if (keyElement) {
+                if (isKeyDown) {
+                    keyElement.classList.add('active');
+                } else {
+                    keyElement.classList.remove('active');
+                }
+            }
+
+            // Detectar Num Lock activado/desactivado
+            if (isKeyDown && code === 'NumLock') {
+                this.numLockActive = !this.numLockActive;
+                console.log(`Num Lock ${this.numLockActive ? 'activado' : 'desactivado'}`);
+            }
+        }
+
+        // ===== Ejercicio 1: Activar Num Lock =====
+        setupNumLockExercise() {
+            const checkButton = document.getElementById('check-numlock');
+            const feedback = document.getElementById('numlock-feedback');
+
+            if (checkButton && feedback) {
+                checkButton.addEventListener('click', () => {
+                    if (this.numLockActive) {
+                        this.markExerciseComplete('numlock');
+                        feedback.textContent = '✅ ¡Perfecto! Num Lock está activado. Ahora puedes usar el teclado numérico.';
+                        feedback.className = 'exercise-feedback success';
+                    } else {
+                        feedback.textContent = '⚠️ Num Lock está desactivado. Presiona la tecla Num Lock hasta que la luz se encienda.';
+                        feedback.className = 'exercise-feedback info';
+                    }
+                });
+            }
+        }
+
+        // ===== Ejercicio 2: Escribir secuencia =====
+        setupSequenceExercise() {
+            const input = document.getElementById('numpad-sequence-input');
+            const feedback = document.getElementById('numpad-sequence-feedback');
+
+            if (input && feedback) {
+                input.addEventListener('input', (e) => {
+                    const value = e.target.value.trim();
+                    if (!this.numLockActive) {
+                        feedback.textContent = '⚠️ Primero activa Num Lock para usar el teclado numérico.';
+                        feedback.className = 'exercise-feedback info';
+                        return;
+                    }
+
+                    if (value === '7531') {
+                        this.markExerciseComplete('sequence');
+                        feedback.textContent = '✅ ¡Muy bien! Has escrito la secuencia correctamente.';
+                        feedback.className = 'exercise-feedback success';
+                    } else if (value.length > 0) {
+                        feedback.textContent = '✏️ Revisa la secuencia. Debe ser: 7531';
+                        feedback.className = 'exercise-feedback info';
+                    } else {
+                        feedback.textContent = '';
+                        feedback.className = 'exercise-feedback';
+                    }
+                });
+            }
+        }
+
+        // ===== Ejercicio 3: Escribir operación =====
+        setupOperationExercise() {
+            const input = document.getElementById('numpad-operation-input');
+            const feedback = document.getElementById('numpad-operation-feedback');
+
+            if (input && feedback) {
+                input.addEventListener('input', (e) => {
+                    const value = e.target.value.trim();
+                    if (!this.numLockActive) {
+                        feedback.textContent = '⚠️ Primero activa Num Lock para usar el teclado numérico.';
+                        feedback.className = 'exercise-feedback info';
+                        return;
+                    }
+
+                    if (value === '45+27') {
+                        this.markExerciseComplete('operation');
+                        feedback.textContent = '✅ ¡Excelente! Has escrito la operación correctamente.';
+                        feedback.className = 'exercise-feedback success';
+                    } else if (value.length > 0) {
+                        feedback.textContent = '✏️ La operación debe ser: 45+27';
+                        feedback.className = 'exercise-feedback info';
+                    } else {
+                        feedback.textContent = '';
+                        feedback.className = 'exercise-feedback';
+                    }
+                });
+            }
+        }
+
+        // ===== HIGHLIGHTS =====
+        removeAllHighlights() {
+            this.keys.forEach(key => {
+                key.classList.remove('active');
+            });
+        }
+
+        // ===== PROGRESO =====
+        markExerciseComplete(exerciseName) {
+            if (!this.completedExercises.has(exerciseName)) {
+                this.completedExercises.add(exerciseName);
+                console.log(`Lección 4 - Ejercicio completado: ${exerciseName}`);
+                this.updateProgress();
+            }
+        }
+
+        updateProgress() {
+            const progressFill = document.getElementById('lesson-progress-4');
+            const progressText = document.getElementById('progress-text-4');
+
+            if (progressFill && progressText) {
+                const totalExercises = 3;
+                const progress = (this.completedExercises.size / totalExercises) * 100;
+
+                progressFill.style.width = `${progress}%`;
+                progressText.textContent = `${Math.round(progress)}% completado`;
+
+                if (progress === 100) {
+                    progressText.innerHTML = '🎉 ¡Lección 4 completada! Puedes continuar a la siguiente lección.';
+                    this.showCompletionEffect();
+                }
+            }
+        }
+
+        showCompletionEffect() {
+            const progressSection = document.querySelector('#lesson-4 .progress-section');
+            if (progressSection) {
+                progressSection.style.animation = 'celebrate 1s ease-in-out';
+                setTimeout(() => {
+                    progressSection.style.animation = '';
+                }, 1000);
+            }
+        }
+    }
     console.log('Sistema de navegación listo');
 });

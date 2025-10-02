@@ -360,7 +360,6 @@ h3 {
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    width: 100%;
 }
 
 .keyboard-row {
@@ -1196,4 +1195,24 @@ h3 {
     .group-description h3 {
         font-size: 1.1rem;
     }
+}
+
+/* ===== ESTILOS PARA LECCIÓN 4: TECLADO NUMÉRICO ===== */
+
+.keyboard-section {
+    text-align: center;
+    margin-bottom: 40px; 
+}
+
+.key.wide {
+    min-width: 110px; 
+}
+.exercise-center {
+    text-align: center;
+    margin-top: 20px; 
+}
+
+.key-numlock {
+    background: #4299e1 !important;
+    box-shadow: 0 0 10px rgba(66, 153, 225, 0.5);
 }
