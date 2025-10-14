@@ -1132,7 +1132,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         uppercaseFeedback.textContent = '¡Perfecto! Has escrito la frase completamente en mayúsculas.';
                         uppercaseFeedback.className = 'exercise-feedback success';
                     } else if (value.length > 0) {
-                        uppercaseFeedback.textContent = 'Recuerda escribir toda la frase en mayúsculas: "EL TECLADO ES ÚTIL"';
+                        uppercaseFeedback.textContent = 'Recuerda escribir toda la frase en mayúsculas: "EL TECLADO TIENE MUCHAS TECLAS"';
                         uppercaseFeedback.className = 'exercise-feedback info';
                     } else {
                         uppercaseFeedback.textContent = '';
@@ -2320,17 +2320,17 @@ document.addEventListener('DOMContentLoaded', function() {
             // Mostrar siguiente objetivo
             setTimeout(() => {
                 mostrarFeedbackEjercicio('feedback-zoom-2', 
-                    '¡Excelente! Ahora usa Ctrl+- para volver al 100%', false);
+                    '¡Excelente! Ahora usa Ctrl+- para volver al 75%', false);
             }, 2000);
         }
 
-        // Ejercicio 2: Volver al 100% (después de haber llegado al 150%)
-        if (zoomActual <= 100 && zoomEjerciciosCompletados.has('zoom_150') && 
-            !zoomEjerciciosCompletados.has('zoom_100')) {
-            zoomEjerciciosCompletados.add('zoom_100');
+            // Ejercicio 2: Reducir al 75% (después de haber llegado al 150%)
+        if (zoomActual <= 75 && zoomEjerciciosCompletados.has('zoom_150') && 
+            !zoomEjerciciosCompletados.has('zoom_75')) {
+            zoomEjerciciosCompletados.add('zoom_75');
             estadoModulo3.leccion7.ejercicios.zoom[1] = true;
             mostrarFeedbackEjercicio('feedback-zoom-2', 
-                `¡Excelente! Has vuelto al ${zoomActual}% usando Ctrl+-`, true);
+                `¡Excelente! Has reducido al ${zoomActual}% usando Ctrl+-`, true);
             actualizarProgresoLeccion(7);
             
             // Mostrar siguiente objetivo
