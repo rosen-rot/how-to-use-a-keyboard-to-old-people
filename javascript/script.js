@@ -110,6 +110,57 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    function closeCredits() {
+        const credits = document.getElementById('developers-credits');
+        if (!credits) return;
+    
+        // evitar ejecución doble
+        if (credits.dataset.closing === 'true') return;
+        credits.dataset.closing = 'true';
+    
+        // accesibilidad: guardar foco y bloquear interacción
+        const previousFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+        credits.setAttribute('aria-hidden', 'true');
+        // inert puede no estar soportado en todos los navegadores
+        if ('inert' in credits) credits.inert = true;
+    
+        // aplicar clase de cierre (preferible a escribir inline style)
+        credits.classList.add('closing'); // define .closing { animation: fadeOut 0.5s ease forwards; } en CSS
+    
+        const finish = () => {
+            if (credits.parentNode) credits.remove();
+            if (previousFocus && typeof previousFocus.focus === 'function') previousFocus.focus();
+        };
+    
+        // esperar al final de la animación
+        const onAnimEnd = (e) => {
+            if (e.target === credits) {
+                credits.removeEventListener('animationend', onAnimEnd);
+                finish();
+            }
+        };
+        credits.addEventListener('animationend', onAnimEnd, { once: true });
+    
+        // fallback en caso de que animationend no se dispare
+        setTimeout(() => {
+            if (document.body.contains(credits)) finish();
+        }, 800);
+    }
+
+    // Exponer la función para compatibilidad con onclick inline y permitir uso desde la consola
+    if (typeof window !== 'undefined') {
+        window.closeCredits = closeCredits;
+    }
+
+    // Listener delegado para botones de la tarjeta de créditos (.btn-credits, .credits-close)
+    document.addEventListener('click', function (e) {
+        const btn = e.target.closest('.btn-credits, .credits-close');
+        if (btn) {
+            e.preventDefault();
+            closeCredits();
+        }
+    });
+
     function setupNavigation() {
         console.log('🎯 Configurando navegación...');
         
@@ -2474,6 +2525,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    
 
     // ===== INICIALIZACIÓN FINAL =====
     setupNavigation();

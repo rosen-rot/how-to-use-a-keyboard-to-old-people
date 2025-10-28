@@ -9,6 +9,46 @@
 </head>
 
 <body>
+    <div id="developers-credits" class="developers-credits">
+        <div class="credits-card">
+            <button class="credits-close" onclick="closeCredits()">×</button>
+            <h3>Desarrollado por:</h3>
+            <div class="developers-grid">
+                <div class="developer">
+                    <div class="dev-avatar">
+                        <img src="assets/images/debora_caceres.jpg" alt="Débora Cáceres" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="avatar-fallback" style="display: none;">D</div>
+                    </div>
+                    <h4>Débora Cáceres</h4>
+                    <p>Estudiante Ingeniería Civil en Computación <br> Universidad Mayor</p>
+                    <div class="dev-skills">
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">HTML/CSS</span>
+                        <pan class="skill-tag">UI/UX</span>
+                    </div>
+                </div>
+                <div class="developer">
+                    <div class="dev-avatar">
+                        <img src="assets/images/carlos_concha.jpg" alt="Carlos Concha" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="avatar-fallback" style="display: none;">C</div>
+                    </div>
+                    <h4>Carlos Concha</h4>
+                    <p>Estudiante Ingeniería Civil en Computación <br> Universidad Mayor</p>
+                    <div class="dev-skills">
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">HTML/CSS</span>
+                        <span class="skill-tag">Testing</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-info">
+                <p><strong>Curso de Mecanografía</strong> - v1.0</p>
+                <p>Escuela Digital</p>
+                <p class="project-date">Octubre 2025</p>
+            </div>
+            <button class="btn-credits" onclick="closeCredits()">Comenzar curso</button>
+        </div>
+    </div>
     <div id="welcome-screen" class="page-container">
         <div class="welcome-section">
             <div class="welcome-icon">⌨️</div>
@@ -2902,5 +2942,4 @@ Usar atajos de teclado hace que el trabajo sea más rápido y sencillo. Cuando t
 </div>
     <script src="javascript/script.js"></script>
 </body>
-
 </html>
